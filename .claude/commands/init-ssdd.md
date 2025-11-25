@@ -11,6 +11,29 @@ allowed-tools: Read, Write, Bash
 1. `.claude/skills/ssdd.md` を読み込み、SSDD の基本概念を把握する
 2. `docs/templates/README.md` を読み込み、フロントマター仕様を確認する
 
+## エラー処理
+
+### テンプレートが存在しない場合
+
+```
+エラー: SSDD テンプレートが見つかりません。
+docs/templates/ ディレクトリが存在するか確認してください。
+テンプレートがない場合は、SSDD リポジトリからコピーしてください。
+```
+
+### 既存ディレクトリがある場合
+
+既に `docs/l1_vision/`, `docs/l2_system/`, `docs/l3_features/` が存在する場合：
+
+```
+情報: 以下のディレクトリは既に存在するためスキップします:
+- docs/l1_vision/
+- docs/l2_system/
+
+作成したディレクトリ:
+- docs/l3_features/
+```
+
 ## 実行内容
 
 以下のディレクトリ構造を作成してください：

@@ -20,6 +20,49 @@ allowed-tools: Read, Write, Edit, WebSearch, Glob
 4. `docs/templates/README.md` を読み込み、フロントマター仕様を確認する
 5. `docs/l1_vision/vision.md` を読み込み、L1 の内容を把握する
 
+## エラー処理
+
+### L1 が存在しない場合
+
+```
+エラー: L1 ドキュメントが見つかりません。
+必要なファイル: docs/l1_vision/vision.md
+先に /draft-l1 または /convert-l1 で L1 を作成してください。
+```
+
+### テンプレートが存在しない場合
+
+```
+エラー: L2 テンプレートが見つかりません。
+必要なファイル:
+- docs/templates/l2_overview.md
+- docs/templates/l2_phases.md
+先に /init-ssdd を実行するか、テンプレートを配置してください。
+```
+
+### 出力先に既存ファイルがある場合
+
+`docs/l2_system/` 配下に既存ファイルがある場合、ユーザーに確認：
+
+```
+警告: 以下のファイルが既に存在します:
+- docs/l2_system/overview.md
+- docs/l2_system/phases.md
+
+以下から選択してください:
+1. 上書き（既存内容は失われます）
+2. 差分更新（既存内容を保持しつつ追記）
+3. キャンセル
+```
+
+### 指定された REQ が存在しない場合
+
+```
+警告: 以下の REQ ID が L1 に見つかりません: REQ-9999
+存在する REQ ID: REQ-0001, REQ-0002, REQ-0003
+続行しますか？ (y/n)
+```
+
 ## 実行内容
 
 L1 の要求を分析し、L2 ドキュメント群を生成します。
