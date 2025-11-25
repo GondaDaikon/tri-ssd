@@ -52,7 +52,7 @@ docs/ 配下を検索しましたが、該当するドキュメントがあり�
 
 ## 前提処理
 
-1. `.claude/skills/ssdd.md` を読み込み、SSDD の基本概念を把握する
+1. `.claude/skills/ssdd_core.md` を読み込み、SSDD の基本概念を把握する
 2. `docs/templates/README.md` を読み込み、フロントマター仕様を確認する
 3. 対象のレイヤに応じたテンプレートを読み込む:
    - L1: `docs/templates/l1_vision.md`

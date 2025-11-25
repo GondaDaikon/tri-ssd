@@ -8,7 +8,7 @@ allowed-tools: Read, Write, Edit
 
 ## 前提処理
 
-1. `.claude/skills/ssdd.md` を読み込み、SSDD の基本概念を把握する
+1. `.claude/skills/ssdd_core.md` を読み込み、SSDD の基本概念を把握する
 2. `docs/templates/l1_vision.md` を読み込み、L1 テンプレートを確認する
 3. `docs/templates/README.md` を読み込み、フロントマター仕様を確認する
 

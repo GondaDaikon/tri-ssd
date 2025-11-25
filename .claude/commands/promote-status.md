@@ -64,7 +64,7 @@ docs/ 配下を検索しましたが、該当するドキュメントがあり�
 
 ## 前提処理
 
-1. `.claude/skills/ssdd.md` を読み込み、doc_status の定義を確認
+1. `.claude/skills/ssdd_core.md` を読み込み、doc_status の定義を確認
 2. `docs/templates/README.md` を読み込み、状態遷移ルールを確認
 3. `$1` で指定された対象ファイルを特定・読み込む
 

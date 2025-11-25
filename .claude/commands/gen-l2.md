@@ -15,11 +15,12 @@ allowed-tools: Read, Write, Edit, WebSearch, Glob, AskUserQuestion
 
 ## 前提処理
 
-1. `.claude/skills/ssdd.md` を読み込み、SSDD の基本概念を把握する
-2. `docs/templates/l2_overview.md` を読み込み、L2 概要テンプレートを確認する
-3. `docs/templates/l2_phases.md` を読み込み、L2 フェーズテンプレートを確認する
-4. `docs/templates/README.md` を読み込み、フロントマター仕様を確認する
-5. `docs/l1_vision.md` を読み込み、L1 の内容を把握する
+1. `.claude/skills/ssdd_core.md` を読み込み、SSDD の基本概念を把握する
+2. `.claude/skills/ssdd_examples.md` を読み込み、L2の実例を確認する
+3. `docs/templates/l2_overview.md` を読み込み、L2 概要テンプレートを確認する
+4. `docs/templates/l2_phases.md` を読み込み、L2 フェーズテンプレートを確認する
+5. `docs/templates/README.md` を読み込み、フロントマター仕様を確認する
+6. `docs/l1_vision.md` を読み込み、L1 の内容を把握する
 
 ## エラー処理
 
@@ -127,7 +128,7 @@ L1 の要求を分析し、L2 ドキュメント群を生成します。
 
 #### Step 2-2: 技術カテゴリごとに候補を検索（AI実行）
 
-WebSearchで以下のカテゴリの候補を3-5個ずつ検索:
+WebSearchで以下のカテゴリの候補を**最低3個**ずつ検索:
 
 | カテゴリ | 検索クエリ例 |
 |---------|-------------|
@@ -150,11 +151,11 @@ AIが検出した候補を、AskUserQuestionツールで対話的に提示：
 - multiSelect: false
 
 **質問2**: 「UIフレームワークを選択してください」（該当する場合）
-- 選択肢を3-5個提示
+- 選択肢を**最低3個**提示
 - multiSelect: false
 
 **質問3**: 「データストアを選択してください」
-- 選択肢を3-5個提示
+- 選択肢を**最低3個**提示
 - multiSelect: false
 
 #### Step 2-4: 選択結果の妥当性チェック（AI実行）

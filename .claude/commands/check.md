@@ -15,7 +15,7 @@ allowed-tools: Read, Glob, Grep
 
 ## 前提処理
 
-1. `.claude/skills/ssdd.md` を読み込み、SSDD の基本概念を把握する
+1. `.claude/skills/ssdd_core.md` を読み込み、SSDD の基本概念を把握する
 2. `docs/templates/README.md` を読み込み、フロントマター仕様を確認する
 
 ## エラー処理
