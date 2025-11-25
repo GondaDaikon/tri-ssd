@@ -20,7 +20,7 @@ allowed-tools: Read, Glob, Grep
 エラー: レビュー対象を指定してください。
 使用方法: /review <ファイルパス|ID>
 例:
-  /review docs/l1_vision/vision.md
+  /review docs/l1_vision.md
   /review F-0001
   /review REQ-0001
 ```

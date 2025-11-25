@@ -37,10 +37,10 @@ allowed-tools: Read, Write, Edit
 
 ### 出力先に既存ファイルがある場合
 
-`docs/l1_vision/vision.md` が既に存在する場合、ユーザーに確認：
+`docs/l1_vision.md` が既に存在する場合、ユーザーに確認：
 
 ```
-警告: docs/l1_vision/vision.md は既に存在します。
+警告: docs/l1_vision.md は既に存在します。
 以下から選択してください:
 1. 上書き（既存内容は失われます）
 2. 別名で保存（vision_converted.md）
@@ -90,7 +90,7 @@ L1 テンプレートで必要だが元ドキュメントにない情報を特�
 
 ## 出力仕様
 
-- **ファイルパス**: `docs/l1_vision/vision.md`
+- **ファイルパス**: `docs/l1_vision.md`
 - **フロントマター**: `doc_status: draft` で開始
 - **曖昧箇所**: `<!-- TODO: 要確認 -->` でマーク
 

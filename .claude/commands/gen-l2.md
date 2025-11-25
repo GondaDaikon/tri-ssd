@@ -1,6 +1,6 @@
 ---
 description: L1からL2（機能設計・技術方針）ドキュメントを生成する
-argument-hint: "[REQ-xxxx ...] - 対象の要件ID（省略時は全体）"
+argument-hint: "[--simple] [REQ-xxxx ...] - オプション: --simple（1ファイル生成）、対象の要件ID（省略時は全体）"
 allowed-tools: Read, Write, Edit, WebSearch, Glob
 ---
 
@@ -8,9 +8,10 @@ allowed-tools: Read, Write, Edit, WebSearch, Glob
 
 ## 引数
 
-- `$ARGUMENTS`: 対象の要件ID（省略可、複数指定可）
-  - 指定時: 指定された REQ のみを対象に L2 を生成/更新
-  - 省略時: L1 全体を対象に L2 を生成
+- `$ARGUMENTS`: オプションフラグと対象の要件ID（いずれも省略可）
+  - `--simple`: 小規模プロジェクト向けに1ファイル（l2_overview.md）のみ生成
+  - `REQ-xxxx ...`: 指定された REQ のみを対象に L2 を生成/更新
+  - 省略時: L1 全体を対象に通常の4ファイル構成で L2 を生成
 
 ## 前提処理
 
@@ -18,7 +19,7 @@ allowed-tools: Read, Write, Edit, WebSearch, Glob
 2. `docs/templates/l2_overview.md` を読み込み、L2 概要テンプレートを確認する
 3. `docs/templates/l2_phases.md` を読み込み、L2 フェーズテンプレートを確認する
 4. `docs/templates/README.md` を読み込み、フロントマター仕様を確認する
-5. `docs/l1_vision/vision.md` を読み込み、L1 の内容を把握する
+5. `docs/l1_vision.md` を読み込み、L1 の内容を把握する
 
 ## エラー処理
 
@@ -26,7 +27,7 @@ allowed-tools: Read, Write, Edit, WebSearch, Glob
 
 ```
 エラー: L1 ドキュメントが見つかりません。
-必要なファイル: docs/l1_vision/vision.md
+必要なファイル: docs/l1_vision.md
 先に /draft-l1 または /convert-l1 で L1 を作成してください。
 ```
 
@@ -68,6 +69,22 @@ allowed-tools: Read, Write, Edit, WebSearch, Glob
 L1 の要求を分析し、L2 ドキュメント群を生成します。
 
 ## 生成手順
+
+### Step 0: 引数解析
+
+`$ARGUMENTS` を解析し、生成モードと対象要件を決定する：
+
+1. **--simple フラグの検出**
+   - `$ARGUMENTS` に `--simple` が含まれる場合、`simple_mode = true`
+   - simple_mode では1ファイル（`docs/l2_overview.md`）のみ生成
+
+2. **対象要件の抽出**
+   - REQ-xxxx 形式の引数を抽出
+   - 指定がない場合は L1 全体を対象
+
+3. **出力先の決定**
+   - simple_mode: `docs/l2_overview.md`
+   - 通常モード: `docs/l2_system/*.md`（4ファイル構成）
 
 ### Step 1: L1 分析
 
@@ -202,7 +219,40 @@ REQ を F-xxxx（機能）に分解：
 
 L1 の高レベル非機能要求を NF-xxxx に具体化
 
-## 出力ファイル
+### Step 7: ファイル生成
+
+**simple_mode = true の場合（--simple フラグ指定時）:**
+
+単一ファイル `docs/l2_overview.md` を生成し、以下の内容を統合：
+
+1. **セクション1: ドキュメントの立ち位置**（l2_overview.md テンプレートから）
+2. **セクション2: L1の要約とトレーサビリティ方針**
+3. **セクション3: 用語集**（Step 3から）
+4. **セクション4: 技術スタック・技術方針**（Step 2から）
+5. **セクション5: 全体アーキテクチャ**
+6. **セクション6: フェーズ定義**（Step 5から、l2_phases.md の内容を統合）
+7. **セクション7: 機能一覧**（Step 4から）
+8. **セクション8: 非機能要求カタログ**（Step 6から）
+9. **セクション9: 更新・変更管理**
+
+フロントマター:
+```yaml
+---
+id: L2-OVERVIEW
+kind: overview
+layer: L2
+title: "[プロダクト名] 機能設計・技術方針"
+status: active
+doc_status: draft
+req_ids:
+  - REQ-0001
+  - ...
+---
+```
+
+**simple_mode = false の場合（通常モード）:**
+
+4ファイル構成で生成：
 
 | ファイル | 内容 |
 |---------|------|

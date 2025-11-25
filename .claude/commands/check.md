@@ -125,7 +125,7 @@ L3（kind: feature）の場合、以下も必須。欠落は **エラー**：
 
 | フィールド | 有効な値 |
 |-----------|---------|
-| kind | vision, req, feature, nfr, phase, spike |
+| kind | vision, req, feature, nfr, phase, spike, overview |
 | layer | L1, L2, L3, meta |
 | status | active, deprecated, removed |
 | doc_status | draft, reviewed, implemented |
@@ -164,17 +164,6 @@ L3（kind: feature）の場合、以下も必須。欠落は **エラー**：
 | `docs/l2_system/phases.md` に存在し active | ✓ OK |
 | 存在し deprecated/removed | ⚠ **警告** |
 | 存在しない | ✗ **エラー** |
-
-#### 2-4: depends_on の検査
-
-各 `depends_on` について：
-
-| 参照先の状態 | 判定 |
-|-------------|------|
-| L3 に存在し active | ✓ OK |
-| 存在し deprecated/removed | ⚠ **警告** |
-| 存在しない | ✗ **エラー** |
-| 循環参照を形成 | ✗ **エラー**: 循環参照 |
 
 ---
 
@@ -241,7 +230,7 @@ L2 の機能一覧（`features_index.md`）の各 `F-xxxx` について：
 
 | ファイル | 種別 | 内容 |
 |---------|------|------|
-| docs/l1_vision/vision.md | トレーサビリティ | REQ-0005 がどの機能にも紐付いていない |
+| docs/l1_vision.md | トレーサビリティ | REQ-0005 がどの機能にも紐付いていない |
 | docs/l3_features/F-0003_xxx.md | 参照警告 | nfr_ids の NF-0002 は deprecated |
 
 ## TODO 残存

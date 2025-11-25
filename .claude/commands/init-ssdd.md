@@ -40,13 +40,13 @@ docs/templates/ ディレクトリが存在するか確認してください。
 
 ```
 docs/
-├── l1_vision/
-│   └── .gitkeep
 ├── l2_system/
 │   └── .gitkeep
 └── l3_features/
     └── .gitkeep
 ```
+
+**注:** L1 は `docs/l1_vision.md` としてフラット配置するため、ディレクトリは作成しません。
 
 ## 手順
 

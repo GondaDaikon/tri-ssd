@@ -26,16 +26,16 @@ allowed-tools: Read, Write, Edit
 
 ```
 エラー: 出力先ディレクトリが存在しません。
-必要なディレクトリ: docs/l1_vision/
-先に /init-ssdd を実行してください。
+必要なディレクトリ: docs/
+先に /init-ssdd を実行するか、手動で docs/ ディレクトリを作成してください。
 ```
 
 ### 既存ファイルがある場合
 
-`docs/l1_vision/vision.md` が既に存在する場合、ユーザーに確認：
+`docs/l1_vision.md` が既に存在する場合、ユーザーに確認：
 
 ```
-警告: docs/l1_vision/vision.md は既に存在します。
+警告: docs/l1_vision.md は既に存在します。
 以下から選択してください:
 1. 上書き（既存内容は失われます）
 2. 別名で保存（vision_new.md）
@@ -82,7 +82,7 @@ allowed-tools: Read, Write, Edit
 
 ## 出力仕様
 
-- **ファイルパス**: `docs/l1_vision/vision.md`
+- **ファイルパス**: `docs/l1_vision.md`
 - **フロントマター**: `doc_status: draft` で開始
 - **曖昧箇所**: `<!-- TODO: 要確認 -->` でマーク
 - **REQ ID**: 自動採番（REQ-0001, REQ-0002, ...）

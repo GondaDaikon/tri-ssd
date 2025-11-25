@@ -53,6 +53,7 @@ doc_status: draft      # 文書・開発状態
 | nfr | 非機能要求 |
 | phase | フェーズ定義 |
 | spike | スパイク／PoC |
+| overview | L2概要（用語集・技術方針・アーキテクチャ） |
 
 ### status（ライフサイクル状態）
 
@@ -100,7 +101,6 @@ depends_on:           # 依存する機能ID
 | req_ids | この機能が対応する要件ID（REQ-xxxx）のリスト |
 | nfr_ids | この機能に適用される非機能要求ID（NF-xxxx）のリスト |
 | phase | この機能が所属するフェーズID（PH-xxxx） |
-| depends_on | この機能が依存する他の機能ID（F-xxxx）のリスト |
 | related_nfr_ids | 関連する非機能要求ID（フェーズ定義などで使用） |
 | replaced_by | status: deprecated の場合、後継となるID |
 

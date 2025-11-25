@@ -10,7 +10,6 @@ req_ids:
 nfr_ids:
   - NF-0001
 phase: PH-0001
-depends_on: []
 ---
 
 # [機能名]
