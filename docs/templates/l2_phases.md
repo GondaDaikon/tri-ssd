@@ -2,7 +2,6 @@
 id: L2-PHASES
 kind: phase
 layer: L2
-title: "[プロダクト名] フェーズ定義"
 status: active
 doc_status: draft
 ---

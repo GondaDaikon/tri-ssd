@@ -9,7 +9,28 @@
 | [l1_vision.md](l1_vision.md) | L1 ビジョン・要求ドキュメント |
 | [l2_overview.md](l2_overview.md) | L2 概要（用語集・技術方針・全体構成） |
 | [l2_phases.md](l2_phases.md) | L2 フェーズ定義 |
-| [l3_feature.md](l3_feature.md) | L3 機能ドキュメント |
+| [l3_feature.md](l3_feature.md) | L3 機能ドキュメント（汎用） |
+| [l3_feature_web.md](l3_feature_web.md) | L3 機能ドキュメント（Webアプリ用）**v2.1** |
+| [l3_feature_desktop.md](l3_feature_desktop.md) | L3 機能ドキュメント（Desktop用）**v2.1** |
+| [l3_feature_mobile.md](l3_feature_mobile.md) | L3 機能ドキュメント（Mobile用）**v2.1** |
+| [l3_feature_cli.md](l3_feature_cli.md) | L3 機能ドキュメント（CLI用）**v2.1** |
+
+### ドメイン別テンプレートの選択（v2.1以降）
+
+L3機能ドキュメントでは、プロダクトのドメインに応じて最適なテンプレートを選択できます：
+
+| ドメイン | テンプレート | 特徴 |
+|---------|-------------|------|
+| **汎用** | l3_feature.md | ドメインに依存しない基本テンプレート |
+| **Webアプリ** | l3_feature_web.md | 画面設計、API設計、レスポンシブ、セキュリティ |
+| **Desktopアプリ** | l3_feature_desktop.md | ウィンドウ設計、メニュー、システム統合、OS別対応 |
+| **Mobileアプリ** | l3_feature_mobile.md | 画面遷移、デバイス機能、オフライン対応、ストア申請 |
+| **CLIツール** | l3_feature_cli.md | コマンド仕様、入出力、パイプライン、POSIX準拠 |
+
+**使い分けの目安**:
+- 単一ドメインのプロダクト → ドメイン特化テンプレートを使用
+- 複数ドメインのプロダクト → ドメインごとに異なるテンプレートを使用
+- ドメインが不明瞭 → 汎用テンプレートから開始
 
 ---
 
@@ -28,10 +49,11 @@
 id: REQ-0001           # 一意なID
 kind: req              # ドキュメント種別
 layer: L1              # 所属レイヤ
-title: ユーザー認証機能  # 人間向けタイトル
 status: active         # ライフサイクル状態
 doc_status: draft      # 文書・開発状態
 ---
+
+# ユーザー認証機能  # 本文の見出しがタイトルとして扱われる
 ```
 
 | フィールド | 必須 | 説明 |
@@ -39,9 +61,10 @@ doc_status: draft      # 文書・開発状態
 | id | ○ | 一意なID（REQ-0001, F-0001, NF-0001, PH-0001 等） |
 | kind | ○ | ドキュメント種別（下記参照） |
 | layer | ○ | 所属レイヤ（L1 / L2 / L3 / meta） |
-| title | ○ | 人間向けタイトル |
 | status | ○ | ライフサイクル状態（下記参照） |
 | doc_status | ○ | 文書・開発状態（下記参照） |
+
+**重要**: v2.0以降、`title`フィールドは廃止されました。本文の最初の`# 見出し`がドキュメントのタイトルとして扱われます。これにより、フロントマターと本文の同期問題を根本的に解決します。
 
 ### kind（ドキュメント種別）
 

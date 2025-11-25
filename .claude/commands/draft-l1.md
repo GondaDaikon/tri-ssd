@@ -85,7 +85,28 @@ allowed-tools: Read, Write, Edit
 - **ファイルパス**: `docs/l1_vision.md`
 - **フロントマター**: `doc_status: draft` で開始
 - **曖昧箇所**: `<!-- TODO: 要確認 -->` でマーク
-- **REQ ID**: 自動採番（REQ-0001, REQ-0002, ...）
+- **REQ ID**: 自動採番（タイムスタンプベース: REQ-YYYYMMDD-nnn）
+
+### ID採番ロジック
+
+```markdown
+# REQ ID採番アルゴリズム
+
+1. 現在日時を取得: YYYYMMDD = "20250125"
+2. 既存のREQ IDを検索:
+   - Grepで docs/**/*.md から `REQ-{YYYYMMDD}-` で始まるIDを抽出
+3. 同日のREQ IDがある場合:
+   - 最大連番を取得: max_num = 002
+   - 次の連番を計算: next_num = 003
+   - 新ID: REQ-20250125-003
+4. 同日のREQ IDがない場合:
+   - 新ID: REQ-20250125-001
+
+例:
+- 2025年1月25日の最初のREQ: REQ-20250125-001
+- 2025年1月25日の2番目のREQ: REQ-20250125-002
+- 2025年1月26日の最初のREQ: REQ-20250126-001
+```
 
 ## テンプレート適用
 

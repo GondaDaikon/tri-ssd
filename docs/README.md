@@ -24,23 +24,97 @@ SSDD は以下の考え方をベースにしています：
 - Specification-Driven Development（仕様駆動開発）
 - プロダクトマネジメントにおける「ビジョンドキュメント＋プロダクトバックログ」
 
+## バージョン情報
+
+### v2.3（2025-01）運用改善
+
+**主要変更点**:
+- **ライト版廃止**: 標準SSDDの段階的導入を推奨（詳細: [checklists.md](checklists.md)）
+- **変更ログ管理**: Git commit + CHANGELOG.md の運用方針を文書化（[changelog_management.md](changelog_management.md)）
+- **バリデーションツール**: `/check`, `/review` の使い分けガイド（[validation_tools.md](validation_tools.md)）
+- **スキル拡充**: ssdd.mdに実例・ワークフロー・トラブルシューティング追加
+
+### v2.2（2025-01）品質向上
+
+**主要変更点**:
+- **定量的レビュー基準**: REQ数5-50、機能数10-100等の数値基準（[review.md](.claude/commands/review.md)）
+- **フェーズ vs イテレーション**: 機能的マイルストーン vs 時間的マイルストーンの明確化（[guide.md](guide.md)）
+- **エラーメッセージ標準化**: E###/W###/I### コード体系の導入（[error_messages.md](error_messages.md)）
+
+### v2.1（2025-01）機能拡張
+
+**主要変更点**:
+- **doc_status管理**: `/promote-status` コマンドで状態遷移を管理（[promote-status.md](.claude/commands/promote-status.md)）
+- **変更伝播**: `/propagate-change` コマンドで影響分析（[propagate-change.md](.claude/commands/propagate-change.md)）
+- **ドメイン特化テンプレート**: Web/Desktop/Mobile/CLI用L3テンプレート（[templates/README.md](templates/README.md)）
+- **NFR優先度**: Must/Should/Could/Won'tによる優先度分類
+
+### v2.0（2025-01）基盤改善
+
+SSDD v2.0 では、運用上の問題点を根本的に解決する重要な変更が行われました：
+
+#### 1. ID管理方式の変更
+- **変更内容**: 連番方式 → タイムスタンプベース方式
+- **旧形式**: `REQ-0001`, `F-0001`, `PH-0001`
+- **新形式**: `REQ-20250125-001`, `F-20250125-001`, `PH-20250125-001`
+- **理由**: 並行開発時のID衝突を根本的に防止
+
+#### 2. フロントマター仕様の変更
+- **変更内容**: `title`フィールドの廃止
+- **新方式**: 本文の最初の`# 見出し`がドキュメントタイトルとして扱われる
+- **理由**: フロントマターと本文の同期問題を解決
+
+#### 3. L2構成のシンプル化
+- **変更内容**: デフォルトを4ファイル構成から2ファイル構成に変更
+- **新構成**: `overview.md`（用語集・技術方針・NFR）+ `phases.md`（フェーズ・機能一覧）
+- **理由**: 小規模プロジェクトでの使いやすさ向上
+
+#### 4. 技術選定プロセスの変更
+- **変更内容**: AI自動選定 → AI提案＋人間選択方式
+- **実装**: `AskUserQuestion`ツールを使用した対話的選定
+- **理由**: 重要な技術判断は人間が主導すべき
+
+詳細は [migration_v2.md](migration_v2.md) を参照してください。
+
 ## ドキュメント構成
+
+### コアドキュメント
 
 | ファイル | 内容 |
 |---------|------|
 | [guide.md](guide.md) | 概念説明・三層モデル・変更伝播ルール・AI活用ポリシー |
-| [checklists.md](checklists.md) | 開発フロー・ライト版運用 |
+| [checklists.md](checklists.md) | 開発フロー・段階的導入ガイド（v2.3: ライト版廃止） |
+| [migration_v2.md](migration_v2.md) | v1.x → v2.0 移行ガイド |
 | [templates/](templates/) | 各層のドキュメントテンプレート |
 
+### 運用ドキュメント（v2.2-v2.3）
+
+| ファイル | 内容 |
+|---------|------|
+| [error_messages.md](error_messages.md) | エラーメッセージ標準化ガイド（E###/W###/I### コード体系） |
+| [changelog_management.md](changelog_management.md) | 変更ログ管理方針（Git commit + CHANGELOG.md） |
+| [validation_tools.md](validation_tools.md) | バリデーションツール使い分けガイド（`/check`, `/review`） |
+
 ### テンプレート一覧
+
+#### 基本テンプレート
 
 | ファイル | 用途 |
 |---------|------|
 | [templates/README.md](templates/README.md) | フロントマター仕様・共通ルール |
 | [templates/l1_vision.md](templates/l1_vision.md) | L1ビジョン・要求ドキュメント |
-| [templates/l2_overview.md](templates/l2_overview.md) | L2概要（用語集・技術方針） |
-| [templates/l2_phases.md](templates/l2_phases.md) | L2フェーズ定義 |
-| [templates/l3_feature.md](templates/l3_feature.md) | L3機能ドキュメント |
+| [templates/l2_overview.md](templates/l2_overview.md) | L2概要（用語集・技術方針・NFRカタログ） |
+| [templates/l2_phases.md](templates/l2_phases.md) | L2フェーズ定義・機能一覧 |
+| [templates/l3_feature.md](templates/l3_feature.md) | L3機能ドキュメント（汎用） |
+
+#### ドメイン特化テンプレート（v2.1）
+
+| ファイル | 用途 |
+|---------|------|
+| [templates/l3_feature_web.md](templates/l3_feature_web.md) | L3機能（Webアプリ用） |
+| [templates/l3_feature_desktop.md](templates/l3_feature_desktop.md) | L3機能（Desktopアプリ用） |
+| [templates/l3_feature_mobile.md](templates/l3_feature_mobile.md) | L3機能（Mobileアプリ用） |
+| [templates/l3_feature_cli.md](templates/l3_feature_cli.md) | L3機能（CLIツール用） |
 
 ## 想定読者
 

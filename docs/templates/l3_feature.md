@@ -2,7 +2,6 @@
 id: F-0001
 kind: feature
 layer: L3
-title: "[機能名]"
 status: active
 doc_status: draft
 req_ids:

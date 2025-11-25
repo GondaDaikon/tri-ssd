@@ -59,20 +59,20 @@ allowed-tools: Read, Glob, Grep
 
 ## Active
 
-| ID | Kind | Title | Layer |
-|----|------|-------|-------|
-| VISION-0001 | vision | プロダクトビジョン | L1 |
-| REQ-0001 | req | ユーザー認証 | L1 |
-| PH-0001 | phase | 基盤構築 | L2 |
-| F-0001 | feature | ログイン機能 | L3 |
-| NF-0001 | nfr | レスポンス性能 | L2 |
+| ID | Kind | Layer | Doc Status |
+|----|------|-------|-----------|
+| VISION-0001 | vision | L1 | reviewed |
+| REQ-20250125-001 | req | L1 | reviewed |
+| PH-20250125-001 | phase | L2 | reviewed |
+| F-20250125-001 | feature | L3 | draft |
+| NF-20250125-001 | nfr | L2 | reviewed |
 
 ## Deprecated/Removed
 
-| ID | Kind | Title | Status |
+| ID | Kind | Layer | Status |
 |----|------|-------|--------|
-| REQ-0010 | req | 旧認証方式 | deprecated |
-| F-0005 | feature | レガシー機能 | removed |
+| REQ-20241201-010 | req | L1 | deprecated |
+| F-20241215-005 | feature | L3 | removed |
 
 ## 統計
 
@@ -130,6 +130,24 @@ L3（kind: feature）の場合、以下も必須。欠落は **エラー**：
 | status | active, deprecated, removed |
 | doc_status | draft, reviewed, implemented |
 
+#### 1-4: タイトル見出しの存在確認（v2.0以降）
+
+v2.0以降、`title`フィールドは廃止され、本文の最初の`# 見出し`がタイトルとして扱われます。
+
+**チェック内容**：
+
+| 状態 | 判定 |
+|------|------|
+| フロントマター直後に `# 見出し` が存在 | ✓ OK |
+| `# 見出し` が存在しない | ✗ **エラー**: タイトル見出しが必要 |
+| `# 見出し` がフロントマターの直後にない | ⚠ **警告**: 見出しの位置を確認 |
+| フロントマターに `title` フィールドが存在 | ⚠ **警告**: v2.0では廃止（削除推奨） |
+
+**YAML解析の注意**：
+- フロントマターは `---` で囲まれた YAML ブロック
+- Read ツールで読み込み、YAML 部分と本文を分離して解析
+- 本文の最初の行が `# ` で始まることを確認
+
 ---
 
 ### 2. 参照整合性検査
@@ -171,23 +189,23 @@ L3（kind: feature）の場合、以下も必須。欠落は **エラー**：
 
 #### 3-1: REQ → F の連鎖
 
-L1 の各 `REQ-xxxx` について：
+L1 の各 `REQ-YYYYMMDD-nnn` について：
 
 | 状態 | 判定 |
 |------|------|
-| いずれかの F-xxxx の `req_ids` に含まれている | ✓ OK |
-| どの F-xxxx にも紐付いていない | ⚠ **警告**: 未実装の要件 |
+| いずれかの F-YYYYMMDD-nnn の `req_ids` に含まれている | ✓ OK |
+| どの F にも紐付いていない | ⚠ **警告**: 未実装の要件 |
 | status が deprecated/removed | チェック対象外 |
 
 #### 3-2: F（L2）→ L3 の連鎖
 
-L2 の機能一覧（`features_index.md`）の各 `F-xxxx` について：
+L2 の機能一覧（`features_index.md`）の各 `F-YYYYMMDD-nnn` について：
 
 | 状態 | 判定 |
 |------|------|
 | `docs/l3_features/` に対応する L3 が存在 | ✓ OK |
 | L3 が存在しない | ⚠ **警告**: 機能Docが未作成 |
-| kind が spike（SP-xxxx） | チェック対象外（L3不要） |
+| kind が spike（SP-YYYYMMDD-nnn） | チェック対象外（L3不要） |
 
 #### 3-3: 孤立 L3 の検出
 
@@ -209,7 +227,7 @@ L2 の機能一覧（`features_index.md`）の各 `F-xxxx` について：
 
 | ファイル | 行番号 | 内容 |
 |---------|--------|------|
-| docs/l3_features/F-0001_xxx.md | 42 | <!-- TODO: 要確認 --> |
+| docs/l3_features/F-20250125-001_xxx.md | 42 | <!-- TODO: 要確認 --> |
 ```
 
 ---
@@ -223,15 +241,17 @@ L2 の機能一覧（`features_index.md`）の各 `F-xxxx` について：
 
 | ファイル | 種別 | 内容 |
 |---------|------|------|
-| docs/l3_features/F-0001_xxx.md | 参照エラー | req_ids の REQ-9999 が存在しない |
-| docs/l3_features/F-0002_xxx.md | 必須フィールド欠落 | phase が未指定 |
+| docs/l3_features/F-20250125-001_xxx.md | 参照エラー | req_ids の REQ-20250125-999 が存在しない |
+| docs/l3_features/F-20250125-002_xxx.md | 必須フィールド欠落 | phase が未指定 |
+| docs/l2_system/overview.md | タイトル見出し欠落 | フロントマター直後に # 見出しが必要 |
 
 ## 警告（確認推奨）
 
 | ファイル | 種別 | 内容 |
 |---------|------|------|
-| docs/l1_vision.md | トレーサビリティ | REQ-0005 がどの機能にも紐付いていない |
-| docs/l3_features/F-0003_xxx.md | 参照警告 | nfr_ids の NF-0002 は deprecated |
+| docs/l1_vision.md | トレーサビリティ | REQ-20250125-005 がどの機能にも紐付いていない |
+| docs/l3_features/F-20250125-003_xxx.md | 参照警告 | nfr_ids の NF-20250120-002 は deprecated |
+| docs/l3_features/F-20241215-001_xxx.md | v2.0非推奨 | title フィールドが残存（削除推奨） |
 
 ## TODO 残存
 
@@ -258,18 +278,18 @@ L2 の機能一覧（`features_index.md`）の各 `F-xxxx` について：
 ```markdown
 ## 修正提案
 
-### docs/l3_features/F-0001_xxx.md
+### docs/l3_features/F-20250125-001_xxx.md
 
 **問題**: req_ids に存在しない ID が含まれている
 
 ```diff
 ---
-id: F-0001
+id: F-20250125-001
 kind: feature
 layer: L3
-- req_ids: [REQ-9999]
-+ req_ids: [REQ-0001]
-phase: PH-0001
+- req_ids: [REQ-20250125-999]
++ req_ids: [REQ-20250125-001]
+phase: PH-20250125-001
 ---
 ```
 
@@ -277,18 +297,36 @@ phase: PH-0001
 
 ---
 
-### docs/l3_features/F-0002_xxx.md
+### docs/l3_features/F-20250125-002_xxx.md
 
 **問題**: 必須フィールド phase が欠落
 
 ```diff
 ---
-id: F-0002
+id: F-20250125-002
 kind: feature
 layer: L3
-req_ids: [REQ-0002]
-+ phase: PH-0001
+req_ids: [REQ-20250125-002]
++ phase: PH-20250125-001
 ---
+```
+
+---
+
+### docs/l2_system/overview.md
+
+**問題**: タイトル見出しが欠落
+
+```diff
+---
+id: L2-OVERVIEW
+kind: overview
+layer: L2
+status: active
+doc_status: draft
+---
++
++ # [プロダクト名] 機能設計・技術方針
 ```
 ```
 

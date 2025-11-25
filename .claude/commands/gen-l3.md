@@ -22,6 +22,33 @@ allowed-tools: Read, Write, Edit, Glob
 6. `docs/l2_system/features_index.md` を読み込み、機能一覧を把握する
 7. `docs/l2_system/nfr.md` を読み込み、非機能要求を把握する
 
+## ID採番ロジック
+
+### F ID採番アルゴリズム
+
+```markdown
+# 機能ID（F-xxxx）の採番
+
+1. 現在日時を取得: YYYYMMDD = "20250125"
+2. 既存のF IDを検索:
+   - Grepで docs/**/*.md から `F-{YYYYMMDD}-` で始まるIDを抽出
+3. 同日のF IDがある場合:
+   - 最大連番を取得: max_num = 002
+   - 次の連番を計算: next_num = 003
+   - 新ID: F-20250125-003
+4. 同日のF IDがない場合:
+   - 新ID: F-20250125-001
+
+例:
+- 2025年1月25日の最初のF: F-20250125-001
+- 2025年1月25日の2番目のF: F-20250125-002
+- 2025年1月26日の最初のF: F-20250126-001
+```
+
+**重要**:
+- タイムスタンプベースのIDにより、並行開発時のID衝突を防止
+- L2で定義された機能から順次採番する
+
 ## エラー処理
 
 ### L2 が存在しない場合
@@ -45,8 +72,8 @@ allowed-tools: Read, Write, Edit, Glob
 ### 指定された F が存在しない場合
 
 ```
-エラー: 以下の機能 ID が L2 に見つかりません: F-9999
-存在する機能 ID: F-0001, F-0002, F-0003
+エラー: 以下の機能 ID が L2 に見つかりません: F-20250125-999
+存在する機能 ID: F-20250125-001, F-20250125-002, F-20250125-003
 ```
 
 ### 出力先に既存ファイルがある場合
@@ -54,7 +81,7 @@ allowed-tools: Read, Write, Edit, Glob
 対象の L3 ファイルが既に存在する場合、各ファイルについてユーザーに確認：
 
 ```
-警告: docs/l3_features/F-0001_xxx.md は既に存在します。
+警告: docs/l3_features/F-20250125-001_xxx.md は既に存在します。
 以下から選択してください:
 1. スキップ（既存を保持）
 2. 上書き（既存内容は失われます）
@@ -96,21 +123,24 @@ L2 の機能定義を元に、各機能の L3 ドキュメントを生成しま�
 
 ```yaml
 ---
-id: F-xxxx
+id: F-YYYYMMDD-nnn
 kind: feature
 layer: L3
-title: [機能名]
 status: active
 doc_status: draft
 req_ids:
-  - REQ-xxxx
+  - REQ-YYYYMMDD-nnn
 nfr_ids:
-  - NF-xxxx
-phase: PH-xxxx
+  - NF-YYYYMMDD-nnn
+phase: PH-YYYYMMDD-nnn
 depends_on:
-  - F-yyyy
+  - F-YYYYMMDD-nnn
 ---
+
+# [機能名]
 ```
+
+**注**: v2.0以降、`title`フィールドは廃止。本文の`# 見出し`がタイトルとして扱われます。
 
 ## 出力ファイル
 
@@ -127,8 +157,8 @@ depends_on:
 
 ## ファイル名規則
 
-- 形式: `F-xxxx_[機能名（英数字・ハイフン）].md`
-- 例: `F-0001_markdown-edit.md`
+- 形式: `F-YYYYMMDD-nnn_[機能名（英数字・ハイフン）].md`
+- 例: `F-20250125-001_markdown-edit.md`
 
 ## 完了後の案内
 
