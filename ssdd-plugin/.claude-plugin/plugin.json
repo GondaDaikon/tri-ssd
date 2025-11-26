@@ -1,0 +1,22 @@
+{
+  "name": "ssdd",
+  "version": "2.3.0",
+  "description": "SSDD (Slices Specification-Driven Development) - AI/LLMコードエージェントを前提とした仕様駆動開発フレームワーク",
+  "author": {
+    "name": "GondaDaikon"
+  },
+  "commands": [
+    "./commands/init-ssdd.md",
+    "./commands/draft-l1.md",
+    "./commands/convert-l1.md",
+    "./commands/gen-l2.md",
+    "./commands/gen-l3.md",
+    "./commands/check.md",
+    "./commands/review.md",
+    "./commands/promote-status.md",
+    "./commands/propagate-change.md"
+  ],
+  "skills": [
+    "./skills/ssdd"
+  ]
+}
