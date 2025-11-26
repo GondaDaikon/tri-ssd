@@ -36,6 +36,12 @@ cp -r ssdd-plugin/skills/* ~/.claude/skills/
 
 # 5. 整合性チェック
 /check
+
+# 6. AIレビューで品質確認
+/review docs/l1_vision.md
+
+# 7. レビュー後、doc_statusを昇格
+/promote-status docs/l1_vision.md
 ```
 
 ## コマンド一覧
@@ -85,10 +91,12 @@ docs/
 
 タイムスタンプベースで衝突を防止:
 
+- `VISION-YYYYMMDD-nnn` - L1ビジョンドキュメント
 - `REQ-YYYYMMDD-nnn` - 要件
 - `F-YYYYMMDD-nnn` - 機能
 - `PH-YYYYMMDD-nnn` - フェーズ
 - `NF-YYYYMMDD-nnn` - 非機能要求
+- `SP-YYYYMMDD-nnn` - スパイク/PoC
 
 ## バージョン
 

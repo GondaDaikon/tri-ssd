@@ -369,7 +369,9 @@ TODOを解消し、指摘事項を修正後、`reviewed` への昇格を推奨�
 
 ## CI/CD 統合
 
-### GitHub Actions 例
+> **注**: 以下のスクリプト例はSSDD標準では提供されません。各プロジェクトで必要に応じて実装してください。`/check` や `/review` コマンドは Claude Code 上で対話的に実行することを想定しています。
+
+### GitHub Actions 例（実装サンプル）
 
 ```yaml
 # .github/workflows/ssdd-validation.yml
@@ -391,8 +393,8 @@ jobs:
 
       - name: Run SSDD Check
         run: |
-          # /check コマンドを実行（CI環境用スクリプト）
-          ./scripts/ci-check.sh
+          # プロジェクト固有のチェックスクリプトを実装
+          # 例: ./scripts/ci-check.sh
 
       - name: Report Results
         if: failure()
@@ -407,7 +409,7 @@ jobs:
             })
 ```
 
-### Pre-commit Hook 例
+### Pre-commit Hook 例（実装サンプル）
 
 ```bash
 # .git/hooks/pre-commit
@@ -417,7 +419,7 @@ jobs:
 if git diff --cached --name-only | grep -q "^docs/"; then
   echo "Running SSDD validation..."
 
-  # /check コマンドを実行
+  # プロジェクト固有のチェックスクリプトを実行
   if ! ./scripts/local-check.sh; then
     echo "❌ SSDD整合性チェックに失敗しました"
     echo "修正後、再度 git commit を実行してください"
@@ -430,11 +432,13 @@ fi
 exit 0
 ```
 
-### スクリプト例
+### スクリプト実装例
+
+以下は `local-check.sh` の実装例です。プロジェクトの要件に合わせてカスタマイズしてください。
 
 ```bash
 #!/bin/bash
-# scripts/local-check.sh
+# scripts/local-check.sh（実装例）
 
 # カラー出力
 RED='\033[0;31m'

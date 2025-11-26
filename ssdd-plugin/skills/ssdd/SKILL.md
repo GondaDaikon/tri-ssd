@@ -28,17 +28,19 @@ L3仕様 → AIがコード生成 → テスト・検証 → L3更新 → 再生
 
 | ID | 用途 | 例 |
 |----|------|-----|
+| VISION-YYYYMMDD-nnn | L1ビジョン | VISION-20250125-001 |
 | REQ-YYYYMMDD-nnn | 要件 | REQ-20250125-001 |
 | F-YYYYMMDD-nnn | 機能 | F-20250125-001 |
 | PH-YYYYMMDD-nnn | フェーズ | PH-20250125-001 |
 | NF-YYYYMMDD-nnn | 非機能要求 | NF-20250125-001 |
+| SP-YYYYMMDD-nnn | スパイク/PoC | SP-20250125-001 |
 
 ## フロントマター仕様
 
 ```yaml
 ---
 id: F-YYYYMMDD-nnn
-kind: feature          # vision|req|feature|nfr|phase|overview
+kind: feature          # vision|req|feature|nfr|phase|overview|spike
 layer: L3              # L1|L2|L3
 status: active         # active|deprecated|removed
 doc_status: draft      # draft|reviewed|implemented
@@ -97,12 +99,12 @@ docs/
 |----------|------|
 | `/init-ssdd` | ディレクトリ構造初期化 |
 | `/draft-l1` | L1ドキュメント作成（対話形式） |
-| `/gen-l2` | L1からL2生成 |
-| `/gen-l3 [F-ID]` | L2からL3生成 |
-| `/check` | 整合性チェック |
-| `/review [ファイル]` | AIレビュー |
-| `/promote-status [ファイル]` | doc_status昇格 |
-| `/propagate-change [ファイル]` | 変更影響分析 |
+| `/gen-l2 [REQ-ID...]` | L1からL2生成 |
+| `/gen-l3 [F-ID...]` | L2からL3生成 |
+| `/check [--list-ids \| ファイル]` | 整合性チェック |
+| `/review <ファイル>` | AIレビュー（必須） |
+| `/promote-status <ファイル>` | doc_status昇格（必須） |
+| `/propagate-change <ファイル>` | 変更影響分析（必須） |
 
 ## 変更伝播ルール
 

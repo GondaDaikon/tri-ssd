@@ -16,9 +16,25 @@ allowed-tools: Read, Write, Edit, Glob
 
 1. `skills/ssdd/SKILL.md` を読み込み、SSDD の基本概念を把握する
 2. `skills/ssdd/examples.md` を読み込み、L3の実例を確認する
-3. `skills/ssdd/templates/l3_feature.md` を読み込み、L3 テンプレートを確認する
+3. L3テンプレートを選択（下記「テンプレート選択」参照）
 4. `docs/l2_system/overview.md` を読み込み、技術方針・NFRカタログを把握する
 5. `docs/l2_system/phases.md` を読み込み、フェーズ定義・機能一覧を把握する
+
+## テンプレート選択
+
+プロジェクトの種別に応じて適切なテンプレートを選択する：
+
+| 種別 | テンプレート |
+|------|-------------|
+| 汎用 | `skills/ssdd/templates/l3_feature.md` |
+| Webアプリ | `skills/ssdd/templates/l3_feature_web.md` |
+| Desktopアプリ | `skills/ssdd/templates/l3_feature_desktop.md` |
+| Mobileアプリ | `skills/ssdd/templates/l3_feature_mobile.md` |
+| CLIツール | `skills/ssdd/templates/l3_feature_cli.md` |
+
+**選択基準**:
+- L2のoverview.mdに記載された技術スタックを参照
+- 不明な場合はユーザーに確認
 
 ## ID採番ロジック
 
