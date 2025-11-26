@@ -117,7 +117,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - 変更予定の機能
 
-## [2.3.0] - 2025-01-26
+## [2.3.0] - 2025-11-26
 
 ### Added
 - ライト版廃止と段階的導入ガイド
@@ -129,7 +129,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Deprecated
 - ライト版運用の概念（v2.3で完全廃止）
 
-## [2.2.0] - 2025-01-25
+## [2.2.0] - 2025-11-25
 
 ### Added
 - 定量的レビュー基準（REQ数: 5-50, 機能数: 10-100等）
@@ -140,7 +140,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `.claude/commands/review.md`: 定量的基準追加
 - `docs/guide.md`: フェーズとイテレーションの関係を追加
 
-## [2.1.0] - 2025-01-24
+## [2.1.0] - 2025-11-24
 
 ### Added
 - `/promote-status` コマンド（doc_status状態遷移管理）
@@ -150,7 +150,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - `ssdd-plugin/skills/ssdd/templates/`: テンプレート更新
 
-## [2.0.0] - 2025-01-23
+## [2.0.0] - 2025-11-23
 
 ### Added
 - タイムスタンプベースID管理（REQ-YYYYMMDD-nnn）
