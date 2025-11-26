@@ -142,15 +142,6 @@ docs/
 - L3 機能（汎用）: `docs/templates/l3_feature.md`
 - フロントマター仕様: `docs/templates/README.md`
 
-### ドメイン特化テンプレート（v2.1）
-
-| ドメイン | テンプレート | 特徴 |
-|---------|-------------|------|
-| Webアプリ | `l3_feature_web.md` | 画面設計、API、レスポンシブ、セキュリティ |
-| Desktopアプリ | `l3_feature_desktop.md` | ウィンドウ、メニュー、OS統合 |
-| Mobileアプリ | `l3_feature_mobile.md` | 画面遷移、デバイス機能、オフライン |
-| CLIツール | `l3_feature_cli.md` | コマンド仕様、入出力、POSIX準拠 |
-
 ## 詳細ドキュメント参照
 
 - **概念ガイド**: `docs/guide.md`

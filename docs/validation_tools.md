@@ -575,8 +575,8 @@ find docs/l3_features/ -name "*.md" | xargs -P 4 -I {} /check {}
 
 **解決方法**:
 ```bash
-# ドメイン特化テンプレートを参照してレビュー
-# → templates/l3_feature_web.md のテンプレートを参考に指摘内容を調整
+# L3テンプレートとL2のNFRカタログを参照してレビュー
+# → templates/l3_feature.md のテンプレートを参考に指摘内容を調整
 
 # レビュー基準を確認
 # → 本書の「定量的レビュー基準」セクションを参照

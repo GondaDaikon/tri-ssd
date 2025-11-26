@@ -110,16 +110,7 @@ SSDD v2.0 では、運用上の問題点を根本的に解決する重要な変�
 | [templates/l1_vision.md](templates/l1_vision.md) | L1ビジョン・要求ドキュメント |
 | [templates/l2_overview.md](templates/l2_overview.md) | L2概要（用語集・技術方針・NFRカタログ） |
 | [templates/l2_phases.md](templates/l2_phases.md) | L2フェーズ定義・機能一覧 |
-| [templates/l3_feature.md](templates/l3_feature.md) | L3機能ドキュメント（汎用） |
-
-#### ドメイン特化テンプレート（v2.1）
-
-| ファイル | 用途 |
-|---------|------|
-| [templates/l3_feature_web.md](templates/l3_feature_web.md) | L3機能（Webアプリ用） |
-| [templates/l3_feature_desktop.md](templates/l3_feature_desktop.md) | L3機能（Desktopアプリ用） |
-| [templates/l3_feature_mobile.md](templates/l3_feature_mobile.md) | L3機能（Mobileアプリ用） |
-| [templates/l3_feature_cli.md](templates/l3_feature_cli.md) | L3機能（CLIツール用） |
+| [templates/l3_feature.md](templates/l3_feature.md) | L3機能ドキュメント |
 
 ## 想定読者
 

@@ -92,9 +92,7 @@ feat(l3): add CLI feature template
 Add domain-specific template for CLI applications.
 Includes command specification, I/O handling, and exit codes.
 
-Related to Phase 2 (v2.1) implementation.
-
-Refs: docs/templates/l3_feature_cli.md
+Refs: docs/templates/l3_feature.md
 ```
 
 ---

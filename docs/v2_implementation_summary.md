@@ -167,19 +167,9 @@ SSDDフレームワークを5.5/10から10.0/10に改善するため、4つの�
 
 **解決**: Web/Desktop/Mobile/CLI用の特化テンプレート
 
-**新規ファイル**:
-- `docs/templates/l3_feature_web.md`: Webアプリ用（画面設計、API、レスポンシブ、セキュリティ）
-- `docs/templates/l3_feature_desktop.md`: Desktopアプリ用（ウィンドウ、メニュー、OS統合）
-- `docs/templates/l3_feature_mobile.md`: Mobileアプリ用（画面遷移、デバイス機能、オフライン）
-- `docs/templates/l3_feature_cli.md`: CLIツール用（コマンド仕様、入出力、POSIX準拠）
-
-**更新ファイル**:
-- `docs/templates/README.md`: ドメイン別テンプレート選択ガイド追加
-
-**利点**:
-- ドメイン固有の観点を網羅
-- テンプレート選択の柔軟性
-- 単一ドメイン or 複数ドメインに対応
+> **⚠️ 廃止**: v2.3でドメイン特化テンプレートは廃止されました。
+> L3は汎用テンプレート（`l3_feature.md`）のみを使用し、ドメイン固有の考慮事項は
+> L2の技術方針・NFRカタログで定義します。AIがL2のコンテキストを参照して適切な内容を生成します。
 
 ### 4. NFR優先度分類
 
@@ -377,10 +367,10 @@ SSDDフレームワークを5.5/10から10.0/10に改善するため、4つの�
 1. `docs/migration_v2.md` (Phase 1)
 2. `.claude/commands/promote-status.md` (Phase 2)
 3. `.claude/commands/propagate-change.md` (Phase 2)
-4. `docs/templates/l3_feature_web.md` (Phase 2)
-5. `docs/templates/l3_feature_desktop.md` (Phase 2)
-6. `docs/templates/l3_feature_mobile.md` (Phase 2)
-7. `docs/templates/l3_feature_cli.md` (Phase 2)
+4. ~~`docs/templates/l3_feature_web.md` (Phase 2)~~ *v2.3で廃止*
+5. ~~`docs/templates/l3_feature_desktop.md` (Phase 2)~~ *v2.3で廃止*
+6. ~~`docs/templates/l3_feature_mobile.md` (Phase 2)~~ *v2.3で廃止*
+7. ~~`docs/templates/l3_feature_cli.md` (Phase 2)~~ *v2.3で廃止*
 8. `docs/error_messages.md` (Phase 3)
 9. `docs/changelog_management.md` (Phase 4)
 10. `docs/validation_tools.md` (Phase 4)
