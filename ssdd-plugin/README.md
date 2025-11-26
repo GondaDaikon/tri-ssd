@@ -51,9 +51,9 @@ cp -r ssdd-plugin/skills/* ~/.claude/skills/
 | `/init-ssdd` | ディレクトリ構造を初期化 |
 | `/draft-l1` | L1ドキュメントを対話形式で作成 |
 | `/convert-l1 <ファイル>` | 既存ドキュメントをL1形式に変換 |
-| `/gen-l2` | L1からL2を生成 |
-| `/gen-l3 [F-ID]` | L2からL3を生成 |
-| `/check` | 整合性チェック |
+| `/gen-l2 [--simple] [REQ-xxxx ...]` | L1からL2を生成（--simple: 1ファイル構成） |
+| `/gen-l3 [F-xxxx ...]` | L2からL3を生成（複数ID指定可） |
+| `/check [--list-ids]` | 整合性チェック（--list-ids: ID一覧出力） |
 | `/review <ファイル>` | AIレビュー |
 | `/promote-status <ファイル>` | doc_statusを昇格 |
 | `/propagate-change <ファイル>` | 変更影響分析 |

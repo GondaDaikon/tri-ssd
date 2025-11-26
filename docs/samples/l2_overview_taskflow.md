@@ -16,7 +16,7 @@ doc_status: reviewed
 
 ### 1.2 前提ドキュメント
 
-- L1: [TaskFlow ビジョン・要求ドキュメント](../samples/l1_vision_taskflow.md)
+- L1: [TaskFlow ビジョン・要求ドキュメント](./l1_vision_taskflow.md)
 
 ---
 

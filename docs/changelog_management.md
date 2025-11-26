@@ -106,8 +106,8 @@ Refs: ssdd-plugin/skills/ssdd/templates/l3_feature.md
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v0.1.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
@@ -355,7 +355,7 @@ git commit -m "feat(api): change authentication endpoint
 BREAKING CHANGE: POST /api/auth/login moved to /api/v2/auth/login.
 Old endpoint will be deprecated in v3.0.0 and removed in v4.0.0.
 
-Migration guide: docs/migration_v3.md"
+Migration guide: docs/migration.md"
 ```
 
 ### 5. リリース前の CHANGELOG.md レビュー

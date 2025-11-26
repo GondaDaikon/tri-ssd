@@ -6,12 +6,16 @@
 
 ## サンプル一覧
 
-| ファイル | 層 | 内容 |
-|---------|-----|------|
-| [l1_vision_taskflow.md](l1_vision_taskflow.md) | L1 | ビジョン・要求ドキュメントのサンプル |
-| [l2_overview_taskflow.md](l2_overview_taskflow.md) | L2 | システム概要（用語集・技術方針・NFRカタログ）のサンプル |
-| [l2_phases_taskflow.md](l2_phases_taskflow.md) | L2 | フェーズ定義・機能一覧のサンプル |
-| [l3_feature_taskflow.md](l3_feature_taskflow.md) | L3 | 機能ドキュメントのサンプル（タスク登録機能） |
+| ファイル | 層 | kind | 内容 |
+|---------|-----|------|------|
+| [l1_vision_taskflow.md](l1_vision_taskflow.md) | L1 | vision | ビジョン・要求ドキュメントのサンプル |
+| [l2_overview_taskflow.md](l2_overview_taskflow.md) | L2 | overview | システム概要（用語集・技術方針・NFRカタログ）のサンプル |
+| [l2_phases_taskflow.md](l2_phases_taskflow.md) | L2 | phase | フェーズ定義・機能一覧のサンプル |
+| [l3_feature_taskflow.md](l3_feature_taskflow.md) | L3 | feature | 機能ドキュメントのサンプル（タスク登録機能） |
+
+> **注**: L2は2つのファイル（overview と phases）で構成されます。
+> - **l2_overview_taskflow.md** (`kind: overview`): システム全体の用語集・技術選定・NFRカタログ
+> - **l2_phases_taskflow.md** (`kind: phase`): フェーズ定義と各フェーズの機能一覧
 
 ## テンプレートについて
 
@@ -32,13 +36,13 @@
 TaskFlow（タスク管理Webアプリ）
 ├── L1: ビジョン・要求
 │   ├── 課題・ペルソナ・ゴール
-│   ├── 機能要求（REQ-001〜010）
-│   └── 非機能要求（性能・セキュリティ等）
+│   ├── 機能要求（REQ-20251126-001〜010）
+│   └── 非機能要求（NF-20251126-001〜008）
 ├── L2: システム設計
 │   ├── 概要（用語集・アーキテクチャ・技術選定・NFRカタログ）
 │   └── フェーズ定義（MVP → β版 → 正式版）
 └── L3: 機能仕様
-    └── F-002 タスク登録機能（実装例）
+    └── F-20251126-002 タスク登録機能（実装例）
 ```
 
 これらのサンプルを参考に、自身のプロジェクトに適したドキュメントを作成してください。

@@ -1,11 +1,9 @@
 ---
-id: L2-OVERVIEW-YYYYMMDD-nnn
+id: L2-YYYYMMDD-nnn
 kind: overview
 layer: L2
 status: active
 doc_status: draft
-req_ids:
-  - REQ-YYYYMMDD-nnn
 ---
 <!-- 注: 実際の使用時は /gen-l2 がIDを自動採番します -->
 
@@ -113,6 +111,9 @@ req_ids:
 ---
 
 ## 6. 機能一覧（全体俯瞰用）
+
+> **注**: 「依存」列は参考情報です。依存関係はフロントマターでは管理されていません。
+> 実装順序は各フェーズ内の機能一覧の記載順で管理します。
 
 | 機能ID | 機能名 | 対応REQ | フェーズ | 依存 | ステータス |
 |--------|--------|---------|---------|------|-----------|

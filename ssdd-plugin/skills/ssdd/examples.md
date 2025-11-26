@@ -32,6 +32,8 @@ kind: phase
 layer: L2
 status: active
 doc_status: reviewed
+related_nfr_ids:
+  - NF-20250125-001
 ---
 
 # Phase 1: 基盤構築
