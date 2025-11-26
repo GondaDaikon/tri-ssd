@@ -23,6 +23,10 @@ allowed-tools: Read, Edit, Glob, Grep
 draft → reviewed → implemented
 ```
 
+> **注意**: L1/L2 と L3 では遷移ルールが異なります。
+> - L1/L2: `draft → reviewed`（最終状態）
+> - L3: `draft → reviewed → implemented`
+
 | 現在 | 昇格後 | 条件 |
 |------|--------|------|
 | draft | reviewed | レビュー完了、TODO解消 |

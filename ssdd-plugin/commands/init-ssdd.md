@@ -24,7 +24,7 @@ docs/
 
 **注:** L1 は `docs/l1_vision.md` としてフラット配置。
 
-## ID形式（v2.0）
+## ID形式
 
 タイムスタンプベース: `PREFIX-YYYYMMDD-nnn`
 

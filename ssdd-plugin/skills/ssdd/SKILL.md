@@ -22,9 +22,9 @@ L3は「AIとのフィードバックサイクルを回す作業単位」とし�
 L3仕様 → AIがコード生成 → テスト・検証 → L3更新 → 再生成...
 ```
 
-## ID形式（v2.0）
+## ID形式
 
-タイムスタンプベースでID衝突を防止：
+タイムスタンプベースでID衝突を防止（v0.1で導入、現行も同一仕様）：
 
 ### コンテンツID
 
@@ -43,17 +43,17 @@ L2ドキュメント（overview.md, phases.md）は通常プロジェクトに1�
 
 | ID | 用途 | 例 |
 |----|------|-----|
-| L2-OVERVIEW-YYYYMMDD-nnn | L2概要 | L2-OVERVIEW-20250125-001 |
-| L2-PHASES-YYYYMMDD-nnn | L2フェーズ定義 | L2-PHASES-20250125-001 |
+| L2-YYYYMMDD-nnn | L2概要（kind: overview） | L2-20250125-001 |
+| PH-YYYYMMDD-nnn | L2フェーズ定義（kind: phase） | PH-20250125-001 |
 
-**注**: L2ドキュメントIDは省略可能。`/check`は存在する場合のみ検証。
+**注**: L2概要のIDは省略可能。フェーズはPH-形式で個別に管理。
 
 ## フロントマター仕様
 
 ```yaml
 ---
 id: F-YYYYMMDD-nnn
-kind: feature          # vision|req|feature|nfr|phase|overview|spike
+kind: feature          # vision|feature|phase|overview
 layer: L3              # L1|L2|L3
 status: active         # active|deprecated|removed
 doc_status: draft      # draft|reviewed|implemented
@@ -83,7 +83,7 @@ phase: PH-YYYYMMDD-nnn
 - `nfr_ids`はL3機能ドキュメントで使用（機能が実装すべきNFR）
 - `related_nfr_ids`はL2フェーズ定義で使用（フェーズ全体に適用されるNFR）
 
-**v2.0変更**: `title`フィールドは廃止。本文の`# 見出し`がタイトル。
+**v0.1変更**: `title`フィールドは廃止。本文の`# 見出し`がタイトル。
 
 ## doc_status 遷移
 

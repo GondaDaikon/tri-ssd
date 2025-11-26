@@ -1,5 +1,8 @@
 # SSDD 用語集
 
+> **バージョン**: v0.5
+> **対象範囲**: SSDD フレームワークの用語定義
+
 SSDD フレームワークで使用される用語の定義です。
 
 ## 基本概念
@@ -37,24 +40,20 @@ SSDD フレームワークで使用される用語の定義です。
 | 値 | 定義 |
 |----|------|
 | **vision** | ビジョンドキュメント。L1 の主文書 |
-| **req** | 要件ドキュメント。個別の REQ を詳細に記述 |
+| **overview** | 概要ドキュメント。L2 の主文書（用語集・技術方針・NFRカタログ） |
+| **phase** | フェーズドキュメント。L2 のフェーズ定義・機能一覧 |
 | **feature** | 機能ドキュメント。L3 の主文書 |
-| **nfr** | 非機能要求ドキュメント |
-| **phase** | フェーズドキュメント |
-| **spike** | スパイクドキュメント |
-| **overview** | 概要ドキュメント。L2 の主文書 |
+
+> **Note**: 要件（REQ）はL1ビジョン内でインライン定義、非機能要求（NF）はL2概要内で定義します。
 
 ### kind と ID接頭辞の対応
 
 | kind | ID接頭辞 | レイヤ |
 |------|----------|--------|
-| vision | VISION | L1 |
-| req | REQ | L1 |
-| feature | F | L3 |
-| nfr | NF | L2 |
-| phase | PH | L2 |
-| spike | SP | L2 |
-| overview | L2-OVERVIEW | L2 |
+| vision | VISION-YYYYMMDD-nnn | L1 |
+| overview | L2-YYYYMMDD-nnn | L2 |
+| phase | PH-YYYYMMDD-nnn | L2 |
+| feature | F-YYYYMMDD-nnn | L3 |
 
 ## ステータス
 
