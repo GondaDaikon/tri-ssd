@@ -6,6 +6,16 @@ SSDD (Slices Specification-Driven Development) フレームワークの変更履
 
 ## [Unreleased]
 
+## [2.4.0] - 2025-11-26
+
+### Changed
+- ssdd-plugin を正本化（`.claude/` との二重管理を解消）
+- L3 テンプレートを汎用テンプレート1つに統合
+
+### Removed
+- ドメイン特化 L3 テンプレート（Web/Desktop/Mobile/CLI）
+- `.claude/commands/` と `.claude/skills/` の重複ファイル
+
 ## [2.3.0] - 2025-11-26
 
 ### Added
