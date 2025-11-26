@@ -1,6 +1,6 @@
 # SSDD バリデーションツールガイド
 
-> **バージョン**: v2.3
+> **バージョン**: v2.4
 > **目的**: ドキュメント品質とトレーサビリティを自動検証
 
 ## 概要
@@ -651,7 +651,7 @@ diff review_results/l1_vision_20250120.md review_results/l1_vision_20250127.md
 ---
 
 **更新日**: 2025-01-26
-**対象バージョン**: SSDD v2.3以降
+**対象バージョン**: SSDD v2.4以降
 **関連ドキュメント**:
 - エラーメッセージ: [error_messages.md](error_messages.md)
 - チェックリスト: [checklists.md](checklists.md)
