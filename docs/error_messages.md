@@ -1,6 +1,6 @@
 # SSDDエラーメッセージ標準化ガイド
 
-> **バージョン**: v2.2
+> **バージョン**: v0.3
 > **目的**: すべてのコマンドで一貫性のあるエラーメッセージを提供
 
 ## 概要
@@ -158,7 +158,7 @@ ID: [ID]
 存在するIDを確認:
   /check --list-ids
 
-ID形式を確認してください（v2.0形式）:
+ID形式を確認してください（v0.1形式）:
 - REQ-YYYYMMDD-nnn (例: REQ-20250125-001)
 - F-YYYYMMDD-nnn (例: F-20250125-001)
 - PH-YYYYMMDD-nnn (例: PH-20250125-001)
@@ -174,12 +174,12 @@ ID形式を確認してください（v2.0形式）:
 
 ID: [ID]
 
-v2.0のID形式:
+v0.1のID形式:
 - REQ-YYYYMMDD-nnn (例: REQ-20250125-001)
 - F-YYYYMMDD-nnn (例: F-20250125-001)
 
 旧形式（REQ-0001等）から移行する場合:
-  docs/migration_v2.md を参照
+  docs/migration.md を参照
 ```
 
 **使用コマンド**: すべて（ID指定時）
@@ -218,8 +218,8 @@ v2.0のID形式:
 現在の値: [value]
 
 有効な値:
-- kind: vision, req, feature, nfr, phase, spike, overview
-- layer: L1, L2, L3, meta
+- kind: vision, overview, phase, feature
+- layer: L1, L2, L3
 - status: active, deprecated, removed
 - doc_status: draft, reviewed, implemented
 
@@ -229,14 +229,14 @@ v2.0のID形式:
 **使用コマンド**: /check, /review
 **終了コード**: 1
 
-#### E303: タイトル見出しが欠落（v2.0）
+#### E303: タイトル見出しが欠落（v0.1）
 
 ```
 ✗ エラー: フロントマター直後にタイトル見出しがありません
 
 ファイル: [path]
 
-v2.0では`title`フィールドを廃止し、本文の`# 見出し`をタイトルとして使用します。
+v0.1では`title`フィールドを廃止し、本文の`# 見出し`をタイトルとして使用します。
 
 修正例:
 ---
@@ -252,7 +252,7 @@ doc_status: draft
 ## 概要
 ...
 
-詳細: docs/migration_v2.md
+詳細: docs/migration.md
 ```
 
 **使用コマンド**: /check, /review
@@ -282,22 +282,6 @@ doc_status: draft
 **終了コード**: 1
 
 #### E402: 循環依存を検出
-
-```
-✗ エラー: 機能の依存関係に循環を検出しました
-
-循環パス:
-  F-20250125-001 → F-20250125-002 → F-20250125-003 → F-20250125-001
-
-解決方法:
-1. 依存関係を見直し、循環を解消してください
-2. depends_on フィールドを修正してください
-
-詳細: docs/guide.md#依存関係管理
-```
-
-**使用コマンド**: /check
-**終了コード**: 1
 
 ### テンプレートエラー
 
@@ -353,11 +337,11 @@ GitHub: https://github.com/your-org/ssdd/tree/main/docs/templates
 ```
 ⚠ 警告: 非推奨機能を使用しています
 
-機能: title フィールド（v2.0で廃止）
+機能: title フィールド（v0.1で廃止）
 ファイル: [path]
 
-v2.0以降は本文の`# 見出し`を使用してください。
-自動移行ツール: docs/migration_v2.md
+v0.1以降は本文の`# 見出し`を使用してください。
+自動移行ツール: docs/migration.md
 
 このまま続行できますが、将来のバージョンでエラーになります。
 ```
@@ -592,4 +576,4 @@ function getErrorMessage(code, lang = 'ja') {
 ---
 
 **更新日**: 2025-11-25
-**対象バージョン**: SSDD v2.2以降
+**対象バージョン**: SSDD v0.3以降

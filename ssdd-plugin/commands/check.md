@@ -24,7 +24,7 @@ allowed-tools: Read, Glob, Grep
 - [ ] layer値の妥当性
 - [ ] status/doc_status値の妥当性
 
-### タイトル検証（v2.0）
+### タイトル検証（v0.1）
 - [ ] フロントマター直後に `# 見出し` が存在するか
 
 ### 参照整合性（レイヤー別）
@@ -33,7 +33,6 @@ allowed-tools: Read, Glob, Grep
 - [ ] req_ids の参照先（REQ-xxx）が存在
 - [ ] nfr_ids の参照先（NF-xxx）が存在
 - [ ] phase の参照先（PH-xxx）が存在
-- [ ] depends_on の参照先（F-xxx）が存在
 
 **L2フェーズ定義**:
 - [ ] related_nfr_ids の参照先（NF-xxx）が存在

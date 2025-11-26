@@ -1,6 +1,6 @@
 # 変更ログ管理ガイド
 
-> **バージョン**: v2.4
+> **バージョン**: v0.5
 > **目的**: SSDDにおける変更履歴の記録方針を明確化
 
 ## 概要
@@ -107,7 +107,7 @@ Refs: ssdd-plugin/skills/ssdd/templates/l3_feature.md
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v0.1.0.html).
 
 ## [Unreleased]
 
@@ -117,19 +117,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - 変更予定の機能
 
-## [2.3.0] - 2025-11-26
+## [0.4.0] - 2025-11-26
 
 ### Added
 - ライト版廃止と段階的導入ガイド
 
 ### Changed
-- `docs/checklists.md`: ライト版運用をv2.3変更点に置換
+- `docs/checklists.md`: ライト版運用をv0.4変更点に置換
 - `docs/guide.md`: 個人開発運用イメージを更新
 
 ### Deprecated
-- ライト版運用の概念（v2.3で完全廃止）
+- ライト版運用の概念（v0.4で完全廃止）
 
-## [2.2.0] - 2025-11-25
+## [0.3.0] - 2025-11-26
 
 ### Added
 - 定量的レビュー基準（REQ数: 5-50, 機能数: 10-100等）
@@ -137,20 +137,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - エラーメッセージ標準化ガイド（E###/W###/I### コード体系）
 
 ### Changed
-- `.claude/commands/review.md`: 定量的基準追加
+- `ssdd-plugin/commands/review.md`: 定量的基準追加
 - `docs/guide.md`: フェーズとイテレーションの関係を追加
 
-## [2.1.0] - 2025-11-24
+## [0.2.0] - 2025-11-26
 
 ### Added
 - `/promote-status` コマンド（doc_status状態遷移管理）
 - `/propagate-change` コマンド（変更影響分析）
-- ドメイン特化テンプレート（Web/Desktop/Mobile/CLI）
 
 ### Changed
 - `ssdd-plugin/skills/ssdd/templates/`: テンプレート更新
 
-## [2.0.0] - 2025-11-23
+## [0.1.0] - 2025-11-26
 
 ### Added
 - タイムスタンプベースID管理（REQ-YYYYMMDD-nnn）
@@ -161,10 +160,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - L2デフォルト構成: 4ファイル→2ファイル（overview.md + phases.md）
 
 ### Removed
-- `title`フィールド（v2.0で廃止）
+- `title`フィールド
 
 ### BREAKING CHANGES
-- ID形式変更: 既存プロジェクトは`docs/migration_v2.md`を参照
+- ID形式変更: 既存プロジェクトは`docs/migration.md`を参照
 - フロントマター仕様変更: `title`フィールドを使用しているファイルは修正が必要
 ```
 
@@ -463,4 +462,4 @@ L1/L2/L3更新         実装メモのみ
 ---
 
 **更新日**: 2025-11-26
-**対象バージョン**: SSDD v2.4以降
+**対象バージョン**: SSDD v0.5以降

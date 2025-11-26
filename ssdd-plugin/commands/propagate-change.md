@@ -34,7 +34,7 @@ allowed-tools: Read, Glob, Grep
 
 ### Step 2: 参照検索
 - Grepで変更IDを参照しているファイルを検索
-- req_ids, nfr_ids, phase, depends_on をチェック
+- req_ids, nfr_ids, phase をチェック
 
 ### Step 3: 影響度判定
 - 直接参照: 高影響
