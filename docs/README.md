@@ -37,15 +37,15 @@ SSDD は以下の考え方をベースにしています：
 ### v2.2（2025-01）品質向上
 
 **主要変更点**:
-- **定量的指標**: REQ数5-50、機能数10-100等の規模目安（[review.md](.claude/commands/review.md)）
+- **定量的指標**: REQ数5-50、機能数10-100等の規模目安（`/review` コマンドで検証可能）
 - **フェーズ vs イテレーション**: 機能的マイルストーン vs 時間的マイルストーンの明確化（[guide.md](guide.md)）
 - **エラーメッセージ標準化**: E###/W###/I### コード体系の導入（[error_messages.md](error_messages.md)）
 
 ### v2.1（2025-01）機能拡張
 
 **主要変更点**:
-- **doc_status管理**: `/promote-status` コマンドで状態遷移を管理（[promote-status.md](.claude/commands/promote-status.md)）
-- **変更伝播**: `/propagate-change` コマンドで影響分析（[propagate-change.md](.claude/commands/propagate-change.md)）
+- **doc_status管理**: `/promote-status` コマンドで状態遷移を管理
+- **変更伝播**: `/propagate-change` コマンドで影響分析
 - **ドメイン特化テンプレート**: Web/Desktop/Mobile/CLI用L3テンプレート（[templates/README.md](templates/README.md)）
 - **NFR優先度**: Must/Should/Could/Won'tによる優先度分類
 

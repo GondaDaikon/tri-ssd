@@ -1,31 +1,31 @@
 ---
-id: L2-PHASES
+id: L2-PHASES-YYYYMMDD-nnn
 kind: phase
 layer: L2
 status: active
 doc_status: draft
 ---
+<!-- 注: 実際の使用時は /gen-l2 がIDを自動採番します -->
 
 # [プロダクト名] フェーズ定義
 
 ## 概要
 
-本ドキュメントでは、開発フェーズ（PH-xxxx）の定義と、各フェーズに含まれる機能一覧を記載する。
+本ドキュメントでは、開発フェーズ（PH-YYYYMMDD-nnn）の定義と、各フェーズに含まれる機能一覧を記載する。
 
 **重要**: 各フェーズ内の機能一覧の記載順序＝実装順序とみなす。
 
 ---
 
-## PH-0001: [フェーズ名]
+## PH-YYYYMMDD-001: [フェーズ名]
 
 ```yaml
-id: PH-0001
+id: PH-YYYYMMDD-001
 kind: phase
-title: "[フェーズ名]"
 status: active
 related_nfr_ids:
-  - NF-0001
-  - NF-0003
+  - NF-YYYYMMDD-001
+  - NF-YYYYMMDD-003
 ```
 
 ### 目的
@@ -53,22 +53,21 @@ related_nfr_ids:
 
 | 順序 | 機能ID | 機能名 | 概要 |
 |------|--------|--------|------|
-| 1 | F-0001 | [機能名] | [概要] |
-| 2 | F-0002 | [機能名] | [概要] |
-| 3 | F-0003 | [機能名] | [概要] |
+| 1 | F-YYYYMMDD-001 | [機能名] | [概要] |
+| 2 | F-YYYYMMDD-002 | [機能名] | [概要] |
+| 3 | F-YYYYMMDD-003 | [機能名] | [概要] |
 
 ---
 
-## PH-0002: [フェーズ名]
+## PH-YYYYMMDD-002: [フェーズ名]
 
 ```yaml
-id: PH-0002
+id: PH-YYYYMMDD-002
 kind: phase
-title: "[フェーズ名]"
 status: active
 related_nfr_ids:
-  - NF-0001
-  - NF-0002
+  - NF-YYYYMMDD-001
+  - NF-YYYYMMDD-002
 ```
 
 ### 目的
@@ -95,21 +94,20 @@ related_nfr_ids:
 
 | 順序 | 機能ID | 機能名 | 概要 |
 |------|--------|--------|------|
-| 1 | F-0010 | [機能名] | [概要] |
-| 2 | F-0011 | [機能名] | [概要] |
-| 3 | F-0012 | [機能名] | [概要] |
+| 1 | F-YYYYMMDD-010 | [機能名] | [概要] |
+| 2 | F-YYYYMMDD-011 | [機能名] | [概要] |
+| 3 | F-YYYYMMDD-012 | [機能名] | [概要] |
 
 ---
 
-## PH-POC-0001: [検証フェーズ名]（検証フェーズ）
+## PH-POC-YYYYMMDD-001: [検証フェーズ名]（検証フェーズ）
 
 ```yaml
-id: PH-POC-0001
+id: PH-POC-YYYYMMDD-001
 kind: phase
-title: "[検証フェーズ名]"
 status: active
 related_nfr_ids:
-  - NF-0004
+  - NF-YYYYMMDD-004
 ```
 
 ### 目的
@@ -131,8 +129,8 @@ related_nfr_ids:
 
 | ID | スパイク名 | 概要 | 期待される成果 |
 |----|-----------|------|---------------|
-| SP-0001 | [スパイク名] | [概要] | [成果] |
-| SP-0002 | [スパイク名] | [概要] | [成果] |
+| SP-YYYYMMDD-001 | [スパイク名] | [概要] | [成果] |
+| SP-YYYYMMDD-002 | [スパイク名] | [概要] | [成果] |
 
 ### 注意事項
 

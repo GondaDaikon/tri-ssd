@@ -562,7 +562,7 @@ find docs/l3_features/ -name "*.md" | xargs -P 4 -I {} /check {}
 **原因**: チェックロジックが厳しすぎる
 
 **解決方法**:
-- 警告レベルの調整（`.claude/commands/check.md`を編集）
+- 警告レベルの調整（チェックコマンドの設定を編集）
 - 例外ルールの追加（特定パターンを無視）
 
 ### 問題3: `/review` の指摘が的外れ
@@ -571,11 +571,11 @@ find docs/l3_features/ -name "*.md" | xargs -P 4 -I {} /check {}
 
 **解決方法**:
 ```bash
-# テンプレートを明示的に指定
-/review docs/l3_features/F-20250125-001_xxx.md --template l3_feature_web.md
+# ドメイン特化テンプレートを参照してレビュー
+# → templates/l3_feature_web.md のテンプレートを参考に指摘内容を調整
 
 # レビュー基準を確認
-# → .claude/commands/review.md の「定量的レビュー基準」を調整
+# → 本書の「定量的レビュー基準」セクションを参照
 ```
 
 ---
@@ -649,6 +649,5 @@ diff review_results/l1_vision_20250120.md review_results/l1_vision_20250127.md
 **更新日**: 2025-01-26
 **対象バージョン**: SSDD v2.3以降
 **関連ドキュメント**:
-- `/check` 仕様: `.claude/commands/check.md`
-- `/review` 仕様: `.claude/commands/review.md`
-- エラーメッセージ: `docs/error_messages.md`
+- エラーメッセージ: [error_messages.md](error_messages.md)
+- チェックリスト: [checklists.md](checklists.md)

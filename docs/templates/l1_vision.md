@@ -1,10 +1,11 @@
 ---
-id: VISION-0001
+id: VISION-YYYYMMDD-nnn
 kind: vision
 layer: L1
 status: active
 doc_status: draft
 ---
+<!-- 注: 実際の使用時は /draft-l1 がIDを自動採番します -->
 
 # [プロダクト名] ビジョン・要求ドキュメント
 
@@ -84,9 +85,9 @@ doc_status: draft
 
 | ID | 要求名 | 概要 | 優先度 |
 |----|--------|------|--------|
-| REQ-0001 | [要求名] | [概要説明] | 高/中/低 |
-| REQ-0002 | [要求名] | [概要説明] | 高/中/低 |
-| REQ-0003 | [要求名] | [概要説明] | 高/中/低 |
+| REQ-YYYYMMDD-001 | [要求名] | [概要説明] | 高/中/低 |
+| REQ-YYYYMMDD-002 | [要求名] | [概要説明] | 高/中/低 |
+| REQ-YYYYMMDD-003 | [要求名] | [概要説明] | 高/中/低 |
 
 ### 5.2 利用シナリオ
 
@@ -190,6 +191,6 @@ doc_status: draft
 
 ### 7.2 変更・追記の方針
 
-- 要求の追加・変更は REQ-xxxx として新規IDを付与
+- 要求の追加・変更は REQ-YYYYMMDD-nnn 形式で新規IDを付与
 - 既存要求の廃止は status: deprecated として記録し、履歴を残す
 - 大きな変更は PR でレビューを行う

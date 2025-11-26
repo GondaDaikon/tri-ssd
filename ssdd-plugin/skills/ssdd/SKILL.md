@@ -79,10 +79,17 @@ docs/
 
 プラグイン内のテンプレートを使用：
 
+**基本テンプレート**:
 - L1: `skills/ssdd/templates/l1_vision.md`
 - L2概要: `skills/ssdd/templates/l2_overview.md`
 - L2フェーズ: `skills/ssdd/templates/l2_phases.md`
 - L3機能: `skills/ssdd/templates/l3_feature.md`
+
+**ドメイン特化L3テンプレート**:
+- Webアプリ: `skills/ssdd/templates/l3_feature_web.md`
+- Desktopアプリ: `skills/ssdd/templates/l3_feature_desktop.md`
+- Mobileアプリ: `skills/ssdd/templates/l3_feature_mobile.md`
+- CLIツール: `skills/ssdd/templates/l3_feature_cli.md`
 
 ## 主要コマンド
 

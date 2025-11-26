@@ -1,7 +1,7 @@
 ---
 description: L1からL2（機能設計・技術方針）ドキュメントを生成する
 argument-hint: "[--simple] [REQ-xxxx ...] - オプション: --simple（1ファイル生成）、対象のREQ ID（省略時は全体）"
-allowed-tools: Read, Write, Edit, Glob, Grep, WebSearch, AskUserQuestion
+allowed-tools: Read, Write, Edit, Glob, Grep, WebSearch
 ---
 
 # L2 生成コマンド
