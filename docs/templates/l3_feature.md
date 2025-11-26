@@ -1,15 +1,16 @@
 ---
-id: F-0001
+id: F-YYYYMMDD-nnn
 kind: feature
 layer: L3
 status: active
 doc_status: draft
 req_ids:
-  - REQ-0001
+  - REQ-YYYYMMDD-nnn
 nfr_ids:
-  - NF-0001
-phase: PH-0001
+  - NF-YYYYMMDD-nnn
+phase: PH-YYYYMMDD-nnn
 ---
+<!-- 注: 実際の使用時は /gen-l3 がIDを自動採番します -->
 
 # [機能名]
 
@@ -139,7 +140,7 @@ UI --> User: [表示]
 
 | NF ID | 要求 | この機能での具体化 |
 |-------|------|-------------------|
-| NF-0001 | [要求名] | [この機能でどう満たすか] |
+| NF-YYYYMMDD-nnn | [要求名] | [この機能でどう満たすか] |
 
 ### 5.2 受け入れ条件
 

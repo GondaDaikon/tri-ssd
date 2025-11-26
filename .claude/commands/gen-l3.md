@@ -18,10 +18,8 @@ allowed-tools: Read, Write, Edit, Glob
 2. `.claude/skills/ssdd_examples.md` を読み込み、L3の実例を確認する
 3. `docs/templates/l3_feature.md` を読み込み、L3 テンプレートを確認する
 4. `docs/templates/README.md` を読み込み、フロントマター仕様を確認する
-5. `docs/l2_system/overview.md` を読み込み、技術方針を把握する
-6. `docs/l2_system/phases.md` を読み込み、フェーズ定義を把握する
-7. `docs/l2_system/features_index.md` を読み込み、機能一覧を把握する
-8. `docs/l2_system/nfr.md` を読み込み、非機能要求を把握する
+5. `docs/l2_system/overview.md` を読み込み、技術方針・NFRカタログを把握する
+6. `docs/l2_system/phases.md` を読み込み、フェーズ定義・機能一覧を把握する
 
 ## ID採番ロジック
 

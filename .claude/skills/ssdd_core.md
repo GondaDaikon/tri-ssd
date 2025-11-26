@@ -154,6 +154,7 @@ docs/
 ## 詳細ドキュメント参照
 
 - **概念ガイド**: `docs/guide.md`
+- **用語集**: `docs/glossary.md`
 - **開発フロー**: `docs/checklists.md`
 - **テンプレート**: `docs/templates/README.md`
 - **エラーメッセージ**: `docs/error_messages.md`

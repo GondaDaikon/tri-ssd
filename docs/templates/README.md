@@ -46,19 +46,19 @@ L3機能ドキュメントでは、プロダクトのドメインに応じて最
 
 ```yaml
 ---
-id: REQ-0001           # 一意なID
+id: REQ-YYYYMMDD-nnn   # 一意なID（タイムスタンプベース）
 kind: req              # ドキュメント種別
 layer: L1              # 所属レイヤ
 status: active         # ライフサイクル状態
 doc_status: draft      # 文書・開発状態
 ---
 
-# ユーザー認証機能  # 本文の見出しがタイトルとして扱われる
+# ユーザー認証機能  # ← 本文の見出しがタイトルとして扱われる（v2.0）
 ```
 
 | フィールド | 必須 | 説明 |
 |-----------|------|------|
-| id | ○ | 一意なID（REQ-0001, F-0001, NF-0001, PH-0001 等） |
+| id | ○ | 一意なID（REQ-YYYYMMDD-nnn, F-YYYYMMDD-nnn 等） |
 | kind | ○ | ドキュメント種別（下記参照） |
 | layer | ○ | 所属レイヤ（L1 / L2 / L3 / meta） |
 | status | ○ | ライフサイクル状態（下記参照） |
@@ -102,21 +102,21 @@ L2/L3 ドキュメントでは、以下の参照フィールドを使用して�
 
 ```yaml
 ---
-id: F-0001
+id: F-YYYYMMDD-nnn
 kind: feature
 layer: L3
-title: Markdown編集機能
 status: active
 doc_status: reviewed
 req_ids:              # 対応する要件ID
-  - REQ-0001
-  - REQ-0002
+  - REQ-YYYYMMDD-nnn
 nfr_ids:              # 適用される非機能要求ID
-  - NF-0001
-phase: PH-0001        # 所属フェーズ
+  - NF-YYYYMMDD-nnn
+phase: PH-YYYYMMDD-nnn  # 所属フェーズ
 depends_on:           # 依存する機能ID
-  - F-0002
+  - F-YYYYMMDD-nnn
 ---
+
+# Markdown編集機能  # ← 本文の見出しがタイトル（v2.0）
 ```
 
 | フィールド | 説明 |
