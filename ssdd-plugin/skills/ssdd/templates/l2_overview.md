@@ -35,8 +35,8 @@ req_ids:
 
 ### 2.2 トレーサビリティルール
 
-- 各機能（F-xxxx）のフロントマターに `req_ids` として対応する REQ を記載
-- 各フェーズ（PH-xxxx）のフロントマターに `related_nfr_ids` として適用 NF を記載
+- 各機能（F-YYYYMMDD-nnn）のフロントマターに `req_ids` として対応する REQ を記載
+- 各フェーズ（PH-YYYYMMDD-nnn）のフロントマターに `related_nfr_ids` として適用 NF を記載
 
 ---
 
