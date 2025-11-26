@@ -66,6 +66,7 @@ doc_status: [draft|reviewed|implemented]
 ## 詳細ドキュメント
 
 - **概念ガイド**: `docs/guide.md`
+- **用語集**: `docs/glossary.md`
 - **開発フロー**: `docs/checklists.md`
 - **テンプレート**: `docs/templates/README.md`
 - **エラーメッセージ**: `docs/error_messages.md`
