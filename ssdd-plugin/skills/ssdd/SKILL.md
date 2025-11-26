@@ -26,6 +26,8 @@ L3仕様 → AIがコード生成 → テスト・検証 → L3更新 → 再生
 
 タイムスタンプベースでID衝突を防止：
 
+### コンテンツID
+
 | ID | 用途 | 例 |
 |----|------|-----|
 | VISION-YYYYMMDD-nnn | L1ビジョン | VISION-20250125-001 |
@@ -34,6 +36,17 @@ L3仕様 → AIがコード生成 → テスト・検証 → L3更新 → 再生
 | PH-YYYYMMDD-nnn | フェーズ | PH-20250125-001 |
 | NF-YYYYMMDD-nnn | 非機能要求 | NF-20250125-001 |
 | SP-YYYYMMDD-nnn | スパイク/PoC | SP-20250125-001 |
+
+### L2ドキュメントID（任意）
+
+L2ドキュメント（overview.md, phases.md）は通常プロジェクトに1つのため、以下の形式を使用：
+
+| ID | 用途 | 例 |
+|----|------|-----|
+| L2-OVERVIEW-YYYYMMDD-nnn | L2概要 | L2-OVERVIEW-20250125-001 |
+| L2-PHASES-YYYYMMDD-nnn | L2フェーズ定義 | L2-PHASES-20250125-001 |
+
+**注**: L2ドキュメントIDは省略可能。`/check`は存在する場合のみ検証。
 
 ## フロントマター仕様
 
@@ -45,25 +58,47 @@ layer: L3              # L1|L2|L3
 status: active         # active|deprecated|removed
 doc_status: draft      # draft|reviewed|implemented
 req_ids: [REQ-YYYYMMDD-nnn]
+nfr_ids: [NF-YYYYMMDD-nnn]     # L3: 実装すべきNFR
 phase: PH-YYYYMMDD-nnn
 ---
 
 # 機能名（本文見出しがタイトル）
 ```
 
-**注**: v2.0で`title`フィールドは廃止。本文の`# 見出し`がタイトル。
+### フィールド詳細
+
+| フィールド | 必須 | 対象 | 説明 |
+|-----------|------|------|------|
+| id | ○ | 全て | 一意なID |
+| kind | ○ | 全て | ドキュメント種別 |
+| layer | ○ | 全て | 所属レイヤ（L1/L2/L3） |
+| status | ○ | 全て | active/deprecated/removed |
+| doc_status | ○ | 全て | draft/reviewed/implemented |
+| req_ids | - | L3 | 対応する要件IDリスト |
+| nfr_ids | - | L3 | この機能が実装すべきNFR IDリスト |
+| phase | - | L3 | 所属フェーズID |
+| related_nfr_ids | - | L2フェーズ | フェーズに適用されるNFR IDリスト |
+
+**注意**:
+- `nfr_ids`はL3機能ドキュメントで使用（機能が実装すべきNFR）
+- `related_nfr_ids`はL2フェーズ定義で使用（フェーズ全体に適用されるNFR）
+
+**v2.0変更**: `title`フィールドは廃止。本文の`# 見出し`がタイトル。
 
 ## doc_status 遷移
 
 ```
-draft → reviewed → implemented
+L1/L2: draft → reviewed（最終状態）
+L3:    draft → reviewed → implemented
 ```
 
-| 状態 | 説明 |
-|------|------|
-| draft | AI生成直後、書きかけ |
-| reviewed | レビュー済み、実装可能 |
-| implemented | 実装・テスト完了（L3のみ） |
+| 状態 | 説明 | 対象レイヤ |
+|------|------|-----------|
+| draft | AI生成直後、書きかけ | L1, L2, L3 |
+| reviewed | レビュー済み、実装/運用可能 | L1, L2, L3 |
+| implemented | 実装・テスト完了、ドキュメント追従済み | **L3のみ** |
+
+**注意**: L1/L2は`reviewed`が最終状態。`implemented`への昇格はL3機能ドキュメントのみ可能。
 
 ## ディレクトリ構成
 
