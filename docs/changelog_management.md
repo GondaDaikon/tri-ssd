@@ -92,7 +92,7 @@ feat(l3): add CLI feature template
 Add domain-specific template for CLI applications.
 Includes command specification, I/O handling, and exit codes.
 
-Refs: docs/templates/l3_feature.md
+Refs: ssdd-plugin/skills/ssdd/templates/l3_feature.md
 ```
 
 ---
@@ -148,7 +148,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ドメイン特化テンプレート（Web/Desktop/Mobile/CLI）
 
 ### Changed
-- `docs/templates/README.md`: ドメイン別テンプレート選択ガイド追加
+- `ssdd-plugin/skills/ssdd/templates/`: テンプレート更新
 
 ## [2.0.0] - 2025-01-23
 
@@ -462,5 +462,5 @@ L1/L2/L3更新         実装メモのみ
 
 ---
 
-**更新日**: 2025-01-26
+**更新日**: 2025-11-26
 **対象バージョン**: SSDD v2.4以降

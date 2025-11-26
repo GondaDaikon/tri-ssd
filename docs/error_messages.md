@@ -202,7 +202,7 @@ v2.0のID形式:
 - status: ライフサイクル状態
 - doc_status: 文書・開発状態
 
-テンプレート: docs/templates/README.md
+テンプレート: docs/frontmatter_spec.md
 ```
 
 **使用コマンド**: /check, /review
@@ -223,7 +223,7 @@ v2.0のID形式:
 - status: active, deprecated, removed
 - doc_status: draft, reviewed, implemented
 
-詳細: docs/templates/README.md
+詳細: docs/frontmatter_spec.md
 ```
 
 **使用コマンド**: /check, /review
@@ -311,7 +311,7 @@ doc_status: draft
 解決方法:
 1. /init-ssdd を実行してテンプレートを配置
 2. 手動でテンプレートをコピー:
-   docs/templates/ ディレクトリを確認
+   ssdd-plugin/skills/ssdd/templates/ ディレクトリを確認
 
 GitHub: https://github.com/your-org/ssdd/tree/main/docs/templates
 ```
@@ -591,5 +591,5 @@ function getErrorMessage(code, lang = 'ja') {
 
 ---
 
-**更新日**: 2025-01
+**更新日**: 2025-11-25
 **対象バージョン**: SSDD v2.2以降

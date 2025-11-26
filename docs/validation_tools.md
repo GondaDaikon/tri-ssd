@@ -576,7 +576,7 @@ find docs/l3_features/ -name "*.md" | xargs -P 4 -I {} /check {}
 **解決方法**:
 ```bash
 # L3テンプレートとL2のNFRカタログを参照してレビュー
-# → templates/l3_feature.md のテンプレートを参考に指摘内容を調整
+# → ssdd-plugin/skills/ssdd/templates/l3_feature.md を参考に指摘内容を調整
 
 # レビュー基準を確認
 # → 本書の「定量的レビュー基準」セクションを参照
@@ -650,7 +650,7 @@ diff review_results/l1_vision_20250120.md review_results/l1_vision_20250127.md
 
 ---
 
-**更新日**: 2025-01-26
+**更新日**: 2025-11-26
 **対象バージョン**: SSDD v2.4以降
 **関連ドキュメント**:
 - エラーメッセージ: [error_messages.md](error_messages.md)

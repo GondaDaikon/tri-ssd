@@ -247,7 +247,7 @@ for md_file in Path('docs').rglob('*.md'):
 
 ### 段階的移行チェックリスト
 
-- [ ] **テンプレート更新**: `docs/templates/` を v2.0 版に更新
+- [ ] **テンプレート更新**: `ssdd-plugin/skills/ssdd/templates/` を v2.0 版に更新
 - [ ] **プラグイン配置**: `ssdd-plugin/` を `.claude/` にコピー（またはプロジェクトルートに配置）
 - [ ] **新規ID方針決定**: 新規ドキュメントでタイムスタンプベースID使用を開始
 - [ ] **既存ドキュメントの title フィールド確認**: 段階的に削除
@@ -380,11 +380,11 @@ doc_status: reviewed
 ## 参考資料
 
 - [SSDD v2.0 変更点まとめ](README.md#バージョン情報)
-- [フロントマター仕様](templates/README.md)
+- [フロントマター仕様](frontmatter_spec.md)
 - [開発フロー・チェックリスト](checklists.md)
 - [SSDD ガイド](guide.md)
 
 ---
 
-**更新日**: 2025-01
+**更新日**: 2025-11-23
 **対象バージョン**: SSDD v1.x → v2.0

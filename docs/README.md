@@ -26,16 +26,16 @@ SSDD は以下の考え方をベースにしています：
 
 ## バージョン情報
 
-> **現行バージョン**: v2.4（2025-01-26リリース）
+> **現行バージョン**: v2.4（2025-11-26リリース）
 >
 > v2.0〜v2.4は設計上の段階的改善として同時期にドキュメント化されました。新規プロジェクトはv2.4仕様に準拠してください。
 
-### v2.4 構成簡素化
+### v2.4（2025-11-26）構成簡素化
 
 - **ドメイン特化L3テンプレート廃止**: 汎用テンプレート1つに統合（L2のコンテキストでAIが適切に生成）
 - **ssdd-plugin正本化**: `.claude/` との二重管理を解消
 
-### v2.3（2025-01-26）運用改善
+### v2.3（2025-11-26）運用改善
 
 **主要変更点**:
 - **ライト版廃止**: 標準SSDDの段階的導入を推奨（詳細: [checklists.md](checklists.md)）
@@ -43,22 +43,21 @@ SSDD は以下の考え方をベースにしています：
 - **バリデーションツール**: `/check`, `/review` の使い分けガイド（[validation_tools.md](validation_tools.md)）
 - **スキルモジュール化**: ssdd.mdを3モジュール（core/examples/troubleshooting）に分割
 
-### v2.2（2025-01）品質向上
+### v2.2（2025-11-25）品質向上
 
 **主要変更点**:
 - **定量的指標**: REQ数5-50、機能数10-100等の規模目安（`/review` コマンドで検証可能）
 - **フェーズ vs イテレーション**: 機能的マイルストーン vs 時間的マイルストーンの明確化（[guide.md](guide.md)）
 - **エラーメッセージ標準化**: E###/W###/I### コード体系の導入（[error_messages.md](error_messages.md)）
 
-### v2.1（2025-01）機能拡張
+### v2.1（2025-11-24）機能拡張
 
 **主要変更点**:
 - **doc_status管理**: `/promote-status` コマンドで状態遷移を管理
 - **変更伝播**: `/propagate-change` コマンドで影響分析
-- **ドメイン特化テンプレート**: Web/Desktop/Mobile/CLI用L3テンプレート（[templates/README.md](templates/README.md)）
 - **NFR優先度**: Must/Should/Could/Won'tによる優先度分類
 
-### v2.0（2025-01）基盤改善
+### v2.0（2025-11-23）基盤改善
 
 SSDD v2.0 では、運用上の問題点を根本的に解決する重要な変更が行われました：
 
@@ -95,7 +94,8 @@ SSDD v2.0 では、運用上の問題点を根本的に解決する重要な変�
 | [glossary.md](glossary.md) | SSDD用語集 |
 | [checklists.md](checklists.md) | 開発フロー・段階的導入ガイド（v2.3: ライト版廃止） |
 | [migration_v2.md](migration_v2.md) | v1.x → v2.0 移行ガイド |
-| [templates/](templates/) | 各層のドキュメントテンプレート |
+| [frontmatter_spec.md](frontmatter_spec.md) | フロントマター仕様・共通ルール |
+| [samples/](samples/) | 具体的なサンプルドキュメント（TaskFlowアプリ） |
 
 ### 運用ドキュメント（v2.2-v2.3）
 
@@ -105,17 +105,18 @@ SSDD v2.0 では、運用上の問題点を根本的に解決する重要な変�
 | [changelog_management.md](changelog_management.md) | 変更ログ管理方針（Git commit + CHANGELOG.md） |
 | [validation_tools.md](validation_tools.md) | バリデーションツール使い分けガイド（`/check`, `/review`） |
 
-### テンプレート一覧
+### サンプルドキュメント
 
-#### 基本テンプレート
+「TaskFlow」（タスク管理Webアプリ）を題材にした具体的なドキュメント例です。
 
 | ファイル | 用途 |
 |---------|------|
-| [templates/README.md](templates/README.md) | フロントマター仕様・共通ルール |
-| [templates/l1_vision.md](templates/l1_vision.md) | L1ビジョン・要求ドキュメント |
-| [templates/l2_overview.md](templates/l2_overview.md) | L2概要（用語集・技術方針・NFRカタログ） |
-| [templates/l2_phases.md](templates/l2_phases.md) | L2フェーズ定義・機能一覧 |
-| [templates/l3_feature.md](templates/l3_feature.md) | L3機能ドキュメント |
+| [samples/l1_vision_taskflow.md](samples/l1_vision_taskflow.md) | L1ビジョン・要求ドキュメントのサンプル |
+| [samples/l2_overview_taskflow.md](samples/l2_overview_taskflow.md) | L2概要のサンプル |
+| [samples/l2_phases_taskflow.md](samples/l2_phases_taskflow.md) | L2フェーズ定義のサンプル |
+| [samples/l3_feature_taskflow.md](samples/l3_feature_taskflow.md) | L3機能ドキュメントのサンプル |
+
+> **テンプレート（正本）**: 実際のプロジェクトでは `ssdd-plugin/skills/ssdd/templates/` のテンプレートを使用します。コマンド（`/draft-l1`, `/gen-l2`, `/gen-l3`）が自動的にテンプレートからドキュメントを生成します。
 
 ## 想定読者
 
@@ -147,7 +148,9 @@ SSDD v2.0 では、運用上の問題点を根本的に解決する重要な変�
 ## クイックスタート
 
 1. **guide.md を読む**: 三層モデルの概念を理解する
-2. **テンプレートをコピー**: `templates/` 配下のファイルをプロジェクトに配置
-3. **L1から始める**: ビジョン・要求を `l1_vision.md` に記載
-4. **AIでL2を生成**: L1を元にAIで機能構成・技術方針をドラフト
-5. **L3で実装**: 各機能ごとに機能Docを作成し、実装を進める
+2. **ssdd-plugin をインストール**: Claude Codeにプラグインを追加
+3. **L1を生成**: `/draft-l1` コマンドでビジョン・要求ドキュメントを作成
+4. **L2を生成**: `/gen-l2` コマンドで機能構成・技術方針をドラフト
+5. **L3で実装**: `/gen-l3` コマンドで機能Docを作成し、実装を進める
+
+> サンプルを参照したい場合は [samples/](samples/) ディレクトリを確認してください。
