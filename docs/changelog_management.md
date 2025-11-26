@@ -1,6 +1,6 @@
 # 変更ログ管理ガイド
 
-> **バージョン**: v2.3
+> **バージョン**: v2.4
 > **目的**: SSDDにおける変更履歴の記録方針を明確化
 
 ## 概要
@@ -92,9 +92,7 @@ feat(l3): add CLI feature template
 Add domain-specific template for CLI applications.
 Includes command specification, I/O handling, and exit codes.
 
-Related to Phase 2 (v2.1) implementation.
-
-Refs: docs/templates/l3_feature_cli.md
+Refs: docs/templates/l3_feature.md
 ```
 
 ---
@@ -465,4 +463,4 @@ L1/L2/L3更新         実装メモのみ
 ---
 
 **更新日**: 2025-01-26
-**対象バージョン**: SSDD v2.3以降
+**対象バージョン**: SSDD v2.4以降

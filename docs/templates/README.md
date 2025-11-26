@@ -9,28 +9,9 @@
 | [l1_vision.md](l1_vision.md) | L1 ビジョン・要求ドキュメント |
 | [l2_overview.md](l2_overview.md) | L2 概要（用語集・技術方針・全体構成） |
 | [l2_phases.md](l2_phases.md) | L2 フェーズ定義 |
-| [l3_feature.md](l3_feature.md) | L3 機能ドキュメント（汎用） |
-| [l3_feature_web.md](l3_feature_web.md) | L3 機能ドキュメント（Webアプリ用）**v2.1** |
-| [l3_feature_desktop.md](l3_feature_desktop.md) | L3 機能ドキュメント（Desktop用）**v2.1** |
-| [l3_feature_mobile.md](l3_feature_mobile.md) | L3 機能ドキュメント（Mobile用）**v2.1** |
-| [l3_feature_cli.md](l3_feature_cli.md) | L3 機能ドキュメント（CLI用）**v2.1** |
+| [l3_feature.md](l3_feature.md) | L3 機能ドキュメント |
 
-### ドメイン別テンプレートの選択（v2.1以降）
-
-L3機能ドキュメントでは、プロダクトのドメインに応じて最適なテンプレートを選択できます：
-
-| ドメイン | テンプレート | 特徴 |
-|---------|-------------|------|
-| **汎用** | l3_feature.md | ドメインに依存しない基本テンプレート |
-| **Webアプリ** | l3_feature_web.md | 画面設計、API設計、レスポンシブ、セキュリティ |
-| **Desktopアプリ** | l3_feature_desktop.md | ウィンドウ設計、メニュー、システム統合、OS別対応 |
-| **Mobileアプリ** | l3_feature_mobile.md | 画面遷移、デバイス機能、オフライン対応、ストア申請 |
-| **CLIツール** | l3_feature_cli.md | コマンド仕様、入出力、パイプライン、POSIX準拠 |
-
-**使い分けの目安**:
-- 単一ドメインのプロダクト → ドメイン特化テンプレートを使用
-- 複数ドメインのプロダクト → ドメインごとに異なるテンプレートを使用
-- ドメインが不明瞭 → 汎用テンプレートから開始
+> **Note**: L3テンプレートは汎用テンプレート1つのみです。ドメイン固有の考慮事項（セキュリティ、デプロイ、プラットフォーム対応等）はL2の技術方針・NFRカタログで定義し、L3生成時にAIがコンテキストに応じて適切な内容を生成します。
 
 ---
 
@@ -46,19 +27,19 @@ L3機能ドキュメントでは、プロダクトのドメインに応じて最
 
 ```yaml
 ---
-id: REQ-0001           # 一意なID
+id: REQ-YYYYMMDD-nnn   # 一意なID（タイムスタンプベース）
 kind: req              # ドキュメント種別
 layer: L1              # 所属レイヤ
 status: active         # ライフサイクル状態
 doc_status: draft      # 文書・開発状態
 ---
 
-# ユーザー認証機能  # 本文の見出しがタイトルとして扱われる
+# ユーザー認証機能  # ← 本文の見出しがタイトルとして扱われる（v2.0）
 ```
 
 | フィールド | 必須 | 説明 |
 |-----------|------|------|
-| id | ○ | 一意なID（REQ-0001, F-0001, NF-0001, PH-0001 等） |
+| id | ○ | 一意なID（REQ-YYYYMMDD-nnn, F-YYYYMMDD-nnn 等） |
 | kind | ○ | ドキュメント種別（下記参照） |
 | layer | ○ | 所属レイヤ（L1 / L2 / L3 / meta） |
 | status | ○ | ライフサイクル状態（下記参照） |
@@ -102,21 +83,21 @@ L2/L3 ドキュメントでは、以下の参照フィールドを使用して�
 
 ```yaml
 ---
-id: F-0001
+id: F-YYYYMMDD-nnn
 kind: feature
 layer: L3
-title: Markdown編集機能
 status: active
 doc_status: reviewed
 req_ids:              # 対応する要件ID
-  - REQ-0001
-  - REQ-0002
+  - REQ-YYYYMMDD-nnn
 nfr_ids:              # 適用される非機能要求ID
-  - NF-0001
-phase: PH-0001        # 所属フェーズ
+  - NF-YYYYMMDD-nnn
+phase: PH-YYYYMMDD-nnn  # 所属フェーズ
 depends_on:           # 依存する機能ID
-  - F-0002
+  - F-YYYYMMDD-nnn
 ---
+
+# Markdown編集機能  # ← 本文の見出しがタイトル（v2.0）
 ```
 
 | フィールド | 説明 |
