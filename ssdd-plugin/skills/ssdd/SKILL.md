@@ -43,10 +43,10 @@ L2ドキュメント（overview.md, phases.md）は通常プロジェクトに1�
 
 | ID | 用途 | 例 |
 |----|------|-----|
-| L2-OVERVIEW-YYYYMMDD-nnn | L2概要 | L2-OVERVIEW-20250125-001 |
-| L2-PHASES-YYYYMMDD-nnn | L2フェーズ定義 | L2-PHASES-20250125-001 |
+| L2-YYYYMMDD-nnn | L2概要（kind: overview） | L2-20250125-001 |
+| PH-YYYYMMDD-nnn | L2フェーズ定義（kind: phase） | PH-20250125-001 |
 
-**注**: L2ドキュメントIDは省略可能。`/check`は存在する場合のみ検証。
+**注**: L2概要のIDは省略可能。フェーズはPH-形式で個別に管理。
 
 ## フロントマター仕様
 

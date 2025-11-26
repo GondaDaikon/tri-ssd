@@ -140,6 +140,7 @@ src/
 |--------|------|
 | VISION-YYYYMMDD-nnn | L1ビジョンドキュメント |
 | REQ-YYYYMMDD-nnn | 要件 |
+| L2-YYYYMMDD-nnn | L2概要（省略可） |
 | PH-YYYYMMDD-nnn | フェーズ |
 | PH-POC-YYYYMMDD-nnn | 検証フェーズ |
 | NF-YYYYMMDD-nnn | 非機能要求 |
