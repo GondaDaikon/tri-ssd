@@ -575,5 +575,5 @@ function getErrorMessage(code, lang = 'ja') {
 
 ---
 
-**更新日**: 2025-11-25
-**対象バージョン**: SSDD v0.3以降
+**更新日**: 2025-11-27
+**対象バージョン**: SSDD v0.5

@@ -1,5 +1,5 @@
 ---
-id: L2-PHASES-YYYYMMDD-nnn
+id: PH-YYYYMMDD-nnn
 kind: phase
 layer: L2
 status: active
