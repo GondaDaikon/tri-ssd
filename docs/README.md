@@ -34,7 +34,7 @@ SSDD は以下の考え方をベースにしています：
 
 - **ドメイン特化L3テンプレート廃止**: 汎用テンプレート1つに統合（L2のコンテキストでAIが適切に生成）
 - **ssdd-plugin正本化**: `.claude/` との二重管理を解消
-- **kind値の整理**: vision, overview, phase, featureの4種類に
+- **kind値の整理**: vision, overview, phase, rules, featureの5種類に
 - **depends_onフィールド廃止**: 機能間依存の管理を簡素化
 
 ### v0.4（2025-11-26）運用改善
@@ -91,6 +91,7 @@ SSDD は以下の考え方をベースにしています：
 | [samples/l1_vision_taskflow.md](samples/l1_vision_taskflow.md) | L1ビジョン・要求ドキュメントのサンプル |
 | [samples/l2_overview_taskflow.md](samples/l2_overview_taskflow.md) | L2概要のサンプル |
 | [samples/l2_phases_taskflow.md](samples/l2_phases_taskflow.md) | L2フェーズ定義のサンプル |
+| [samples/l2_rules_taskflow.md](samples/l2_rules_taskflow.md) | L2実装ルールのサンプル |
 | [samples/l3_feature_taskflow.md](samples/l3_feature_taskflow.md) | L3機能ドキュメントのサンプル |
 
 > **テンプレート（正本）**: 実際のプロジェクトでは `ssdd-plugin/skills/ssdd/templates/` のテンプレートを使用します。コマンド（`/draft-l1`, `/gen-l2`, `/gen-l3`）が自動的にテンプレートからドキュメントを生成します。
@@ -128,6 +129,7 @@ SSDD は以下の考え方をベースにしています：
 2. **ssdd-plugin をインストール**: Claude Codeにプラグインを追加
 3. **L1を生成**: `/draft-l1` コマンドでビジョン・要求ドキュメントを作成
 4. **L2を生成**: `/gen-l2` コマンドで機能構成・技術方針をドラフト
-5. **L3で実装**: `/gen-l3` コマンドで機能Docを作成し、実装を進める
+5. **実装ルールを生成**: `/gen-rules` コマンドで実装ルールのたたき台を生成
+6. **L3で実装**: `/gen-l3` コマンドで機能Docを作成し、実装を進める
 
 > サンプルを参照したい場合は [samples/](samples/) ディレクトリを確認してください。

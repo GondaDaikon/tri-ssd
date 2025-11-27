@@ -92,6 +92,7 @@ Then: ユーザーが作成され確認メールが送信される
 /review l1_vision.md # レビュー
 /promote-status l1_vision.md  # reviewed に昇格
 /gen-l2              # L2生成
+/gen-rules           # 実装ルールのたたき台生成
 /check               # 整合性チェック
 ```
 

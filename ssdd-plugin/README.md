@@ -31,16 +31,19 @@ cp -r ssdd-plugin/skills/* ~/.claude/skills/
 # 3. L2（機能設計・技術方針）を生成
 /gen-l2
 
-# 4. L3（機能ドキュメント）を生成
+# 4. 実装ルールのたたき台を生成
+/gen-rules
+
+# 5. L3（機能ドキュメント）を生成
 /gen-l3
 
-# 5. 整合性チェック
+# 6. 整合性チェック
 /check
 
-# 6. AIレビューで品質確認
+# 7. AIレビューで品質確認
 /review docs/l1_vision.md
 
-# 7. レビュー後、doc_statusを昇格
+# 8. レビュー後、doc_statusを昇格
 /promote-status docs/l1_vision.md
 ```
 
@@ -52,6 +55,7 @@ cp -r ssdd-plugin/skills/* ~/.claude/skills/
 | `/draft-l1` | L1ドキュメントを対話形式で作成 |
 | `/convert-l1 <ファイル>` | 既存ドキュメントをL1形式に変換 |
 | `/gen-l2 [--simple] [REQ-xxxx ...]` | L1からL2を生成（--simple: 1ファイル構成） |
+| `/gen-rules [--minimal]` | 実装ルールのたたき台を生成 |
 | `/gen-l3 [F-xxxx ...]` | L2からL3を生成（複数ID指定可） |
 | `/check [--list-ids]` | 整合性チェック（--list-ids: ID一覧出力） |
 | `/review <ファイル>` | AIレビュー |
@@ -83,6 +87,7 @@ docs/
   l2_system/
     overview.md             # 用語集・技術方針・NFR
     phases.md               # フェーズ定義・機能一覧
+    rules.md                # 実装ルール（コード生成制約）
   l3_features/
     F-YYYYMMDD-nnn_xxx.md   # 機能ドキュメント
 ```
@@ -96,6 +101,7 @@ docs/
 - `F-YYYYMMDD-nnn` - 機能
 - `PH-YYYYMMDD-nnn` - フェーズ
 - `NF-YYYYMMDD-nnn` - 非機能要求
+- `RULES-YYYYMMDD-nnn` - 実装ルール
 - `SP-YYYYMMDD-nnn` - スパイク/PoC
 
 ## バージョン
