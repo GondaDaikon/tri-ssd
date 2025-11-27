@@ -1,6 +1,6 @@
 # SSDD 概念ガイド
 
-> **バージョン**: v0.5
+> **バージョン**: v0.6.0
 > **対象範囲**: SSDD の概念・設計方針・三層モデルの解説
 
 ## 主要な設計方針
@@ -17,7 +17,7 @@ SSDD では、実運用での課題を解決する以下の設計方針を採用
 
 ### 変更3: L2構成のシンプル化
 **問題**: 4ファイル構成（overview, phases, nfr, features_index）は小規模開発に過剰
-**解決**: 2ファイル構成（overview, phases）をデフォルトに変更
+**解決**: 2ファイル構成（foundation, phases）をデフォルトに変更
 
 ### 変更4: 技術選定プロセスの変更
 **問題**: AI自動選定では不適切な技術が選ばれるリスク
@@ -120,7 +120,7 @@ AIコードエージェント（および人間の開発者）には、一度に
 docs/
   l1_vision.md
   l2_system/
-    overview.md          # 用語集・技術方針・全体構成・NFRカタログ
+    foundation.md        # 用語集・技術方針・全体構成・NFRカタログ
     phases.md            # フェーズ定義（PH-YYYYMMDD-nnn）＋各フェーズ配下の機能一覧
     rules.md             # 実装ルール（コード生成時の制約）
   l3_features/
@@ -132,7 +132,7 @@ src/
 ```
 
 **v0.1変更点**:
-- L2は2ファイル構成がデフォルト（nfr.md, features_index.mdはoverviewとphasesに統合）
+- L2は2ファイル構成がデフォルト（nfr.md, features_index.mdはfoundationとphasesに統合）
 - IDはタイムスタンプベース形式（F-20250125-001）を使用
 
 ### 2.3 ID 種類
@@ -383,7 +383,7 @@ draft → reviewed → implemented
 - **適用範囲**: どの機能／フェーズに適用されるか
 - **テスト／監視方法へのリンク**
 
-**v0.1変更点**: nfr.mdは廃止され、overview.md内に統合されました。
+**v0.1変更点**: nfr.mdは廃止され、foundation.md内に統合されました。
 
 ### 4.6 実装ルール（rules.md）
 

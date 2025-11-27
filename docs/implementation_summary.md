@@ -53,7 +53,7 @@ SSDDフレームワークを5つのフェーズで改善しました。
 
 **問題**: 4ファイル構成（overview, phases, nfr, features_index）は小規模開発に過剰
 
-**解決**: 2ファイル構成（overview.md + phases.md）をデフォルトに変更
+**解決**: 2ファイル構成（foundation.md + phases.md）をデフォルトに変更
 
 **利点**:
 - 小規模プロジェクトでのハードルが下がる
@@ -226,10 +226,11 @@ SSDDフレームワークを5つのフェーズで改善しました。
 
 **問題**: 未使用のkind値（req, nfr, spike）が定義されていた
 
-**解決**: kind値を4種類に限定
+**解決**: kind値を5種類に限定
 - vision: ビジョンドキュメント（L1）
-- overview: L2概要
+- foundation: L2技術基盤
 - phase: フェーズ定義（L2）
+- rules: 実装ルール（L2）
 - feature: 機能ドキュメント（L3）
 
 ### 4. depends_onフィールド廃止

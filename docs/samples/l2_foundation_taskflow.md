@@ -1,18 +1,19 @@
 ---
 id: L2-20251126-001
-kind: overview
+kind: foundation
 layer: L2
 status: active
 doc_status: reviewed
 ---
 
-# TaskFlow システム概要
+# TaskFlow 技術基盤
 
 ## 1. ドキュメントの立ち位置
 
 ### 1.1 目的
 
-本書は、TaskFlow の技術方針・アーキテクチャ・非機能要求の詳細を定義する。
+本書は、TaskFlow の技術基盤（用語・技術選定・アーキテクチャ・NFR）の正本である。
+本書の内容が確定した後、phases.md でフェーズ分け・機能一覧を定義する。
 
 ### 1.2 前提ドキュメント
 
@@ -129,8 +130,9 @@ taskflow/
 ├── docs/                    # ドキュメント
 │   ├── l1_vision.md
 │   ├── l2_system/
-│   │   ├── overview.md
-│   │   └── phases.md
+│   │   ├── foundation.md    # 本ドキュメント
+│   │   ├── phases.md
+│   │   └── rules.md
 │   └── l3_features/
 │       └── F-20251126-001_task_crud.md
 ├── frontend/                # Reactアプリケーション
@@ -259,7 +261,16 @@ taskflow/
 
 ---
 
-## 10. 更新履歴
+## 10. 次のステップ
+
+本書の内容が確定（`doc_status: reviewed`）したら、以下を実施する：
+
+1. `/gen-phases` でフェーズ定義・機能一覧を生成
+2. `/gen-rules` で実装ルールを生成
+
+---
+
+## 11. 更新履歴
 
 | 日付 | 版 | 変更内容 | 変更者 |
 |------|---|---------|-------|

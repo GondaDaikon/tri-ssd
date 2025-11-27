@@ -60,21 +60,21 @@ L3実装で発見した問題は、汎用的・致命的であればL2 rules.md�
 
 ### L2ドキュメントID（任意）
 
-L2ドキュメント（overview.md, phases.md）は通常プロジェクトに1つのため、以下の形式を使用：
+L2ドキュメント（foundation.md, phases.md）は通常プロジェクトに1つのため、以下の形式を使用：
 
 | ID | 用途 | 例 |
 |----|------|-----|
-| L2-YYYYMMDD-nnn | L2概要（kind: overview） | L2-20250125-001 |
+| L2-YYYYMMDD-nnn | L2技術基盤（kind: foundation） | L2-20250125-001 |
 | PH-YYYYMMDD-nnn | L2フェーズ定義（kind: phase） | PH-20250125-001 |
 
-**注**: L2概要のIDは省略可能。フェーズはPH-形式で個別に管理。
+**注**: L2技術基盤のIDは省略可能。フェーズはPH-形式で個別に管理。
 
 ## フロントマター仕様
 
 ```yaml
 ---
 id: F-YYYYMMDD-nnn
-kind: feature          # vision|feature|phase|overview
+kind: feature          # vision|feature|phase|foundation
 layer: L3              # L1|L2|L3
 status: active         # active|deprecated|removed
 doc_status: draft      # draft|reviewed|implemented
@@ -127,7 +127,7 @@ L3:    draft → reviewed → implemented
 docs/
   l1_vision.md              # L1: ビジョン・要求
   l2_system/
-    overview.md             # 用語集・技術方針・NFRカタログ
+    foundation.md           # 用語集・技術方針・NFRカタログ
     phases.md               # フェーズ定義・機能一覧
     rules.md                # 実装ルール（コード生成制約）
   l3_features/
@@ -140,7 +140,7 @@ docs/
 
 **基本テンプレート**:
 - L1: `skills/ssdd/templates/l1_vision.md`
-- L2概要: `skills/ssdd/templates/l2_overview.md`
+- L2技術基盤: `skills/ssdd/templates/l2_foundation.md`
 - L2フェーズ: `skills/ssdd/templates/l2_phases.md`
 - L2実装ルール: `skills/ssdd/templates/l2_rules.md`
 - L3機能: `skills/ssdd/templates/l3_feature.md`
@@ -151,7 +151,8 @@ docs/
 |----------|------|
 | `/init-ssdd` | ディレクトリ構造初期化 |
 | `/draft-l1` | L1ドキュメント作成（対話形式） |
-| `/gen-l2 [REQ-ID...]` | L1からL2生成 |
+| `/gen-l2 [REQ-ID...]` | L1からL2技術基盤生成 |
+| `/gen-phases` | 技術基盤からフェーズ定義・機能一覧生成 |
 | `/gen-rules` | L2実装ルールのたたき台生成 |
 | `/gen-l3 [F-ID...]` | L2からL3生成 |
 | `/check [--list-ids \| ファイル]` | 整合性チェック |

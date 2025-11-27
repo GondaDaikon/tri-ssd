@@ -218,7 +218,7 @@ v0.1のID形式:
 現在の値: [value]
 
 有効な値:
-- kind: vision, overview, phase, rules, feature
+- kind: vision, foundation, phase, rules, feature
 - layer: L1, L2, L3
 - status: active, deprecated, removed
 - doc_status: draft, reviewed, implemented

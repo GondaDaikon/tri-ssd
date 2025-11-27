@@ -28,22 +28,25 @@ cp -r ssdd-plugin/skills/* ~/.claude/skills/
 # 2. L1（ビジョン・要求）を対話形式で作成
 /draft-l1
 
-# 3. L2（機能設計・技術方針）を生成
+# 3. L2 技術基盤（foundation.md）を生成
 /gen-l2
 
-# 4. 実装ルールのたたき台を生成
+# 4. L2 フェーズ定義・機能一覧（phases.md）を生成
+/gen-phases
+
+# 5. 実装ルールのたたき台を生成
 /gen-rules
 
-# 5. L3（機能ドキュメント）を生成
+# 6. L3（機能ドキュメント）を生成
 /gen-l3
 
-# 6. 整合性チェック
+# 7. 整合性チェック
 /check
 
-# 7. AIレビューで品質確認
+# 8. AIレビューで品質確認
 /review docs/l1_vision.md
 
-# 8. レビュー後、doc_statusを昇格
+# 9. レビュー後、doc_statusを昇格
 /promote-status docs/l1_vision.md
 ```
 
@@ -54,7 +57,8 @@ cp -r ssdd-plugin/skills/* ~/.claude/skills/
 | `/init-ssdd` | ディレクトリ構造を初期化 |
 | `/draft-l1` | L1ドキュメントを対話形式で作成 |
 | `/convert-l1 <ファイル>` | 既存ドキュメントをL1形式に変換 |
-| `/gen-l2 [--simple] [REQ-xxxx ...]` | L1からL2を生成（--simple: 1ファイル構成） |
+| `/gen-l2 [REQ-xxxx ...]` | L1からL2技術基盤（foundation.md）を生成 |
+| `/gen-phases` | 技術基盤からフェーズ定義・機能一覧を生成 |
 | `/gen-rules [--minimal]` | 実装ルールのたたき台を生成 |
 | `/gen-l3 [F-xxxx ...]` | L2からL3を生成（複数ID指定可） |
 | `/check [--list-ids]` | 整合性チェック（--list-ids: ID一覧出力） |
@@ -68,7 +72,7 @@ cp -r ssdd-plugin/skills/* ~/.claude/skills/
 |------|------|-----|
 | `<引数>` | 必須引数 | `/convert-l1 <ファイル>` |
 | `[引数]` | 省略可能な引数 | `/gen-l3 [F-ID]` |
-| `--オプション` | オプションフラグ | `/gen-l2 --simple` |
+| `--オプション` | オプションフラグ | `/gen-rules --minimal` |
 | `...` | 複数指定可能 | `/gen-l3 F-001 F-002 ...` |
 
 ## 三層モデル
@@ -76,7 +80,7 @@ cp -r ssdd-plugin/skills/* ~/.claude/skills/
 | 層 | 名称 | 内容 |
 |----|------|------|
 | L1 | ビジョン・要求 | ビジネス要求・背景・制約 |
-| L2 | 機能設計・技術方針 | 機能構成・技術スタック・フェーズ |
+| L2 | 機能設計・技術方針 | 技術基盤・フェーズ・機能一覧・実装ルール |
 | L3 | 機能ドキュメント | ミニ仕様＋タスク＋テスト |
 
 ## ディレクトリ構成（生成後）
@@ -85,7 +89,7 @@ cp -r ssdd-plugin/skills/* ~/.claude/skills/
 docs/
   l1_vision.md              # L1: ビジョン・要求
   l2_system/
-    overview.md             # 用語集・技術方針・NFR
+    foundation.md           # 技術基盤（用語集・技術方針・アーキテクチャ・NFR）
     phases.md               # フェーズ定義・機能一覧
     rules.md                # 実装ルール（コード生成制約）
   l3_features/
@@ -106,7 +110,7 @@ docs/
 
 ## バージョン
 
-- v0.5.0
+- v0.6.0
 
 ## ライセンス
 

@@ -157,7 +157,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - フロントマター仕様: `title`フィールド廃止、`# 見出し`を使用
-- L2デフォルト構成: 4ファイル→2ファイル（overview.md + phases.md）
+- L2デフォルト構成: 4ファイル→2ファイル（foundation.md + phases.md）
 
 ### Removed
 - `title`フィールド

@@ -41,19 +41,19 @@ SSDD フレームワークで使用される用語の定義です。
 | 値 | 定義 |
 |----|------|
 | **vision** | ビジョンドキュメント。L1 の主文書 |
-| **overview** | 概要ドキュメント。L2 の主文書（用語集・技術方針・NFRカタログ） |
+| **foundation** | 技術基盤ドキュメント。L2 の主文書（用語集・技術方針・アーキテクチャ・NFR） |
 | **phase** | フェーズドキュメント。L2 のフェーズ定義・機能一覧 |
 | **rules** | 実装ルールドキュメント。L2 のコード生成制約 |
 | **feature** | 機能ドキュメント。L3 の主文書 |
 
-> **Note**: 要件（REQ）はL1ビジョン内でインライン定義、非機能要求（NF）はL2概要内で定義します。
+> **Note**: 要件（REQ）はL1ビジョン内でインライン定義、非機能要求（NF）はL2技術基盤内で定義します。
 
 ### kind と ID接頭辞の対応
 
 | kind | ID接頭辞 | レイヤ |
 |------|----------|--------|
 | vision | VISION-YYYYMMDD-nnn | L1 |
-| overview | L2-YYYYMMDD-nnn | L2 |
+| foundation | L2-YYYYMMDD-nnn | L2 |
 | phase | PH-YYYYMMDD-nnn | L2 |
 | rules | RULES-YYYYMMDD-nnn | L2 |
 | feature | F-YYYYMMDD-nnn | L3 |
@@ -80,7 +80,8 @@ SSDD フレームワークで使用される用語の定義です。
 |------|------|
 | **/init-ssdd** | SSDD ディレクトリ構造を初期化 |
 | **/draft-l1** | 対話形式で L1 ドキュメントを作成 |
-| **/gen-l2** | L1 から L2 ドキュメントを生成 |
+| **/gen-l2** | L1 から L2 技術基盤（foundation.md）を生成 |
+| **/gen-phases** | L2 技術基盤からフェーズ定義・機能一覧を生成 |
 | **/gen-rules** | L2 実装ルールのたたき台を生成 |
 | **/gen-l3** | L2 から L3 ドキュメントを生成 |
 | **/check** | ドキュメント整合性をチェック |

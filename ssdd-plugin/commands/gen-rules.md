@@ -8,7 +8,7 @@ allowed-tools: Read, Write, Edit, Glob, Grep, WebSearch
 
 ## 概要
 
-L2 overview.mdの技術スタックとL1のドメインルールを基に、実装ルールの**たたき台**を生成する。
+L2 foundation.mdの技術スタックとL1のドメインルールを基に、実装ルールの**たたき台**を生成する。
 
 > **重要**: このコマンドで生成されるのは初期版であり、L3実装を通じて継続的に更新・進化させることを前提とする。
 
@@ -18,21 +18,21 @@ L2 overview.mdの技術スタックとL1のドメインルールを基に、実�
 
 ## 前提条件
 
-- `/gen-l2` が完了していること（`docs/l2_system/overview.md` が存在）
+- `/gen-l2` が完了していること（`docs/l2_system/foundation.md` が存在）
 - `docs/l1_vision.md` が存在すること
 
 ## 前提処理
 
 1. `skills/ssdd/SKILL.md` を読み込み、SSDD の基本概念を把握する
 2. `skills/ssdd/templates/l2_rules.md` を読み込み、テンプレート構造を確認
-3. `docs/l2_system/overview.md` を読み込み、技術スタックを把握
+3. `docs/l2_system/foundation.md` を読み込み、技術スタックを把握
 4. `docs/l1_vision.md` を読み込み、ドメインルール・制約を把握
 
 ## 生成手順
 
 ### Step 1: 技術スタック抽出
 
-L2 overview.mdから以下を抽出:
+L2 foundation.mdから以下を抽出:
 - 使用言語・バージョン
 - フレームワーク
 - ORM/DB
@@ -65,11 +65,11 @@ L1から以下を抽出:
 | セクション | 生成方法 |
 |-----------|---------|
 | 1. コード規約 | Step 3の検索結果から |
-| 2. アーキテクチャ | L2 overviewから + 検索結果 |
+| 2. アーキテクチャ | L2 foundationから + 検索結果 |
 | 3. ドメインルール | Step 2のL1抽出から |
 | 4. API・データアクセス | Step 3の検索結果から |
 | 5. セキュリティ・ログ | Step 3の検索結果から |
-| 6. テスト | L2 overview + 検索結果から |
+| 6. テスト | L2 foundation + 検索結果から |
 | 7. AI固有の禁止事項 | テンプレート固定 |
 
 ### Step 5: 対話による確認
