@@ -1,0 +1,8 @@
+# 生成結果
+outputs/
+
+# シンボリックリンク
+test-cases/*/skills
+
+# Node
+node_modules/
