@@ -165,18 +165,18 @@ for md_file in Path('docs').rglob('*.md'):
 | 項目 | 旧形式 | 現行形式 |
 |------|------|------|
 | ファイル構成 | 4ファイル | 2ファイル（デフォルト） |
-| overview.md | 用語集・技術方針・アーキテクチャ | 用語集・技術方針・アーキテクチャ・**NFRカタログ** |
+| foundation.md | 用語集・技術方針・アーキテクチャ | 用語集・技術方針・アーキテクチャ・**NFRカタログ** |
 | phases.md | フェーズ定義 | フェーズ定義・**機能一覧** |
-| nfr.md | 非機能要求カタログ | (**削除** - overview.mdに統合) |
+| nfr.md | 非機能要求カタログ | (**削除** - foundation.mdに統合) |
 | features_index.md | 機能一覧 | (**削除** - phases.mdに統合) |
 
 #### 移行手順
 
 **4ファイル構成 → 2ファイル構成:**
 
-1. **nfr.md の内容を overview.md に統合**
+1. **nfr.md の内容を foundation.md に統合**
 
-   `docs/l2_system/overview.md` に以下のセクションを追加：
+   `docs/l2_system/foundation.md` に以下のセクションを追加：
    ```markdown
    ## 7. 非機能要求カタログ
 
@@ -207,7 +207,7 @@ for md_file in Path('docs').rglob('*.md'):
    /check
    ```
 
-**注意**: 4ファイル構成を継続使用することも可能です。現行形式でも4ファイル構成はサポートされていますが、新規プロジェクトでは2ファイル構成を推奨します。
+**注意**: 4ファイル構成を継続使用することも可能です。現行形式でも4ファイル構成はサポートされていますが、新規プロジェクトでは2ファイル構成（foundation.md + phases.md）を推奨します。
 
 ---
 
@@ -234,7 +234,7 @@ for md_file in Path('docs').rglob('*.md'):
 
 **既存ドキュメントのレビュー:**
 
-既存のL2ドキュメント（`docs/l2_system/overview.md`）の技術選定セクションをレビューし、選定理由が明記されているか確認：
+既存のL2ドキュメント（`docs/l2_system/foundation.md`）の技術選定セクションをレビューし、選定理由が明記されているか確認：
 
 ```markdown
 ### 4.1 クライアント側
@@ -320,7 +320,7 @@ doc_status: reviewed
 段階的に移行：
 1. 一旦4ファイル構成のまま維持
 2. 新規フェーズ追加時に phases.md に機能一覧を含める
-3. 新規NFR追加時に overview.md に記載
+3. 新規NFR追加時に foundation.md に記載
 4. 最終的に nfr.md と features_index.md が空になったら削除
 
 ### Q4: タイムスタンプベースIDが長すぎる

@@ -26,15 +26,22 @@ SSDD は以下の考え方をベースにしています：
 
 ## バージョン情報
 
-> **現行バージョン**: v0.5（2025-11-26）
+> **現行バージョン**: v0.6.0（2025-11-27）
 >
 > 開発中のプレリリース版です。フィードバックを元に改善を続けています。
+
+### v0.6.0（2025-11-27）コマンド分離
+
+- **overview.md → foundation.md**: L2技術基盤ファイル名変更
+- **コマンド分離**: `/gen-l2` をfoundation.md生成に限定、`/gen-phases` を新設
+- **kind値変更**: `overview` → `foundation`
+- **設計思想**: 技術選定確定後にフェーズ設計（環境構築フェーズを含む）
 
 ### v0.5（2025-11-26）構成簡素化
 
 - **ドメイン特化L3テンプレート廃止**: 汎用テンプレート1つに統合（L2のコンテキストでAIが適切に生成）
 - **ssdd-plugin正本化**: `.claude/` との二重管理を解消
-- **kind値の整理**: vision, overview, phase, featureの4種類に
+- **kind値の整理**: vision, foundation, phase, rules, featureの5種類に
 - **depends_onフィールド廃止**: 機能間依存の管理を簡素化
 
 ### v0.4（2025-11-26）運用改善
@@ -59,7 +66,7 @@ SSDD は以下の考え方をベースにしています：
 
 - **タイムスタンプベースID**: `REQ-YYYYMMDD-nnn`, `F-YYYYMMDD-nnn` 形式
 - **フロントマター仕様**: titleフィールド廃止、`# 見出し`をタイトルとして使用
-- **L2の2ファイル構成**: `overview.md` + `phases.md`
+- **L2の2ファイル構成**: `foundation.md` + `phases.md`
 - **対話的技術選定**: AIが候補提示 → 人間が選択
 
 ## ドキュメント構成
@@ -89,8 +96,9 @@ SSDD は以下の考え方をベースにしています：
 | ファイル | 用途 |
 |---------|------|
 | [samples/l1_vision_taskflow.md](samples/l1_vision_taskflow.md) | L1ビジョン・要求ドキュメントのサンプル |
-| [samples/l2_overview_taskflow.md](samples/l2_overview_taskflow.md) | L2概要のサンプル |
+| [samples/l2_foundation_taskflow.md](samples/l2_foundation_taskflow.md) | L2技術基盤のサンプル |
 | [samples/l2_phases_taskflow.md](samples/l2_phases_taskflow.md) | L2フェーズ定義のサンプル |
+| [samples/l2_rules_taskflow.md](samples/l2_rules_taskflow.md) | L2実装ルールのサンプル |
 | [samples/l3_feature_taskflow.md](samples/l3_feature_taskflow.md) | L3機能ドキュメントのサンプル |
 
 > **テンプレート（正本）**: 実際のプロジェクトでは `ssdd-plugin/skills/ssdd/templates/` のテンプレートを使用します。コマンド（`/draft-l1`, `/gen-l2`, `/gen-l3`）が自動的にテンプレートからドキュメントを生成します。
@@ -127,7 +135,9 @@ SSDD は以下の考え方をベースにしています：
 1. **guide.md を読む**: 三層モデルの概念を理解する
 2. **ssdd-plugin をインストール**: Claude Codeにプラグインを追加
 3. **L1を生成**: `/draft-l1` コマンドでビジョン・要求ドキュメントを作成
-4. **L2を生成**: `/gen-l2` コマンドで機能構成・技術方針をドラフト
-5. **L3で実装**: `/gen-l3` コマンドで機能Docを作成し、実装を進める
+4. **L2技術基盤を生成**: `/gen-l2` コマンドで技術方針をドラフト
+5. **フェーズ設計**: `/gen-phases` コマンドでフェーズ定義・機能一覧を生成
+6. **実装ルールを生成**: `/gen-rules` コマンドで実装ルールのたたき台を生成
+7. **L3で実装**: `/gen-l3` コマンドで機能Docを作成し、実装を進める
 
 > サンプルを参照したい場合は [samples/](samples/) ディレクトリを確認してください。

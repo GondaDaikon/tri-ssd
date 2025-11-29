@@ -44,7 +44,11 @@ docs/
 ## 出力
 
 - 作成したディレクトリ一覧
-- 次のステップ（`/draft-l1` または `/convert-l1` の案内）
+- 次のステップの案内:
+  1. `/draft-l1` または `/convert-l1` でL1を作成
+  2. `/gen-l2` でL2（overview, phases）を生成
+  3. `/gen-rules` で実装ルールのたたき台を生成
+  4. `/gen-l3` でL3を生成
 
 ## 注意事項
 

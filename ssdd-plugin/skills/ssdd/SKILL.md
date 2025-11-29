@@ -14,6 +14,25 @@ SSDDは、複雑な要件を機能単位に分割し、AIが扱える粒度に�
 | L2 | 機能設計・技術方針 | 機能構成・技術スタック・フェーズ・NFR | 設計判断 |
 | L3 | 機能ドキュメント | ミニ仕様＋タスク＋テスト＋実装メモ | 機能単位の仕様 |
 
+### L1の設計思想
+
+L1は「AIに目的とコンテキストを与える」ためのドキュメント：
+
+- **非技術者も読める言語**で「何を・なぜ・誰のために」を記述
+- 技術詳細はL2に委ね、ビジネス要求に集中
+- 要求IDにより、L2/L3への**トレーサビリティの起点**となる
+- AIがコード生成時に「そもそも何を解決するのか」を参照できる
+
+### L2の設計思想
+
+L2は「AIに制約と方針を伝え、L3生成の指針を与える」ためのドキュメント：
+
+- L1の「何を」を「どう実現するか」の**設計判断を記録**
+- 技術スタック・アーキテクチャ・NFRを具体化
+- フェーズ定義により**実装順序と依存関係**を明確化
+- **実装ルール**（rules.md）でコード生成時の制約を定義
+- AIがL3生成時に「どの技術で・どの順序で・何に注意して」を参照できる
+
 ### L3の設計思想
 
 L3は「AIとのフィードバックサイクルを回す作業単位」として機能：
@@ -21,6 +40,8 @@ L3は「AIとのフィードバックサイクルを回す作業単位」とし�
 ```
 L3仕様 → AIがコード生成 → テスト・検証 → L3更新 → 再生成...
 ```
+
+L3実装で発見した問題は、汎用的・致命的であればL2 rules.mdに追記し、次のL3で活用する。
 
 ## ID形式
 
@@ -39,21 +60,21 @@ L3仕様 → AIがコード生成 → テスト・検証 → L3更新 → 再生
 
 ### L2ドキュメントID（任意）
 
-L2ドキュメント（overview.md, phases.md）は通常プロジェクトに1つのため、以下の形式を使用：
+L2ドキュメント（foundation.md, phases.md）は通常プロジェクトに1つのため、以下の形式を使用：
 
 | ID | 用途 | 例 |
 |----|------|-----|
-| L2-YYYYMMDD-nnn | L2概要（kind: overview） | L2-20250125-001 |
+| L2-YYYYMMDD-nnn | L2技術基盤（kind: foundation） | L2-20250125-001 |
 | PH-YYYYMMDD-nnn | L2フェーズ定義（kind: phase） | PH-20250125-001 |
 
-**注**: L2概要のIDは省略可能。フェーズはPH-形式で個別に管理。
+**注**: L2技術基盤のIDは省略可能。フェーズはPH-形式で個別に管理。
 
 ## フロントマター仕様
 
 ```yaml
 ---
 id: F-YYYYMMDD-nnn
-kind: feature          # vision|feature|phase|overview
+kind: feature          # vision|feature|phase|foundation
 layer: L3              # L1|L2|L3
 status: active         # active|deprecated|removed
 doc_status: draft      # draft|reviewed|implemented
@@ -106,8 +127,9 @@ L3:    draft → reviewed → implemented
 docs/
   l1_vision.md              # L1: ビジョン・要求
   l2_system/
-    overview.md             # 用語集・技術方針・NFRカタログ
+    foundation.md           # 用語集・技術方針・NFRカタログ
     phases.md               # フェーズ定義・機能一覧
+    rules.md                # 実装ルール（コード生成制約）
   l3_features/
     F-YYYYMMDD-nnn_xxx.md   # 機能ドキュメント
 ```
@@ -118,8 +140,9 @@ docs/
 
 **基本テンプレート**:
 - L1: `skills/ssdd/templates/l1_vision.md`
-- L2概要: `skills/ssdd/templates/l2_overview.md`
+- L2技術基盤: `skills/ssdd/templates/l2_foundation.md`
 - L2フェーズ: `skills/ssdd/templates/l2_phases.md`
+- L2実装ルール: `skills/ssdd/templates/l2_rules.md`
 - L3機能: `skills/ssdd/templates/l3_feature.md`
 
 ## 主要コマンド
@@ -128,7 +151,9 @@ docs/
 |----------|------|
 | `/init-ssdd` | ディレクトリ構造初期化 |
 | `/draft-l1` | L1ドキュメント作成（対話形式） |
-| `/gen-l2 [REQ-ID...]` | L1からL2生成 |
+| `/gen-l2 [REQ-ID...]` | L1からL2技術基盤生成 |
+| `/gen-phases` | 技術基盤からフェーズ定義・機能一覧生成 |
+| `/gen-rules` | L2実装ルールのたたき台生成 |
 | `/gen-l3 [F-ID...]` | L2からL3生成 |
 | `/check [--list-ids \| ファイル]` | 整合性チェック |
 | `/review <ファイル>` | AIレビュー（必須） |

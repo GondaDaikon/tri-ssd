@@ -504,7 +504,7 @@ exit 0
 
 # 主要ドキュメントをレビュー
 /review docs/l1_vision.md
-/review docs/l2_system/overview.md
+/review docs/l2_system/foundation.md
 ```
 
 ### 小〜中規模チーム
