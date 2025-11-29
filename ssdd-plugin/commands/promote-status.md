@@ -6,6 +6,14 @@ allowed-tools: Read, Edit, Glob, Grep
 
 # doc_status 昇格コマンド
 
+## ツール実行方針
+
+<parallel_execution>
+**並列実行すべき操作**:
+- SKILL.md と対象ファイルの同時読み込み
+- 参照整合性チェック時の複数ID検索（Grep）
+</parallel_execution>
+
 ## 引数
 
 - `$1`: 昇格対象（必須）

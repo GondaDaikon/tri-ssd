@@ -6,6 +6,14 @@ allowed-tools: Read, Glob, Grep
 
 # SSDD 整合性チェックコマンド
 
+## ツール実行方針
+
+<parallel_execution>
+**並列実行すべき操作**:
+- 複数ファイルの読み込み（Glob結果の各ファイル）
+- 複数パターンでのGrep検索（各ID形式を同時検索）
+</parallel_execution>
+
 ## 引数
 
 - `--list-ids`: 存在するID一覧を表示

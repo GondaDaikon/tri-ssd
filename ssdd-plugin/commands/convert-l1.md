@@ -6,6 +6,20 @@ allowed-tools: Read, Write, Edit
 
 # L1 変換コマンド
 
+## 変換時の原則
+
+<avoid_over_engineering>
+- 元ドキュメントにない情報を推測・捏造しない（TODOマークで対応）
+- 技術詳細（実装方法、アーキテクチャ）はL1に含めない（L2へ分離）
+- 元ドキュメントの曖昧な表現をそのまま明確化しようとしない
+</avoid_over_engineering>
+
+## ツール実行方針
+
+<parallel_execution>
+前提処理でのファイル読み込み（SKILL.md, templates, 変換元ファイルを同時に読み込む）
+</parallel_execution>
+
 ## 引数
 
 - `$1`: 変換元のドキュメントパス（必須）
