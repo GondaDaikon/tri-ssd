@@ -6,6 +6,21 @@ allowed-tools: Read, Write, Edit
 
 # L1 ドラフト作成コマンド
 
+## 対話時の原則
+
+<avoid_over_engineering>
+- 必要以上に詳細を聞き出さない（L2で決める技術詳細はL1に書かない）
+- ユーザーが「わからない」と答えたら、TODOマークして先に進む
+- 機能要求は概要レベルで十分（詳細はL3で定義）
+- 非機能要求も「体感的にストレスなく」程度の粒度で十分
+</avoid_over_engineering>
+
+## ツール実行方針
+
+<parallel_execution>
+前提処理でのファイル読み込み（SKILL.md, templates を同時に読み込む）
+</parallel_execution>
+
 ## 前提処理
 
 1. `skills/ssdd/SKILL.md` を読み込み、SSDD の基本概念を把握する

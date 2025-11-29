@@ -6,6 +6,35 @@ allowed-tools: Read, Glob, Grep
 
 # 変更伝播分析コマンド
 
+## 分析時の原則
+
+<avoid_over_engineering>
+- 影響を過大評価しない（直接参照のみを「高影響」とする）
+- 「念のため確認」レベルの項目は低優先度として扱う
+- 全てのドキュメントを更新対象にしない（本当に影響があるものだけ）
+</avoid_over_engineering>
+
+## ツール実行方針
+
+<parallel_execution>
+**並列実行すべき操作**:
+- SKILL.md と対象ファイルの同時読み込み
+- 複数パターンでのGrep検索（req_ids, nfr_ids, phase を同時検索）
+</parallel_execution>
+
+<thinking_process>
+影響度判定時は以下を考慮する：
+
+1. **変更の性質は？**
+   - 文言修正 → 影響なし
+   - ID変更 → 参照先に高影響
+   - 仕様変更 → 関連機能に中〜高影響
+
+2. **参照の種類は？**
+   - req_ids で直接参照 → 高影響
+   - 同フェーズ → 低影響（参照がない限り）
+</thinking_process>
+
 ## 引数
 
 - `$1`: 変更されたドキュメント（必須）

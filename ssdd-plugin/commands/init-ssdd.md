@@ -6,6 +6,12 @@ allowed-tools: Read, Write, Bash
 
 # SSDD 初期化コマンド
 
+## ツール実行方針
+
+<parallel_execution>
+ディレクトリ作成は mkdir -p で一括実行（並列化不要、シンプルに保つ）
+</parallel_execution>
+
 ## 前提処理
 
 1. `skills/ssdd/SKILL.md` を読み込み、SSDD の基本概念を把握する
