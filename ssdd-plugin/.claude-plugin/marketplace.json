@@ -1,0 +1,14 @@
+{
+  "name": "ssdd-local-marketplace",
+  "description": "SSDD plugin local development marketplace",
+  "owner": {
+    "name": "GondaDaikon"
+  },
+  "plugins": [
+    {
+      "name": "ssdd",
+      "source": ".",
+      "description": "SSDD (Slices Specification-Driven Development) plugin"
+    }
+  ]
+}
