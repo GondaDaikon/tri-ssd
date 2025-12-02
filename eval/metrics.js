@@ -46,7 +46,7 @@ const UNNECESSARY_SECTIONS_FOR_CRUD = [
 function analyzeL3Document(content, options = {}) {
   const metrics = {
     // 基本メトリクス
-    acceptanceCriteriaCount: countPattern(content, /#### AC-\d+/g),
+    acceptanceCriteriaCount: countPattern(content, /#### AC-?\d+/g),
     sectionCount: countPattern(content, /^## \d+\./gm),
     emptyTableCount: countEmptyTables(content),
     todoMarkerCount: countPattern(content, /<!-- TODO:/g),
