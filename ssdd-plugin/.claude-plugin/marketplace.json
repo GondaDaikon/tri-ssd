@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "ssdd",
-      "source": ".",
+      "source": "./",
       "description": "SSDD (Slices Specification-Driven Development) plugin"
     }
   ]
