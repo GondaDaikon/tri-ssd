@@ -1,7 +1,7 @@
 ---
 description: 既存のドキュメントをL1形式に変換する
 argument-hint: <ファイルパス> - 変換元のドキュメントパス（必須）
-allowed-tools: Read, Write, Edit
+allowed-tools: Read, Write, Edit, Glob, Grep
 ---
 
 # L1 変換コマンド
@@ -34,6 +34,14 @@ ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 
 1. `skills/ssdd/templates/l1_vision.md` を読み込み、L1 テンプレートを確認する
 2. `$1` で指定されたファイルを読み込む
+3. **`docs/l1_vision.md` が存在するか確認**（既存ファイルがある場合は確認）
+
+## 既存L1がある場合
+
+既存の `l1_vision.md` がある場合はユーザーに確認:
+- **上書き**: 既存を破棄して新規作成
+- **マージ**: 既存の内容と変換元を統合（REQ IDは既存を維持）
+- **キャンセル**: 変換を中止
 
 ## 変換手順
 
@@ -52,7 +60,7 @@ ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 | 非機能要求 | 性能、セキュリティ等 |
 
 ### Step 3: REQ ID 付与
-- REQ-YYYYMMDD-nnn 形式で採番
+- REQ-YYYYMMDD-nnn 形式で採番（ID採番ロジック参照）
 
 ### Step 4: 不足情報の特定
 - `<!-- TODO: 要確認 -->` でマーク
@@ -61,6 +69,12 @@ ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 
 - **ファイルパス**: `docs/l1_vision.md`
 - **フロントマター**: `doc_status: draft`
+
+## ID採番ロジック
+
+1. 現在日時を取得: YYYYMMDD
+2. 既存REQ IDを検索（Grepで docs/**/*.md から）
+3. 同日の最大連番 + 1 で新ID生成
 
 ## 完了後の案内
 
