@@ -13,6 +13,7 @@
     "./commands/gen-phases.md",
     "./commands/draft-rules.md",
     "./commands/gen-l3.md",
+    "./commands/gen-code.md",
     "./commands/check.md",
     "./commands/review.md"
   ]

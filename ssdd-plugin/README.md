@@ -39,11 +39,14 @@ cp -r ssdd-plugin/commands/* ~/.claude/commands/
 # 6. L3（機能ドキュメント）を生成
 /gen-l3
 
-# 7. 整合性チェック
-/check
+# 7. L3をレビュー → reviewed に昇格
+/review F-20250125-001
 
-# 8. AIレビューで品質確認 → 昇格
-/review docs/l1_vision.md
+# 8. L3からコード生成
+/gen-code F-20250125-001
+
+# 9. 最終レビュー → implemented に昇格
+/review F-20250125-001
 ```
 
 ## コマンド一覧
@@ -57,6 +60,7 @@ cp -r ssdd-plugin/commands/* ~/.claude/commands/
 | `/gen-phases` | 技術基盤からフェーズ定義・機能一覧を生成 |
 | `/draft-rules [--minimal]` | 実装ルールのたたき台を生成 |
 | `/gen-l3 [F-xxxx ...]` | L2からL3を生成（複数ID指定可） |
+| `/gen-code <F-ID>` | L3からコード・テストを生成 |
 | `/check [--list-ids]` | 整合性チェック（--list-ids: ID一覧出力） |
 | `/review <ファイル>` | AIレビュー + ステータス昇格 |
 
