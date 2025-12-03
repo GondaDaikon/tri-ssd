@@ -49,7 +49,6 @@ SSDD は以下の考え方をベースにしています：
 - **ライト版廃止**: 標準SSDDの段階的導入を推奨（詳細: [checklists.md](checklists.md)）
 - **変更ログ管理**: Git commit + CHANGELOG.md の運用方針を文書化（[changelog_management.md](changelog_management.md)）
 - **バリデーションツール**: `/check`, `/review` の使い分けガイド（[validation_tools.md](validation_tools.md)）
-- **スキルモジュール化**: SKILL.md + examples.md + troubleshooting.md に分割
 
 ### v0.3（2025-11-26）品質向上
 

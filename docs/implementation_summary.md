@@ -255,10 +255,8 @@ SSDDフレームワークを5つのフェーズで改善しました。
 - `ssdd-plugin/commands/promote-status.md`: doc_status遷移管理
 - `ssdd-plugin/commands/propagate-change.md`: 変更影響分析
 
-**スキル**:
-- `ssdd-plugin/skills/ssdd/SKILL.md`: コア概念（正本）
-- `ssdd-plugin/skills/ssdd/examples.md`: 実例集
-- `ssdd-plugin/skills/ssdd/troubleshooting.md`: トラブルシューティング
+**テンプレート**:
+- `ssdd-plugin/skills/ssdd/templates/`: L1/L2/L3テンプレート
 
 ---
 

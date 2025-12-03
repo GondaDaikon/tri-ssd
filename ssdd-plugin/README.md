@@ -16,7 +16,6 @@ cp -r ssdd-plugin /path/to/your-project/
 ```bash
 # ホームディレクトリの .claude にコピー
 cp -r ssdd-plugin/commands/* ~/.claude/commands/
-cp -r ssdd-plugin/skills/* ~/.claude/skills/
 ```
 
 ## クイックスタート
