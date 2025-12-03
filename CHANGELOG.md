@@ -52,9 +52,8 @@ SSDD (Slices Specification-Driven Development) フレームワークの変更履
 ## [0.2.0] - 2025-11-26
 
 ### Added
-- propagate-change コマンド（変更影響分析）
-- promote-status コマンド（doc_status 昇格）
 - check --list-ids オプション
+- review コマンドにステータス昇格機能を統合
 
 ### Changed
 - gen-l2 技術選定プロセスを対話型に改善

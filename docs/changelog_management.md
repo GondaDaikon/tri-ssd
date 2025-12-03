@@ -142,11 +142,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.0] - 2025-11-26
 
-### Added
-- `/promote-status` コマンド（doc_status状態遷移管理）
-- `/propagate-change` コマンド（変更影響分析）
-
 ### Changed
+- `/review` コマンドにステータス昇格機能を統合
 - `ssdd-plugin/skills/ssdd/templates/`: テンプレート更新
 
 ## [0.1.0] - 2025-11-26
@@ -242,8 +239,8 @@ git commit -m "feat(auth): implement user registration
 
 Implements: F-20250125-001"
 
-# 3. L3を implemented に昇格
-/promote-status docs/l3_features/F-20250125-001_register.md
+# 3. L3をレビュー → implemented に昇格
+/review docs/l3_features/F-20250125-001_register.md
 
 # 4. CHANGELOG.md 更新（リリース前）
 # [Unreleased] セクションに追加:
@@ -283,10 +280,7 @@ Add REQ-20250125-003 for password complexity:
 
 Requested by: Security team review"
 
-# 2. 影響分析
-/propagate-change docs/l1_vision.md
-
-# 3. L2/L3更新
+# 2. L2/L3更新（影響を受けるドキュメントを更新）
 # → F-20250125-001_register.md の受け入れ条件更新
 git add docs/l3_features/F-20250125-001_register.md
 git commit -m "docs(l3): update password validation for F-20250125-001
@@ -383,7 +377,7 @@ Migration guide: docs/migration.md"
 
 - **Git commit**: すべての変更を記録、プルリクエストで確認
 - **CHANGELOG.md**: スプリント/イテレーション終了時に更新
-- **ドキュメント**: 変更影響分析（`/propagate-change`）を活用
+- **ドキュメント**: 再生成コマンドで変更を反映
 
 ### 大規模チーム
 

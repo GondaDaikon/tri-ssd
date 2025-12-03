@@ -328,11 +328,10 @@ Then BIZ001エラーが返される
 ```bash
 /init-ssdd           # ディレクトリ構造初期化
 /draft-l1            # L1作成（対話形式）
-/review l1_vision.md # レビュー
-/promote-status l1_vision.md  # reviewed に昇格
-/draft-l2              # L2技術基盤生成
+/review l1_vision.md # レビュー → reviewed に昇格
+/draft-l2            # L2技術基盤生成
 /gen-phases          # フェーズ定義・機能一覧生成
-/draft-rules           # 実装ルールのたたき台生成
+/draft-rules         # 実装ルールのたたき台生成
 /check               # 整合性チェック
 ```
 
@@ -340,10 +339,9 @@ Then BIZ001エラーが返される
 
 ```bash
 /gen-l3 F-20250125-001       # L3生成
-/review F-20250125-001       # レビュー
-/promote-status F-20250125-001  # reviewed に昇格
+/review F-20250125-001       # レビュー → reviewed に昇格
 # 実装・テスト
-/promote-status F-20250125-001  # implemented に昇格
+/review F-20250125-001       # 再レビュー → implemented に昇格
 ```
 
 ### 複数機能の一括処理
@@ -363,7 +361,7 @@ Then BIZ001エラーが返される
 
 ```bash
 # L1を編集
-/propagate-change l1_vision.md  # 影響分析
+/draft-l2                       # 再生成（影響分析も実施）
 # 影響ドキュメントを更新
 /check                          # 整合性チェック
 ```

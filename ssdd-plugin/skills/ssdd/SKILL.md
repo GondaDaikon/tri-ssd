@@ -171,9 +171,7 @@ docs/
 | `/draft-rules` | L2実装ルールのたたき台生成 |
 | `/gen-l3 [F-ID...]` | L2からL3生成 |
 | `/check [--list-ids \| ファイル]` | 整合性チェック |
-| `/review <ファイル>` | AIレビュー（必須） |
-| `/promote-status <ファイル>` | doc_status昇格（必須） |
-| `/propagate-change <ファイル>` | 変更影響分析（必須） |
+| `/review <ファイル>` | AIレビュー + ステータス昇格（必須） |
 
 ## 変更伝播ルール
 

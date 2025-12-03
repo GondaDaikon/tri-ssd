@@ -164,7 +164,7 @@ ID形式を確認してください（v0.1形式）:
 - PH-YYYYMMDD-nnn (例: PH-20250125-001)
 ```
 
-**使用コマンド**: /review, /promote-status, /propagate-change
+**使用コマンド**: /review, /check
 **終了コード**: 3
 
 #### E202: ID形式が不正
@@ -319,13 +319,11 @@ GitHub: https://github.com/your-org/ssdd/tree/main/docs/templates
 ✗ 参照整合性エラーが 1件あります
 ✓ フロントマター必須フィールド: OK
 
-修正後に再度実行してください:
-  /promote-status [path]
-
-詳細: /help promote-status
+修正後に再度レビューしてください:
+  /review [path]
 ```
 
-**使用コマンド**: /promote-status
+**使用コマンド**: /review
 **終了コード**: 1
 
 ---
@@ -394,9 +392,8 @@ ID: [id]
 doc_status: draft
 
 次のステップ:
-1. ドキュメントをレビュー: /review [id]
-2. 整合性チェック: /check
-3. reviewed に昇格: /promote-status [id]
+1. 整合性チェック: /check
+2. レビュー → 昇格: /review [id]
 ```
 
 **使用コマンド**: /draft-l1, /draft-l2, /gen-l3
@@ -465,22 +462,6 @@ doc_status: draft
 | E201 | IDが見つからない |
 | E501 | テンプレートが見つからない |
 
-### /promote-status
-
-| コード | エラー |
-|--------|--------|
-| E101 | 必須引数が不足 |
-| E001 | ファイルが見つからない |
-| E201 | IDが見つからない |
-| E601 | 昇格条件未達 |
-
-### /propagate-change
-
-| コード | エラー |
-|--------|--------|
-| E101 | 必須引数が不足 |
-| E001 | ファイルが見つからない |
-| E201 | IDが見つからない |
 
 ---
 

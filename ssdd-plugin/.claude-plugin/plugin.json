@@ -14,8 +14,6 @@
     "./commands/draft-rules.md",
     "./commands/gen-l3.md",
     "./commands/check.md",
-    "./commands/review.md",
-    "./commands/promote-status.md",
-    "./commands/propagate-change.md"
+    "./commands/review.md"
   ]
 }

@@ -42,11 +42,8 @@ cp -r ssdd-plugin/commands/* ~/.claude/commands/
 # 7. 整合性チェック
 /check
 
-# 8. AIレビューで品質確認
+# 8. AIレビューで品質確認 → 昇格
 /review docs/l1_vision.md
-
-# 9. レビュー後、doc_statusを昇格
-/promote-status docs/l1_vision.md
 ```
 
 ## コマンド一覧
@@ -61,9 +58,7 @@ cp -r ssdd-plugin/commands/* ~/.claude/commands/
 | `/draft-rules [--minimal]` | 実装ルールのたたき台を生成 |
 | `/gen-l3 [F-xxxx ...]` | L2からL3を生成（複数ID指定可） |
 | `/check [--list-ids]` | 整合性チェック（--list-ids: ID一覧出力） |
-| `/review <ファイル>` | AIレビュー |
-| `/promote-status <ファイル>` | doc_statusを昇格 |
-| `/propagate-change <ファイル>` | 変更影響分析 |
+| `/review <ファイル>` | AIレビュー + ステータス昇格 |
 
 ### 引数記法の凡例
 

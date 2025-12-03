@@ -1,7 +1,7 @@
 ---
 description: SSDDドキュメントのAIレビューを実行する
 argument-hint: <ファイルパス|ID> - レビュー対象（必須）
-allowed-tools: Read, Glob, Grep
+allowed-tools: Read, Edit, Glob, Grep
 ---
 
 # SSDD レビューコマンド
@@ -99,4 +99,35 @@ ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 
 ## 推奨アクション
 - ...
+
+## 昇格判定
+**昇格可能**: Yes / No（条件未達の場合は理由）
 ```
+
+## ステータス昇格機能
+
+レビュー結果が良好な場合、doc_status の昇格を提案する。
+
+### 状態遷移
+
+| 現在 | 昇格後 | 対象 |
+|------|--------|------|
+| draft | reviewed | L1, L2, L3 |
+| reviewed | implemented | L3のみ |
+
+### 昇格条件
+
+**draft → reviewed:**
+- 必須フィールドが存在
+- 参照整合性が保たれている
+- 致命的な問題がない
+
+**reviewed → implemented（L3のみ）:**
+- タスクチェックリストが完了
+- 実装メモにコードパスが記載
+
+### 昇格フロー
+
+1. レビュー結果を出力
+2. 昇格可能な場合：「昇格しますか？ (yes/no)」と確認
+3. yes の場合：doc_status を更新
