@@ -61,4 +61,4 @@ allowed-tools: Read, Write, Edit
 
 - 変換結果のサマリを報告
 - 抽出できなかった情報を一覧表示
-- `/gen-l2` で L2 生成できることを案内
+- `/draft-l2` で L2 生成できることを案内

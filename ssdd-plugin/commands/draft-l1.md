@@ -64,4 +64,4 @@ allowed-tools: Read, Write, Edit
 ## 完了後の案内
 
 - 作成ファイルのパスを報告
-- `/gen-l2` で L2 生成できることを案内
+- `/draft-l2` で L2 生成できることを案内

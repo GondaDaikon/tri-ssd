@@ -5,7 +5,7 @@ layer: L2
 status: active
 doc_status: draft
 ---
-<!-- 注: 実際の使用時は /gen-rules がIDを自動採番します -->
+<!-- 注: 実際の使用時は /draft-rules がIDを自動採番します -->
 
 <!--
   テンプレート使用ガイド:
@@ -37,7 +37,7 @@ doc_status: draft
 # 実装ルール
 
 > 本ドキュメントはAI/人がコード実装時に守るべきルールを定義する。
-> `/gen-rules` で初期版（たたき台）を生成し、L3実装を通じて進化させる。
+> `/draft-rules` で初期版（たたき台）を生成し、L3実装を通じて進化させる。
 
 ---
 
@@ -215,7 +215,7 @@ Database
 
 | 日付 | 変更内容 | 理由 |
 |------|---------|------|
-| YYYY-MM-DD | 初版作成 | /gen-rulesで生成 |
+| YYYY-MM-DD | 初版作成 | /draft-rulesで生成 |
 
 ---
 

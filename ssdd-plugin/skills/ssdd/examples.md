@@ -330,9 +330,9 @@ Then BIZ001エラーが返される
 /draft-l1            # L1作成（対話形式）
 /review l1_vision.md # レビュー
 /promote-status l1_vision.md  # reviewed に昇格
-/gen-l2              # L2技術基盤生成
+/draft-l2              # L2技術基盤生成
 /gen-phases          # フェーズ定義・機能一覧生成
-/gen-rules           # 実装ルールのたたき台生成
+/draft-rules           # 実装ルールのたたき台生成
 /check               # 整合性チェック
 ```
 

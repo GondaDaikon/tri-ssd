@@ -33,7 +33,7 @@ SSDD は以下の考え方をベースにしています：
 ### v0.6.0（2025-11-27）コマンド分離
 
 - **overview.md → foundation.md**: L2技術基盤ファイル名変更
-- **コマンド分離**: `/gen-l2` をfoundation.md生成に限定、`/gen-phases` を新設
+- **コマンド分離**: `/draft-l2` をfoundation.md生成に限定、`/gen-phases` を新設
 - **kind値変更**: `overview` → `foundation`
 - **設計思想**: 技術選定確定後にフェーズ設計（環境構築フェーズを含む）
 
@@ -101,7 +101,7 @@ SSDD は以下の考え方をベースにしています：
 | [samples/l2_rules_taskflow.md](samples/l2_rules_taskflow.md) | L2実装ルールのサンプル |
 | [samples/l3_feature_taskflow.md](samples/l3_feature_taskflow.md) | L3機能ドキュメントのサンプル |
 
-> **テンプレート（正本）**: 実際のプロジェクトでは `ssdd-plugin/skills/ssdd/templates/` のテンプレートを使用します。コマンド（`/draft-l1`, `/gen-l2`, `/gen-l3`）が自動的にテンプレートからドキュメントを生成します。
+> **テンプレート（正本）**: 実際のプロジェクトでは `ssdd-plugin/skills/ssdd/templates/` のテンプレートを使用します。コマンド（`/draft-l1`, `/draft-l2`, `/gen-l3`）が自動的にテンプレートからドキュメントを生成します。
 
 ## 想定読者
 
@@ -135,9 +135,9 @@ SSDD は以下の考え方をベースにしています：
 1. **guide.md を読む**: 三層モデルの概念を理解する
 2. **ssdd-plugin をインストール**: Claude Codeにプラグインを追加
 3. **L1を生成**: `/draft-l1` コマンドでビジョン・要求ドキュメントを作成
-4. **L2技術基盤を生成**: `/gen-l2` コマンドで技術方針をドラフト
+4. **L2技術基盤を生成**: `/draft-l2` コマンドで技術方針をドラフト
 5. **フェーズ設計**: `/gen-phases` コマンドでフェーズ定義・機能一覧を生成
-6. **実装ルールを生成**: `/gen-rules` コマンドで実装ルールのたたき台を生成
+6. **実装ルールを生成**: `/draft-rules` コマンドで実装ルールのたたき台を生成
 7. **L3で実装**: `/gen-l3` コマンドで機能Docを作成し、実装を進める
 
 > サンプルを参照したい場合は [samples/](samples/) ディレクトリを確認してください。

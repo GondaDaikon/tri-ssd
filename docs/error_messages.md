@@ -5,7 +5,7 @@
 
 ## 概要
 
-SSDD の各コマンド（`/draft-l1`, `/gen-l2`, `/check` 等）で統一されたエラーメッセージフォーマットを使用することで、ユーザー体験を向上させます。
+SSDD の各コマンド（`/draft-l1`, `/draft-l2`, `/check` 等）で統一されたエラーメッセージフォーマットを使用することで、ユーザー体験を向上させます。
 
 ## エラーメッセージの原則
 
@@ -90,7 +90,7 @@ SSDD の各コマンド（`/draft-l1`, `/gen-l2`, `/check` 等）で統一され
 4. キャンセル
 ```
 
-**使用コマンド**: /draft-l1, /gen-l2, /gen-l3
+**使用コマンド**: /draft-l1, /draft-l2, /gen-l3
 **終了コード**: 0（ユーザー選択待ち）
 
 #### E003: ディレクトリが存在しない
@@ -105,7 +105,7 @@ SSDD の各コマンド（`/draft-l1`, `/gen-l2`, `/check` 等）で統一され
 2. 手動でディレクトリを作成: mkdir -p [path]
 ```
 
-**使用コマンド**: /draft-l1, /gen-l2, /gen-l3
+**使用コマンド**: /draft-l1, /draft-l2, /gen-l3
 **終了コード**: 1
 
 ### 引数エラー
@@ -300,7 +300,7 @@ doc_status: draft
 GitHub: https://github.com/your-org/ssdd/tree/main/docs/templates
 ```
 
-**使用コマンド**: /draft-l1, /gen-l2, /gen-l3
+**使用コマンド**: /draft-l1, /draft-l2, /gen-l3
 **終了コード**: 1
 
 ### doc_status エラー
@@ -399,7 +399,7 @@ doc_status: draft
 3. reviewed に昇格: /promote-status [id]
 ```
 
-**使用コマンド**: /draft-l1, /gen-l2, /gen-l3
+**使用コマンド**: /draft-l1, /draft-l2, /gen-l3
 
 ### I002: 進捗表示
 
@@ -423,7 +423,7 @@ doc_status: draft
 | E003 | 出力先ディレクトリが存在しない |
 | E501 | テンプレートが見つからない |
 
-### /gen-l2
+### /draft-l2
 
 | コード | エラー |
 |--------|--------|

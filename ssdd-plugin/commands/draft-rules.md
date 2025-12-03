@@ -42,7 +42,7 @@ L2 foundation.mdの技術スタックとL1のドメインルールを基に、�
 
 ## 前提条件
 
-- `/gen-l2` が完了していること（`docs/l2_system/foundation.md` が存在）
+- `/draft-l2` が完了していること（`docs/l2_system/foundation.md` が存在）
 - `docs/l1_vision.md` が存在すること
 
 ## 前提処理
@@ -94,7 +94,7 @@ rules.md は L3 実装を通じて育てるドキュメントなので、**追�
 ```
 foundation.mdの技術スタック変更（例: Express → Fastify）
     ↓
-/gen-rules で再生成
+/draft-rules で再生成
     ↓
 コード規約のFW部分が更新される
     ↓

@@ -29,13 +29,13 @@ cp -r ssdd-plugin/skills/* ~/.claude/skills/
 /draft-l1
 
 # 3. L2 技術基盤（foundation.md）を生成
-/gen-l2
+/draft-l2
 
 # 4. L2 フェーズ定義・機能一覧（phases.md）を生成
 /gen-phases
 
 # 5. 実装ルールのたたき台を生成
-/gen-rules
+/draft-rules
 
 # 6. L3（機能ドキュメント）を生成
 /gen-l3
@@ -57,9 +57,9 @@ cp -r ssdd-plugin/skills/* ~/.claude/skills/
 | `/init-ssdd` | ディレクトリ構造を初期化 |
 | `/draft-l1` | L1ドキュメントを対話形式で作成 |
 | `/convert-l1 <ファイル>` | 既存ドキュメントをL1形式に変換 |
-| `/gen-l2 [REQ-xxxx ...]` | L1からL2技術基盤（foundation.md）を生成 |
+| `/draft-l2 [REQ-xxxx ...]` | L1からL2技術基盤（foundation.md）を生成 |
 | `/gen-phases` | 技術基盤からフェーズ定義・機能一覧を生成 |
-| `/gen-rules [--minimal]` | 実装ルールのたたき台を生成 |
+| `/draft-rules [--minimal]` | 実装ルールのたたき台を生成 |
 | `/gen-l3 [F-xxxx ...]` | L2からL3を生成（複数ID指定可） |
 | `/check [--list-ids]` | 整合性チェック（--list-ids: ID一覧出力） |
 | `/review <ファイル>` | AIレビュー |
@@ -72,7 +72,7 @@ cp -r ssdd-plugin/skills/* ~/.claude/skills/
 |------|------|-----|
 | `<引数>` | 必須引数 | `/convert-l1 <ファイル>` |
 | `[引数]` | 省略可能な引数 | `/gen-l3 [F-ID]` |
-| `--オプション` | オプションフラグ | `/gen-rules --minimal` |
+| `--オプション` | オプションフラグ | `/draft-rules --minimal` |
 | `...` | 複数指定可能 | `/gen-l3 F-001 F-002 ...` |
 
 ## 三層モデル
