@@ -6,6 +6,18 @@ allowed-tools: Read, Write, Edit
 
 # L1 ドラフト作成コマンド
 
+<ssdd_context>
+SSDD（Slices Specification-Driven Development）はAI/LLMコードエージェントを前提とした仕様駆動開発。
+
+レイヤー構造:
+- L1: ビジョン・要求（docs/l1_vision.md）
+- L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
+- L3: 機能仕様（docs/l3_features/F-xxx.md）
+
+ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
+ステータス: draft → reviewed → implemented（L3のみ）
+</ssdd_context>
+
 ## 対話時の原則
 
 <avoid_over_engineering>
@@ -15,16 +27,9 @@ allowed-tools: Read, Write, Edit
 - 非機能要求も「体感的にストレスなく」程度の粒度で十分
 </avoid_over_engineering>
 
-## ツール実行方針
-
-<parallel_execution>
-前提処理でのファイル読み込み（SKILL.md, templates を同時に読み込む）
-</parallel_execution>
-
 ## 前提処理
 
-1. `skills/ssdd/SKILL.md` を読み込み、SSDD の基本概念を把握する
-2. `skills/ssdd/templates/l1_vision.md` を読み込み、L1 テンプレートを確認する
+1. `skills/ssdd/templates/l1_vision.md` を読み込み、L1 テンプレートを確認する
 
 ## 対話フロー
 

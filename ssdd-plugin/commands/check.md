@@ -6,23 +6,23 @@ allowed-tools: Read, Glob, Grep
 
 # SSDD 整合性チェックコマンド
 
-## ツール実行方針
+<ssdd_context>
+SSDD（Slices Specification-Driven Development）はAI/LLMコードエージェントを前提とした仕様駆動開発。
 
-<parallel_execution>
-**並列実行すべき操作**:
-- 複数ファイルの読み込み（Glob結果の各ファイル）
-- 複数パターンでのGrep検索（各ID形式を同時検索）
-</parallel_execution>
+レイヤー構造:
+- L1: ビジョン・要求（docs/l1_vision.md）
+- L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
+- L3: 機能仕様（docs/l3_features/F-xxx.md）
+
+ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
+ステータス: draft → reviewed → implemented（L3のみ）
+</ssdd_context>
 
 ## 引数
 
 - `--list-ids`: 存在するID一覧を表示
 - `ファイルパス`: 特定ファイルのみチェック
 - 引数なし: 全体チェック
-
-## 前提処理
-
-1. `skills/ssdd/SKILL.md` を読み込み、SSDD の基本概念を把握する
 
 ## チェック項目
 

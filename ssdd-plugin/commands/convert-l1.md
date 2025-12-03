@@ -6,6 +6,18 @@ allowed-tools: Read, Write, Edit
 
 # L1 変換コマンド
 
+<ssdd_context>
+SSDD（Slices Specification-Driven Development）はAI/LLMコードエージェントを前提とした仕様駆動開発。
+
+レイヤー構造:
+- L1: ビジョン・要求（docs/l1_vision.md）
+- L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
+- L3: 機能仕様（docs/l3_features/F-xxx.md）
+
+ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
+ステータス: draft → reviewed → implemented（L3のみ）
+</ssdd_context>
+
 ## 変換時の原則
 
 <avoid_over_engineering>
@@ -14,21 +26,14 @@ allowed-tools: Read, Write, Edit
 - 元ドキュメントの曖昧な表現をそのまま明確化しようとしない
 </avoid_over_engineering>
 
-## ツール実行方針
-
-<parallel_execution>
-前提処理でのファイル読み込み（SKILL.md, templates, 変換元ファイルを同時に読み込む）
-</parallel_execution>
-
 ## 引数
 
 - `$1`: 変換元のドキュメントパス（必須）
 
 ## 前提処理
 
-1. `skills/ssdd/SKILL.md` を読み込み、SSDD の基本概念を把握する
-2. `skills/ssdd/templates/l1_vision.md` を読み込み、L1 テンプレートを確認する
-3. `$1` で指定されたファイルを読み込む
+1. `skills/ssdd/templates/l1_vision.md` を読み込み、L1 テンプレートを確認する
+2. `$1` で指定されたファイルを読み込む
 
 ## 変換手順
 

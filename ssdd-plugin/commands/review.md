@@ -6,6 +6,18 @@ allowed-tools: Read, Glob, Grep
 
 # SSDD レビューコマンド
 
+<ssdd_context>
+SSDD（Slices Specification-Driven Development）はAI/LLMコードエージェントを前提とした仕様駆動開発。
+
+レイヤー構造:
+- L1: ビジョン・要求（docs/l1_vision.md）
+- L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
+- L3: 機能仕様（docs/l3_features/F-xxx.md）
+
+ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
+ステータス: draft → reviewed → implemented（L3のみ）
+</ssdd_context>
+
 ## レビュー時の原則
 
 <avoid_over_engineering>
@@ -15,14 +27,6 @@ allowed-tools: Read, Glob, Grep
 - 単純な機能に対して「セクションが足りない」と指摘しない
 </avoid_over_engineering>
 
-## ツール実行方針
-
-<parallel_execution>
-**並列実行すべき操作**:
-- SKILL.md と対象ファイルの同時読み込み
-- 参照整合性チェック時の複数ファイル検索（Grep）
-</parallel_execution>
-
 ## 引数
 
 - `$1`: レビュー対象（必須）
@@ -31,8 +35,7 @@ allowed-tools: Read, Glob, Grep
 
 ## 前提処理
 
-1. `skills/ssdd/SKILL.md` を読み込み、SSDD の基本概念を把握する
-2. `$1` で指定された対象ファイルを特定・読み込む
+1. `$1` で指定された対象ファイルを特定・読み込む
 
 ## レビュー観点
 

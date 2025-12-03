@@ -6,6 +6,18 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 
 # フェーズ定義生成コマンド
 
+<ssdd_context>
+SSDD（Slices Specification-Driven Development）はAI/LLMコードエージェントを前提とした仕様駆動開発。
+
+レイヤー構造:
+- L1: ビジョン・要求（docs/l1_vision.md）
+- L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
+- L3: 機能仕様（docs/l3_features/F-xxx.md）
+
+ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
+ステータス: draft → reviewed → implemented（L3のみ）
+</ssdd_context>
+
 ## 概要
 
 L2 技術基盤（foundation.md）をベースに、フェーズ定義・機能一覧（phases.md）を生成する。
@@ -22,19 +34,6 @@ L2 技術基盤（foundation.md）をベースに、フェーズ定義・機能�
 - 最初のフェーズは小さく、早く成果を出せる構成にする
 </avoid_over_engineering>
 
-## ツール実行方針
-
-<parallel_execution>
-複数の独立した操作は並列で実行する：
-
-**並列実行すべき操作**:
-- 前提処理でのファイル読み込み（SKILL.md, templates, l1_vision.md, foundation.md を同時に）
-- 既存IDの検索（PH, F を同時に検索）
-
-**順次実行すべき操作**:
-- ファイル読み込み → 分析 → フェーズ設計 → 生成
-</parallel_execution>
-
 ## 引数
 
 - `--include-setup`: 環境構築フェーズを含める（デフォルト: true）
@@ -42,11 +41,10 @@ L2 技術基盤（foundation.md）をベースに、フェーズ定義・機能�
 
 ## 前提処理
 
-1. `skills/ssdd/SKILL.md` を読み込み、SSDD の基本概念を把握する
-2. `skills/ssdd/templates/l2_phases.md` を読み込み、フェーズテンプレートを確認
-3. `docs/l1_vision.md` を読み込み、要件を把握する
-4. `docs/l2_system/foundation.md` を読み込み、**技術スタックを把握する**
-5. **`docs/l2_system/phases.md` が存在するか確認**（再生成モード判定）
+1. `skills/ssdd/templates/l2_phases.md` を読み込み、フェーズテンプレートを確認
+2. `docs/l1_vision.md` を読み込み、要件を把握する
+3. `docs/l2_system/foundation.md` を読み込み、**技術スタックを把握する**
+4. **`docs/l2_system/phases.md` が存在するか確認**（再生成モード判定）
 
 ## 再生成モード（既存ファイルがある場合）
 

@@ -6,6 +6,18 @@ allowed-tools: Read, Glob, Grep
 
 # 変更伝播分析コマンド
 
+<ssdd_context>
+SSDD（Slices Specification-Driven Development）はAI/LLMコードエージェントを前提とした仕様駆動開発。
+
+レイヤー構造:
+- L1: ビジョン・要求（docs/l1_vision.md）
+- L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
+- L3: 機能仕様（docs/l3_features/F-xxx.md）
+
+ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
+ステータス: draft → reviewed → implemented（L3のみ）
+</ssdd_context>
+
 ## 分析時の原則
 
 <avoid_over_engineering>
@@ -13,14 +25,6 @@ allowed-tools: Read, Glob, Grep
 - 「念のため確認」レベルの項目は低優先度として扱う
 - 全てのドキュメントを更新対象にしない（本当に影響があるものだけ）
 </avoid_over_engineering>
-
-## ツール実行方針
-
-<parallel_execution>
-**並列実行すべき操作**:
-- SKILL.md と対象ファイルの同時読み込み
-- 複数パターンでのGrep検索（req_ids, nfr_ids, phase を同時検索）
-</parallel_execution>
 
 <thinking_process>
 影響度判定時は以下を考慮する：
@@ -43,8 +47,7 @@ allowed-tools: Read, Glob, Grep
 
 ## 前提処理
 
-1. `skills/ssdd/SKILL.md` を読み込み、変更伝播ルールを確認
-2. `$1` で指定された対象ファイルを特定・読み込む
+1. `$1` で指定された対象ファイルを特定・読み込む
 
 ## 変更伝播ルール
 

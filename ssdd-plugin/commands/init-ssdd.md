@@ -6,15 +6,17 @@ allowed-tools: Read, Write, Bash
 
 # SSDD 初期化コマンド
 
-## ツール実行方針
+<ssdd_context>
+SSDD（Slices Specification-Driven Development）はAI/LLMコードエージェントを前提とした仕様駆動開発。
 
-<parallel_execution>
-ディレクトリ作成は mkdir -p で一括実行（並列化不要、シンプルに保つ）
-</parallel_execution>
+レイヤー構造:
+- L1: ビジョン・要求（docs/l1_vision.md）
+- L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
+- L3: 機能仕様（docs/l3_features/F-xxx.md）
 
-## 前提処理
-
-1. `skills/ssdd/SKILL.md` を読み込み、SSDD の基本概念を把握する
+ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
+ステータス: draft → reviewed → implemented（L3のみ）
+</ssdd_context>
 
 ## 実行内容
 

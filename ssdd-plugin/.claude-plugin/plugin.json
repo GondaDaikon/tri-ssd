@@ -17,8 +17,5 @@
     "./commands/review.md",
     "./commands/promote-status.md",
     "./commands/propagate-change.md"
-  ],
-  "skills": [
-    "./skills/ssdd"
   ]
 }
