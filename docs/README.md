@@ -24,48 +24,9 @@ SSDD は以下の考え方をベースにしています：
 - Specification-Driven Development（仕様駆動開発）
 - プロダクトマネジメントにおける「ビジョンドキュメント＋プロダクトバックログ」
 
-## バージョン情報
+## 変更履歴
 
-> **現行バージョン**: v0.6.0（2025-11-27）
->
-> 開発中のプレリリース版です。フィードバックを元に改善を続けています。
-
-### v0.6.0（2025-11-27）コマンド分離
-
-- **overview.md → foundation.md**: L2技術基盤ファイル名変更
-- **コマンド分離**: `/draft-l2` をfoundation.md生成に限定、`/gen-phases` を新設
-- **kind値変更**: `overview` → `foundation`
-- **設計思想**: 技術選定確定後にフェーズ設計（環境構築フェーズを含む）
-
-### v0.5（2025-11-26）構成簡素化
-
-- **ドメイン特化L3テンプレート廃止**: 汎用テンプレート1つに統合（L2のコンテキストでAIが適切に生成）
-- **ssdd-plugin正本化**: `.claude/` との二重管理を解消
-- **kind値の整理**: vision, foundation, phase, rules, featureの5種類に
-- **depends_onフィールド廃止**: 機能間依存の管理を簡素化
-
-### v0.4（2025-11-26）運用改善
-
-- **ライト版廃止**: 標準SSDDの段階的導入を推奨（詳細: [checklists.md](checklists.md)）
-- **変更ログ管理**: Git commit + CHANGELOG.md の運用方針を文書化（[changelog_management.md](changelog_management.md)）
-- **バリデーションツール**: `/check`, `/review` の使い分けガイド（[validation_tools.md](validation_tools.md)）
-
-### v0.3（2025-11-26）品質向上
-
-- **定量的指標**: REQ数5-50、機能数10-100等の規模目安（`/review` コマンドで検証可能）
-- **フェーズ vs イテレーション**: 機能的マイルストーン vs 時間的マイルストーンの明確化（[guide.md](guide.md)）
-- **エラーメッセージ標準化**: E###/W###/I### コード体系の導入（[error_messages.md](error_messages.md)）
-
-### v0.2（2025-11-26）機能拡張
-
-- **doc_status管理**: `/review` コマンドでレビュー後に状態遷移を提案
-
-### v0.1（2025-11-26）基盤構築
-
-- **タイムスタンプベースID**: `REQ-YYYYMMDD-nnn`, `F-YYYYMMDD-nnn` 形式
-- **フロントマター仕様**: titleフィールド廃止、`# 見出し`をタイトルとして使用
-- **L2の2ファイル構成**: `foundation.md` + `phases.md`
-- **対話的技術選定**: AIが候補提示 → 人間が選択
+[CHANGELOG.md](../CHANGELOG.md) を参照してください。
 
 ## ドキュメント構成
 
@@ -99,7 +60,7 @@ SSDD は以下の考え方をベースにしています：
 | [samples/l2_rules_taskflow.md](samples/l2_rules_taskflow.md) | L2実装ルールのサンプル |
 | [samples/l3_feature_taskflow.md](samples/l3_feature_taskflow.md) | L3機能ドキュメントのサンプル |
 
-> **テンプレート（正本）**: 実際のプロジェクトでは `ssdd-plugin/skills/ssdd/templates/` のテンプレートを使用します。コマンド（`/draft-l1`, `/draft-l2`, `/gen-phases`, `/draft-rules`, `/gen-l3`, `/gen-code`）が自動的にテンプレートからドキュメントを生成します。
+> **テンプレート（正本）**: 実際のプロジェクトでは `ssdd-plugin/templates/` のテンプレートを使用します。コマンド（`/draft-l1`, `/draft-l2`, `/gen-phases`, `/draft-rules`, `/gen-l3`, `/gen-code`）が自動的にテンプレートからドキュメントを生成します。
 
 ## 想定読者
 

@@ -1,7 +1,6 @@
 # SSDD バリデーションツールガイド
 
-> **バージョン**: v0.5
-> **目的**: ドキュメント品質とトレーサビリティを自動検証
+ドキュメント品質とトレーサビリティを自動検証するためのガイドです。
 
 ## 概要
 
@@ -44,7 +43,7 @@ SSDD では、以下の2つのバリデーションツールを提供します�
 - `status`: ライフサイクル状態（active/deprecated/removed）
 - `doc_status`: 文書・開発状態（draft/reviewed/implemented）
 
-**v0.1特有の検証**:
+**追加検証**:
 - `title`フィールドが残存していないか（廃止されたフィールド）
 - フロントマター直後に`# 見出し`が存在するか
 
@@ -63,7 +62,7 @@ doc_status: draft
 # ✗ エラー（titleフィールド使用）
 ---
 id: F-20250125-001
-title: ユーザー登録機能  # ← v0.1で廃止
+title: ユーザー登録機能  # ← 廃止
 kind: feature
 ---
 
@@ -78,15 +77,12 @@ kind: feature
 
 #### 2. ID形式検証
 
-**v0.1形式（推奨）**:
+**タイムスタンプ形式（推奨）**:
 - `REQ-YYYYMMDD-nnn`: 要件
 - `F-YYYYMMDD-nnn`: 機能
 - `NF-YYYYMMDD-nnn`: 非機能要求
 - `PH-YYYYMMDD-nnn`: フェーズ
 - `SP-YYYYMMDD-nnn`: スパイク
-
-**v1.x形式（混在OK）**:
-- `REQ-0001`, `F-0001` 等の連番形式も許容
 
 ```bash
 # ID重複チェック
@@ -245,7 +241,7 @@ replaced_by: F-20250125-999  # ← 存在チェック（deprecated時）
 - [ ] タスクチェックリストが実装可能な粒度か
 - [ ] 非機能要求の具体化が十分か
 
-#### 4. 定量的レビュー基準（v0.3）
+#### 4. 定量的レビュー基準
 
 **L1 ビジョン・要求**:
 | 項目 | 基準 | 判定 |
@@ -573,7 +569,7 @@ find docs/l3_features/ -name "*.md" | xargs -P 4 -I {} /check {}
 **解決方法**:
 ```bash
 # L3テンプレートとL2のNFRカタログを参照してレビュー
-# → ssdd-plugin/skills/ssdd/templates/l3_feature.md を参考に指摘内容を調整
+# → ssdd-plugin/templates/l3_feature.md を参考に指摘内容を調整
 
 # レビュー基準を確認
 # → 本書の「定量的レビュー基準」セクションを参照
@@ -647,8 +643,6 @@ diff review_results/l1_vision_20250120.md review_results/l1_vision_20250127.md
 
 ---
 
-**更新日**: 2025-11-26
-**対象バージョン**: SSDD v0.5以降
 **関連ドキュメント**:
 - エラーメッセージ: [error_messages.md](error_messages.md)
 - チェックリスト: [checklists.md](checklists.md)

@@ -1,7 +1,6 @@
 # 変更ログ管理ガイド
 
-> **バージョン**: v0.5
-> **目的**: SSDDにおける変更履歴の記録方針を明確化
+SSDDにおける変更履歴の記録方針を説明します。
 
 ## 概要
 
@@ -92,7 +91,7 @@ feat(l3): add CLI feature template
 Add domain-specific template for CLI applications.
 Includes command specification, I/O handling, and exit codes.
 
-Refs: ssdd-plugin/skills/ssdd/templates/l3_feature.md
+Refs: ssdd-plugin/templates/l3_feature.md
 ```
 
 ---
@@ -123,11 +122,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ライト版廃止と段階的導入ガイド
 
 ### Changed
-- `docs/checklists.md`: ライト版運用をv0.4変更点に置換
+- `docs/checklists.md`: ライト版運用を段階的導入ガイドに置換
 - `docs/guide.md`: 個人開発運用イメージを更新
 
 ### Deprecated
-- ライト版運用の概念（v0.4で完全廃止）
+- ライト版運用の概念（廃止）
 
 ## [0.3.0] - 2025-11-26
 
@@ -144,7 +143,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - `/review` コマンドにステータス昇格機能を統合
-- `ssdd-plugin/skills/ssdd/templates/`: テンプレート更新
+- `ssdd-plugin/templates/`: テンプレート更新
 
 ## [0.1.0] - 2025-11-26
 
@@ -160,7 +159,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `title`フィールド
 
 ### BREAKING CHANGES
-- ID形式変更: 既存プロジェクトは`docs/migration.md`を参照
+- ID形式変更: 既存プロジェクトは手動で移行が必要
 - フロントマター仕様変更: `title`フィールドを使用しているファイルは修正が必要
 ```
 
@@ -347,9 +346,7 @@ for real-time password strength feedback."
 git commit -m "feat(api): change authentication endpoint
 
 BREAKING CHANGE: POST /api/auth/login moved to /api/v2/auth/login.
-Old endpoint will be deprecated in v3.0.0 and removed in v4.0.0.
-
-Migration guide: docs/migration.md"
+Old endpoint will be deprecated in v3.0.0 and removed in v4.0.0."
 ```
 
 ### 5. リリース前の CHANGELOG.md レビュー
@@ -455,5 +452,3 @@ L1/L2/L3更新         実装メモのみ
 
 ---
 
-**更新日**: 2025-11-26
-**対象バージョン**: SSDD v0.5以降

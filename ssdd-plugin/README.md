@@ -105,9 +105,9 @@ docs/
 - `RULES-YYYYMMDD-nnn` - 実装ルール
 - `SP-YYYYMMDD-nnn` - スパイク/PoC
 
-## バージョン
+## 変更履歴
 
-- v0.6.0
+[CHANGELOG.md](../CHANGELOG.md) を参照してください。
 
 ## ライセンス
 

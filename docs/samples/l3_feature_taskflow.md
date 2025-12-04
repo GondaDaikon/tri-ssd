@@ -318,7 +318,7 @@ enum Priority {
 ## 10. 関連ドキュメント
 
 - L1: [REQ-20251126-001 タスク登録要件](./l1_vision_taskflow.md#51-機能要求一覧)
-- L2: [TaskFlow システム概要](./l2_overview_taskflow.md)
+- L2: [TaskFlow 技術基盤](./l2_foundation_taskflow.md)
 - L2: [Phase 1: MVP](./l2_phases_taskflow.md#2-phase-1-mvpminimum-viable-product)
 
 ---

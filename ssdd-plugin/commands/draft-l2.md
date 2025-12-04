@@ -40,7 +40,7 @@ L1（ビジョン・要求）から L2 技術基盤（foundation.md）を生成�
 
 ## 前提処理
 
-1. `skills/ssdd/templates/l2_foundation.md` を読み込み、技術基盤テンプレートを確認
+1. `templates/l2_foundation.md` を読み込み、技術基盤テンプレートを確認
 2. `docs/l1_vision.md` を読み込み、要件を把握する
 3. **`docs/l2_system/foundation.md` が存在するか確認**（再生成モード判定）
 
