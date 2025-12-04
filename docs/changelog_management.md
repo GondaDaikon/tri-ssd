@@ -1,7 +1,6 @@
 # 変更ログ管理ガイド
 
-> **バージョン**: v0.5
-> **目的**: SSDDにおける変更履歴の記録方針を明確化
+SSDDにおける変更履歴の記録方針を説明します。
 
 ## 概要
 
@@ -160,7 +159,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `title`フィールド
 
 ### BREAKING CHANGES
-- ID形式変更: 既存プロジェクトは`docs/migration.md`を参照
+- ID形式変更: 既存プロジェクトは手動で移行が必要
 - フロントマター仕様変更: `title`フィールドを使用しているファイルは修正が必要
 ```
 
@@ -347,9 +346,7 @@ for real-time password strength feedback."
 git commit -m "feat(api): change authentication endpoint
 
 BREAKING CHANGE: POST /api/auth/login moved to /api/v2/auth/login.
-Old endpoint will be deprecated in v3.0.0 and removed in v4.0.0.
-
-Migration guide: docs/migration.md"
+Old endpoint will be deprecated in v3.0.0 and removed in v4.0.0."
 ```
 
 ### 5. リリース前の CHANGELOG.md レビュー

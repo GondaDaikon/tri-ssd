@@ -245,7 +245,6 @@ SSDDフレームワークを5つのフェーズで改善しました。
 ### 主要ドキュメント
 
 **新規作成**:
-- `docs/migration.md`: マイグレーションガイド
 - `docs/error_messages.md`: エラーメッセージ標準化ガイド
 - `docs/changelog_management.md`: 変更ログ管理ガイド
 - `docs/validation_tools.md`: バリデーションツールガイド
