@@ -6,9 +6,15 @@ SSDD (Slices Specification-Driven Development) フレームワークの変更履
 
 ## [Unreleased]
 
+### Added
+- gen-phases コマンド（フェーズ定義・機能一覧を生成）
+
 ### Changed
 - draft-l1 と convert-l1 を統合（引数なし: 対話モード、引数あり: 変換モード）
 - gen-code の技術スタック検出を foundation.md からプロジェクト設定ファイル（package.json, pyproject.toml 等）の自動検出に変更
+- L2技術基盤ファイル名を overview.md → foundation.md に変更
+- draft-l2 を foundation.md 生成に限定（フェーズ生成は gen-phases に分離）
+- kind値を変更（overview → foundation）
 
 ### Removed
 - convert-l1 コマンド（draft-l1 に統合）
