@@ -35,7 +35,7 @@ ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 
 ## 前提処理
 
-1. `skills/ssdd/templates/l1_vision.md` を読み込み、テンプレート確認
+1. `templates/l1_vision.md` を読み込み、テンプレート確認
 2. `$1` があれば変換元ファイルを読み込む
 3. `docs/l1_vision.md` が存在するか確認（再生成モード判定）
 

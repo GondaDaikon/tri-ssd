@@ -41,7 +41,7 @@ L2 技術基盤（foundation.md）をベースに、フェーズ定義・機能�
 
 ## 前提処理
 
-1. `skills/ssdd/templates/l2_phases.md` を読み込み、フェーズテンプレートを確認
+1. `templates/l2_phases.md` を読み込み、フェーズテンプレートを確認
 2. `docs/l1_vision.md` を読み込み、要件を把握する
 3. `docs/l2_system/foundation.md` を読み込み、**技術スタックを把握する**
 4. **`docs/l2_system/phases.md` が存在するか確認**（再生成モード判定）

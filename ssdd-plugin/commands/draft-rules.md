@@ -45,7 +45,7 @@ L2 foundation.mdの技術スタックとL1のドメインルールを基に、�
 
 ## 前提処理
 
-1. `skills/ssdd/templates/l2_rules.md` を読み込み、テンプレート構造を確認
+1. `templates/l2_rules.md` を読み込み、テンプレート構造を確認
 2. `docs/l2_system/foundation.md` を読み込み、以下を把握:
    - 技術スタック
    - **セキュリティ方針**（認証・認可、データ保護）

@@ -18,6 +18,7 @@ SSDD (Slices Specification-Driven Development) フレームワークの変更履
 
 ### Removed
 - convert-l1 コマンド（draft-l1 に統合）
+- skills フォルダ（テンプレートは templates/ に移動）
 
 ### Improved
 - 各コマンドのプロンプト品質を改善（gen-code, gen-phases, draft-rules, gen-l3）

@@ -572,7 +572,7 @@ find docs/l3_features/ -name "*.md" | xargs -P 4 -I {} /check {}
 **解決方法**:
 ```bash
 # L3テンプレートとL2のNFRカタログを参照してレビュー
-# → ssdd-plugin/skills/ssdd/templates/l3_feature.md を参考に指摘内容を調整
+# → ssdd-plugin/templates/l3_feature.md を参考に指摘内容を調整
 
 # レビュー基準を確認
 # → 本書の「定量的レビュー基準」セクションを参照

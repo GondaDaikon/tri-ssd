@@ -8,7 +8,7 @@ SSDDドキュメントのフロントマター仕様を定義します。
 
 ## テンプレート一覧
 
-テンプレートは `ssdd-plugin/skills/ssdd/templates/` に配置されています。
+テンプレートは `ssdd-plugin/templates/` に配置されています。
 
 | ファイル | 用途 |
 |---------|------|

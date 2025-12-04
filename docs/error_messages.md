@@ -289,7 +289,7 @@ doc_status: draft
 解決方法:
 1. /init-ssdd を実行してテンプレートを配置
 2. 手動でテンプレートをコピー:
-   ssdd-plugin/skills/ssdd/templates/ ディレクトリを確認
+   ssdd-plugin/templates/ ディレクトリを確認
 
 GitHub: https://github.com/your-org/ssdd/tree/main/docs/templates
 ```

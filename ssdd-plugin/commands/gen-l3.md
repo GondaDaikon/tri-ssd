@@ -36,7 +36,7 @@ ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 
 ## 前提処理
 
-1. `skills/ssdd/templates/l3_feature.md` を読み込み、L3テンプレートを確認する
+1. `templates/l3_feature.md` を読み込み、L3テンプレートを確認する
 2. `docs/l2_system/foundation.md` を読み込み、技術方針・NFRカタログを把握する
 3. `docs/l2_system/phases.md` を読み込み、フェーズ定義・機能一覧を把握する
 4. `docs/l2_system/rules.md` を読み込み、**実装ルール（コード生成制約）を把握する**（存在する場合）
