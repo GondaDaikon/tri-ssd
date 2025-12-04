@@ -4,10 +4,6 @@ SSDD (Slices Specification-Driven Development) フレームワークの変更履
 
 形式は [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) に準拠しています。
 
-> **注**: v0.0.1〜v0.5.0 は初期設計フェーズで策定された仕様バージョンです。
-> 同一日付は設計ドキュメントの論理的なバージョン区分を表しており、
-> 実運用開始後は実際のリリース日が記録されます。
-
 ## [Unreleased]
 
 ### Changed
