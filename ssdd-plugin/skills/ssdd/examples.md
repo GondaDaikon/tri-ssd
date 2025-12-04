@@ -327,7 +327,8 @@ Then BIZ001エラーが返される
 
 ```bash
 /init-ssdd           # ディレクトリ構造初期化
-/draft-l1            # L1作成（対話形式）
+/draft-l1            # L1作成（対話モード）
+/draft-l1 既存.md    # L1作成（変換モード）
 /review l1_vision.md # レビュー → reviewed に昇格
 /draft-l2            # L2技術基盤生成
 /gen-phases          # フェーズ定義・機能一覧生成
