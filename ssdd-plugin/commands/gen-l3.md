@@ -6,6 +6,18 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 
 # L3 生成コマンド
 
+<ssdd_context>
+SSDD（Slices Specification-Driven Development）はAI/LLMコードエージェントを前提とした仕様駆動開発。
+
+レイヤー構造:
+- L1: ビジョン・要求（docs/l1_vision.md）
+- L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
+- L3: 機能仕様（docs/l3_features/F-xxx.md）
+
+ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
+ステータス: draft → reviewed → implemented（L3のみ）
+</ssdd_context>
+
 ## 生成時の原則
 
 <avoid_over_engineering>
@@ -16,21 +28,6 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 - 「念のため」でセクションを追加しない
 </avoid_over_engineering>
 
-## ツール実行方針
-
-<parallel_execution>
-複数の独立した操作は並列で実行する：
-
-**並列実行すべき操作**:
-- 前提処理でのファイル読み込み（6ファイルを同時に読み込む）
-- 複数L3生成時の各ファイル生成（依存関係がなければ並列）
-- 既存L3の確認と既存ID検索
-
-**順次実行すべき操作**:
-- ファイル読み込み → 分析 → 生成（この順序は守る）
-- 再生成モードでのユーザー確認 → 更新
-</parallel_execution>
-
 ## 引数
 
 - `$ARGUMENTS`: 対象の機能ID（省略可、複数指定可）
@@ -39,12 +36,10 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 
 ## 前提処理
 
-1. `skills/ssdd/SKILL.md` を読み込み、SSDD の基本概念を把握する
-2. `skills/ssdd/examples.md` を読み込み、L3の実例を確認する
-3. `skills/ssdd/templates/l3_feature.md` を読み込み、L3テンプレートを確認する
-4. `docs/l2_system/foundation.md` を読み込み、技術方針・NFRカタログを把握する
-5. `docs/l2_system/phases.md` を読み込み、フェーズ定義・機能一覧を把握する
-6. `docs/l2_system/rules.md` を読み込み、**実装ルール（コード生成制約）を把握する**（存在する場合）
+1. `skills/ssdd/templates/l3_feature.md` を読み込み、L3テンプレートを確認する
+2. `docs/l2_system/foundation.md` を読み込み、技術方針・NFRカタログを把握する
+3. `docs/l2_system/phases.md` を読み込み、フェーズ定義・機能一覧を把握する
+4. `docs/l2_system/rules.md` を読み込み、**実装ルール（コード生成制約）を把握する**（存在する場合）
 
 ## ID採番ロジック
 
@@ -99,17 +94,8 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 
 ### 再生成のユースケース
 
-```
-実装中に問題発見
-    ↓
-L3の「実装メモ」に問題を記載
-    ↓
-/gen-l3 F-xxx で再生成
-    ↓
-実装メモは保持されつつ、仕様部分が更新される
-    ↓
-更新されたL3で再度実装
-```
+- 実装中に問題発見 → L3の「実装メモ」に記載 → `/gen-l3 F-xxx` で再生成
+- 実装メモは保持されつつ、仕様部分のみ更新される
 
 ## 生成手順（続き）
 

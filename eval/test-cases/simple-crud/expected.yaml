@@ -1,0 +1,50 @@
+# テストケース: simple-crud
+# 対象機能: F-20251129-003 メモ削除（単純なCRUD操作）
+
+description: "シンプルなメモ削除機能。過剰設計が発生しないことを確認"
+
+target:
+  command: "/gen-l3"
+  feature_id: "F-20251129-003"
+  feature_name: "メモ削除"
+
+expectations:
+  # 受け入れ条件
+  acceptanceCriteria:
+    min: 2
+    max: 5
+    description: "単純な削除機能には3〜5個のACで十分"
+
+  # 空テーブル
+  emptyTables:
+    max: 0
+    description: "プレースホルダーのみのテーブルは不可"
+
+  # 不要セクション（単純CRUDには不要）
+  unnecessarySections:
+    - "状態遷移"     # 削除に状態遷移は不要
+    - "シーケンス"   # 単純APIコールにシーケンス図は不要
+    - "CLI"         # Web機能にCLIは不要
+
+  # 必須セクション
+  requiredSections:
+    - "概要"
+    - "インターフェース"
+    - "受け入れ条件"
+    - "タスクチェックリスト"
+
+  # 技術スタック整合性
+  allowedTechnologies:
+    - "React"
+    - "TypeScript"
+    - "TailwindCSS"
+    - "Node.js"
+    - "Express"
+    - "Prisma"
+    - "SQLite"
+
+  forbiddenTechnologies:
+    - "Vue"
+    - "Angular"
+    - "MongoDB"
+    - "Django"

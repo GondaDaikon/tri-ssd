@@ -1,0 +1,12 @@
+{
+  "name": "ssdd-prompt-eval",
+  "version": "1.0.0",
+  "description": "SSDD プロンプト品質評価システム",
+  "type": "module",
+  "scripts": {
+    "metrics": "node metrics.js",
+    "metrics:json": "node metrics.js --json"
+  },
+  "author": "",
+  "license": "MIT"
+}

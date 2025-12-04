@@ -1,10 +1,22 @@
 ---
 description: SSDDドキュメントのAIレビューを実行する
 argument-hint: <ファイルパス|ID> - レビュー対象（必須）
-allowed-tools: Read, Glob, Grep
+allowed-tools: Read, Edit, Glob, Grep
 ---
 
 # SSDD レビューコマンド
+
+<ssdd_context>
+SSDD（Slices Specification-Driven Development）はAI/LLMコードエージェントを前提とした仕様駆動開発。
+
+レイヤー構造:
+- L1: ビジョン・要求（docs/l1_vision.md）
+- L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
+- L3: 機能仕様（docs/l3_features/F-xxx.md）
+
+ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
+ステータス: draft → reviewed → implemented（L3のみ）
+</ssdd_context>
 
 ## レビュー時の原則
 
@@ -15,14 +27,6 @@ allowed-tools: Read, Glob, Grep
 - 単純な機能に対して「セクションが足りない」と指摘しない
 </avoid_over_engineering>
 
-## ツール実行方針
-
-<parallel_execution>
-**並列実行すべき操作**:
-- SKILL.md と対象ファイルの同時読み込み
-- 参照整合性チェック時の複数ファイル検索（Grep）
-</parallel_execution>
-
 ## 引数
 
 - `$1`: レビュー対象（必須）
@@ -31,8 +35,7 @@ allowed-tools: Read, Glob, Grep
 
 ## 前提処理
 
-1. `skills/ssdd/SKILL.md` を読み込み、SSDD の基本概念を把握する
-2. `$1` で指定された対象ファイルを特定・読み込む
+1. `$1` で指定された対象ファイルを特定・読み込む
 
 ## レビュー観点
 
@@ -96,4 +99,35 @@ allowed-tools: Read, Glob, Grep
 
 ## 推奨アクション
 - ...
+
+## 昇格判定
+**昇格可能**: Yes / No（条件未達の場合は理由）
 ```
+
+## ステータス昇格機能
+
+レビュー結果が良好な場合、doc_status の昇格を提案する。
+
+### 状態遷移
+
+| 現在 | 昇格後 | 対象 |
+|------|--------|------|
+| draft | reviewed | L1, L2, L3 |
+| reviewed | implemented | L3のみ |
+
+### 昇格条件
+
+**draft → reviewed:**
+- 必須フィールドが存在
+- 参照整合性が保たれている
+- 致命的な問題がない
+
+**reviewed → implemented（L3のみ）:**
+- タスクチェックリストが完了
+- 実装メモにコードパスが記載
+
+### 昇格フロー
+
+1. レビュー結果を出力
+2. 昇格可能な場合：「昇格しますか？ (yes/no)」と確認
+3. yes の場合：doc_status を更新

@@ -6,6 +6,18 @@ allowed-tools: Read, Write, Edit, Glob, Grep, WebSearch
 
 # 実装ルール生成コマンド
 
+<ssdd_context>
+SSDD（Slices Specification-Driven Development）はAI/LLMコードエージェントを前提とした仕様駆動開発。
+
+レイヤー構造:
+- L1: ビジョン・要求（docs/l1_vision.md）
+- L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
+- L3: 機能仕様（docs/l3_features/F-xxx.md）
+
+ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
+ステータス: draft → reviewed → implemented（L3のみ）
+</ssdd_context>
+
 ## 概要
 
 L2 foundation.mdの技術スタックとL1のドメインルールを基に、実装ルールの**たたき台**を生成する。
@@ -22,40 +34,25 @@ L2 foundation.mdの技術スタックとL1のドメインルールを基に、�
 - ルールの数より質を重視する
 </avoid_over_engineering>
 
-## ツール実行方針
-
-<parallel_execution>
-複数の独立した操作は並列で実行する：
-
-**並列実行すべき操作**:
-- 前提処理でのファイル読み込み（SKILL.md, templates, foundation.md, l1_vision.md を同時に）
-- Step 4 での複数技術のWebSearch（各技術のベストプラクティスを同時検索）
-- 既存IDの検索
-
-**順次実行すべき操作**:
-- ファイル読み込み → 分析 → ユーザー対話 → 生成
-</parallel_execution>
-
 ## 引数
 
 - `--minimal`: 最小限の骨格のみ生成（セクション見出しと空欄）
 
 ## 前提条件
 
-- `/gen-l2` が完了していること（`docs/l2_system/foundation.md` が存在）
+- `/draft-l2` が完了していること（`docs/l2_system/foundation.md` が存在）
 - `docs/l1_vision.md` が存在すること
 
 ## 前提処理
 
-1. `skills/ssdd/SKILL.md` を読み込み、SSDD の基本概念を把握する
-2. `skills/ssdd/templates/l2_rules.md` を読み込み、テンプレート構造を確認
-3. `docs/l2_system/foundation.md` を読み込み、以下を把握:
+1. `skills/ssdd/templates/l2_rules.md` を読み込み、テンプレート構造を確認
+2. `docs/l2_system/foundation.md` を読み込み、以下を把握:
    - 技術スタック
    - **セキュリティ方針**（認証・認可、データ保護）
    - **エラーハンドリング方針**（エラー分類、コード体系）
    - **ログ・監視方針**（ログレベル、出力ガイドライン）
-4. `docs/l1_vision.md` を読み込み、ドメインルール・制約を把握
-5. **`docs/l2_system/rules.md` が存在するか確認**（再生成モード判定）
+3. `docs/l1_vision.md` を読み込み、ドメインルール・制約を把握
+4. **`docs/l2_system/rules.md` が存在するか確認**（再生成モード判定）
 
 ## 再生成モード（既存ファイルがある場合）
 
@@ -91,15 +88,8 @@ rules.md は L3 実装を通じて育てるドキュメントなので、**追�
 
 ### 再生成のユースケース
 
-```
-foundation.mdの技術スタック変更（例: Express → Fastify）
-    ↓
-/gen-rules で再生成
-    ↓
-コード規約のFW部分が更新される
-    ↓
-L3実装で追加したドメインルールは保持される
-```
+- foundation.md の技術スタック変更時 → `/draft-rules` で再生成
+- コード規約のFW部分のみ更新、L3実装で追加したルールは保持
 
 ## 生成手順
 

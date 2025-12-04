@@ -5,7 +5,7 @@ layer: L2
 status: active
 doc_status: draft
 ---
-<!-- 注: 実際の使用時は /gen-l2 がIDを自動採番します -->
+<!-- 注: 実際の使用時は /draft-l2 がIDを自動採番します -->
 
 <!--
   テンプレート使用ガイド:
@@ -309,7 +309,7 @@ npm run dev
 本書の内容が確定（`doc_status: reviewed`）したら、以下を実施する：
 
 1. `/gen-phases` でフェーズ定義・機能一覧を生成
-2. `/gen-rules` で実装ルールを生成
+2. `/draft-rules` で実装ルールを生成
 
 ---
 

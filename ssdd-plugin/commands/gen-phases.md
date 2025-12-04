@@ -6,6 +6,18 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 
 # フェーズ定義生成コマンド
 
+<ssdd_context>
+SSDD（Slices Specification-Driven Development）はAI/LLMコードエージェントを前提とした仕様駆動開発。
+
+レイヤー構造:
+- L1: ビジョン・要求（docs/l1_vision.md）
+- L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
+- L3: 機能仕様（docs/l3_features/F-xxx.md）
+
+ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
+ステータス: draft → reviewed → implemented（L3のみ）
+</ssdd_context>
+
 ## 概要
 
 L2 技術基盤（foundation.md）をベースに、フェーズ定義・機能一覧（phases.md）を生成する。
@@ -22,19 +34,6 @@ L2 技術基盤（foundation.md）をベースに、フェーズ定義・機能�
 - 最初のフェーズは小さく、早く成果を出せる構成にする
 </avoid_over_engineering>
 
-## ツール実行方針
-
-<parallel_execution>
-複数の独立した操作は並列で実行する：
-
-**並列実行すべき操作**:
-- 前提処理でのファイル読み込み（SKILL.md, templates, l1_vision.md, foundation.md を同時に）
-- 既存IDの検索（PH, F を同時に検索）
-
-**順次実行すべき操作**:
-- ファイル読み込み → 分析 → フェーズ設計 → 生成
-</parallel_execution>
-
 ## 引数
 
 - `--include-setup`: 環境構築フェーズを含める（デフォルト: true）
@@ -42,11 +41,10 @@ L2 技術基盤（foundation.md）をベースに、フェーズ定義・機能�
 
 ## 前提処理
 
-1. `skills/ssdd/SKILL.md` を読み込み、SSDD の基本概念を把握する
-2. `skills/ssdd/templates/l2_phases.md` を読み込み、フェーズテンプレートを確認
-3. `docs/l1_vision.md` を読み込み、要件を把握する
-4. `docs/l2_system/foundation.md` を読み込み、**技術スタックを把握する**
-5. **`docs/l2_system/phases.md` が存在するか確認**（再生成モード判定）
+1. `skills/ssdd/templates/l2_phases.md` を読み込み、フェーズテンプレートを確認
+2. `docs/l1_vision.md` を読み込み、要件を把握する
+3. `docs/l2_system/foundation.md` を読み込み、**技術スタックを把握する**
+4. **`docs/l2_system/phases.md` が存在するか確認**（再生成モード判定）
 
 ## 再生成モード（既存ファイルがある場合）
 
@@ -191,57 +189,7 @@ PH-001 (基盤フェーズ)
 ## 完了後の案内
 
 - 生成ファイルのパスを報告
-- `/gen-rules` で実装ルールを生成することを案内
+- `/draft-rules` で実装ルールを生成することを案内
 - `/gen-l3` で L3 機能ドキュメントを生成することを案内
 - `/check` で整合性チェックを案内
 
-## 環境構築フェーズの例
-
-```markdown
-## PH-20251127-ENV: 環境構築
-
-### 目的
-
-**開発者視点**:
-- 開発環境が整い、最初の機能開発に着手できる状態にする
-
-**アーキテクチャ視点**:
-- foundation.md で定義した技術スタックの実環境を構築
-- CI/CD パイプラインの基盤を整備
-
-### 完了条件（Exit Criteria）
-
-- [ ] プロジェクトが起動し、サンプルページが表示できる
-- [ ] DBに接続でき、マイグレーションが成功する
-- [ ] CI/CDパイプラインが動作する
-- [ ] README.md に環境構築手順が記載されている
-
-### リスク・前提条件
-
-| 項目 | 内容 | 対策 |
-|------|------|------|
-| 外部サービス認証 | AWS/GCPの認証情報取得に時間がかかる可能性 | 早めに申請開始 |
-| 前提条件 | チームメンバーが Docker をインストール済み | - |
-
-### 対象タスク一覧（記載順＝実施順）
-
-#### 1. プロジェクト初期化
-- **ID**: ENV-001
-
-Next.jsプロジェクトの作成、基本設定
-
-#### 2. DB/ORMセットアップ
-- **ID**: ENV-002
-
-Prisma + PostgreSQL の設定、初期スキーマ作成
-
-#### 3. 認証基盤
-- **ID**: ENV-003
-
-NextAuth.js の導入、基本認証フロー実装
-
-#### 4. CI/CD設定
-- **ID**: ENV-004
-
-GitHub Actions の設定、テスト・デプロイパイプライン構築
-```

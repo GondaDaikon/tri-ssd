@@ -80,28 +80,27 @@ SSDDフレームワークを5つのフェーズで改善しました。
 
 **影響度**: ★★★★☆（重要な機能追加）
 
-### 1. doc_status管理コマンド
+### 1. doc_status管理機能
 
 **問題**: draft → reviewed → implemented の遷移が手動で曖昧
 
-**解決**: `/promote-status` コマンド実装
+**解決**: `/review` コマンドにステータス昇格機能を統合
 
 **機能**:
-- 遷移条件の自動検証（draft→reviewed, reviewed→implemented）
+- レビュー後に昇格可否を判定
 - 必須条件（フロントマター、参照整合性、タイトル見出し）チェック
 - 推奨条件（TODO残存、プレースホルダー）チェック
-- 降格（demotion）機能（理由記録付き）
+- 対話形式で昇格を提案
 
-### 2. 変更伝播コマンド
+### 2. 変更伝播機能
 
 **問題**: L1変更時の影響範囲が不明瞭
 
-**解決**: `/propagate-change` コマンド実装
+**解決**: 各再生成コマンドの再生成モードで影響分析を実施
 
 **機能**:
-- L1→L2→L3→Codeの影響分析
-- 自動更新モード、タスクリストモード、対話モード
-- 影響を受けるドキュメントの自動検出
+- draft-l2, gen-phases等の再生成時に差分を分析
+- 影響を受けるドキュメントを自動検出・表示
 
 ---
 
@@ -168,7 +167,7 @@ SSDDフレームワークを5つのフェーズで改善しました。
 1. Phase 1（1-2週間）: 最小構成（L1のみ）
 2. Phase 2（2-4週間）: 設計追加（L2生成）
 3. Phase 3（継続的）: 機能開発（L3生成）
-4. Phase 4（継続的）: 運用定着（review, propagate-change）
+4. Phase 4（継続的）: 運用定着（review, check）
 
 ### 2. 変更ログ管理方針の文書化
 
@@ -251,14 +250,8 @@ SSDDフレームワークを5つのフェーズで改善しました。
 - `docs/changelog_management.md`: 変更ログ管理ガイド
 - `docs/validation_tools.md`: バリデーションツールガイド
 
-**コマンド**:
-- `ssdd-plugin/commands/promote-status.md`: doc_status遷移管理
-- `ssdd-plugin/commands/propagate-change.md`: 変更影響分析
-
-**スキル**:
-- `ssdd-plugin/skills/ssdd/SKILL.md`: コア概念（正本）
-- `ssdd-plugin/skills/ssdd/examples.md`: 実例集
-- `ssdd-plugin/skills/ssdd/troubleshooting.md`: トラブルシューティング
+**テンプレート**:
+- `ssdd-plugin/skills/ssdd/templates/`: L1/L2/L3テンプレート
 
 ---
 
@@ -317,8 +310,8 @@ SSDDフレームワークを5つのフェーズで改善しました。
 | title同期問題 | titleフィールド廃止 | 対応済み |
 | L2構成複雑 | 2ファイル構成に簡素化 | 対応済み |
 | 技術選定 | 人間主導プロセスに変更 | 対応済み |
-| doc_status管理 | `/promote-status`で支援 | 対応済み |
-| 変更影響分析 | `/propagate-change`で支援 | 対応済み |
+| doc_status管理 | `/review`でレビュー後に昇格提案 | 対応済み |
+| 変更影響分析 | 再生成コマンドの再生成モードで対応 | 対応済み |
 | レビュー基準 | 定量的基準を導入 | 対応済み |
 | エラーメッセージ | 標準化ガイド作成 | 対応済み |
 | ライト版/フル版 | ライト版廃止、段階的導入に統一 | 対応済み |
