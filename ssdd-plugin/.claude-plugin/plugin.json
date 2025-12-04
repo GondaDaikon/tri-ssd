@@ -1,6 +1,6 @@
 {
   "name": "ssdd",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "SSDD (Slices Specification-Driven Development) - AI/LLMコードエージェントを前提とした仕様駆動開発フレームワーク",
   "author": {
     "name": "GondaDaikon"

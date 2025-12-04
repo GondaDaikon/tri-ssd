@@ -24,7 +24,7 @@
 実際のプロジェクトでドキュメントを生成する際は、以下を使用してください：
 
 - **テンプレート（正本）**: `ssdd-plugin/skills/ssdd/templates/`
-- **コマンド**: `/draft-l1`, `/draft-l2`, `/gen-phases`, `/draft-rules`, `/gen-l3`
+- **コマンド**: `/draft-l1`, `/draft-l2`, `/gen-phases`, `/draft-rules`, `/gen-l3`, `/gen-code`
 
 これらのコマンドがテンプレートを元にドキュメントを自動生成します。
 
