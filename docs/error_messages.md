@@ -157,7 +157,7 @@ ID: [ID]
 存在するIDを確認:
   /check --list-ids
 
-ID形式を確認してください（v0.1形式）:
+ID形式を確認してください:
 - REQ-YYYYMMDD-nnn (例: REQ-20250125-001)
 - F-YYYYMMDD-nnn (例: F-20250125-001)
 - PH-YYYYMMDD-nnn (例: PH-20250125-001)
@@ -232,7 +232,7 @@ ID形式:
 
 ファイル: [path]
 
-v0.1では`title`フィールドを廃止し、本文の`# 見出し`をタイトルとして使用します。
+`title`フィールドは廃止されました。本文の`# 見出し`をタイトルとして使用してください。
 
 修正例:
 ---
@@ -329,7 +329,7 @@ GitHub: https://github.com/your-org/ssdd/tree/main/docs/templates
 ```
 ⚠ 警告: 非推奨機能を使用しています
 
-機能: title フィールド（v0.1で廃止）
+機能: title フィールド（廃止）
 ファイル: [path]
 
 本文の`# 見出し`を使用してください。
@@ -549,5 +549,3 @@ function getErrorMessage(code, lang = 'ja') {
 
 ---
 
-**更新日**: 2025-11-27
-**対象バージョン**: SSDD v0.5

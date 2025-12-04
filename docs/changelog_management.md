@@ -122,11 +122,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ライト版廃止と段階的導入ガイド
 
 ### Changed
-- `docs/checklists.md`: ライト版運用をv0.4変更点に置換
+- `docs/checklists.md`: ライト版運用を段階的導入ガイドに置換
 - `docs/guide.md`: 個人開発運用イメージを更新
 
 ### Deprecated
-- ライト版運用の概念（v0.4で完全廃止）
+- ライト版運用の概念（廃止）
 
 ## [0.3.0] - 2025-11-26
 
@@ -452,5 +452,3 @@ L1/L2/L3更新         実装メモのみ
 
 ---
 
-**更新日**: 2025-11-26
-**対象バージョン**: SSDD v0.5以降
