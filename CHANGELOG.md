@@ -10,6 +10,19 @@ SSDD (Slices Specification-Driven Development) フレームワークの変更履
 
 ## [Unreleased]
 
+### Changed
+- draft-l1 と convert-l1 を統合（引数なし: 対話モード、引数あり: 変換モード）
+- gen-code の技術スタック検出を foundation.md からプロジェクト設定ファイル（package.json, pyproject.toml 等）の自動検出に変更
+
+### Removed
+- convert-l1 コマンド（draft-l1 に統合）
+
+### Improved
+- 各コマンドのプロンプト品質を改善（gen-code, gen-phases, draft-rules, gen-l3）
+  - 不要なASCII図・サンプルを削除
+  - 重複した検証コマンドを統合
+  - 出力例をシンプル化
+
 ## [0.5.0] - 2025-11-26
 
 ### Changed

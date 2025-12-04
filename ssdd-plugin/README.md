@@ -54,8 +54,7 @@ cp -r ssdd-plugin/commands/* ~/.claude/commands/
 | コマンド | 説明 |
 |----------|------|
 | `/init-ssdd` | ディレクトリ構造を初期化 |
-| `/draft-l1` | L1ドキュメントを対話形式で作成 |
-| `/convert-l1 <ファイル>` | 既存ドキュメントをL1形式に変換 |
+| `/draft-l1 [ファイルパス]` | L1ドキュメントを作成（引数なし: 対話モード、引数あり: 変換モード） |
 | `/draft-l2 [REQ-xxxx ...]` | L1からL2技術基盤（foundation.md）を生成 |
 | `/gen-phases` | 技術基盤からフェーズ定義・機能一覧を生成 |
 | `/draft-rules [--minimal]` | 実装ルールのたたき台を生成 |
@@ -68,7 +67,7 @@ cp -r ssdd-plugin/commands/* ~/.claude/commands/
 
 | 記法 | 意味 | 例 |
 |------|------|-----|
-| `<引数>` | 必須引数 | `/convert-l1 <ファイル>` |
+| `<引数>` | 必須引数 | `/gen-code <F-ID>` |
 | `[引数]` | 省略可能な引数 | `/gen-l3 [F-ID]` |
 | `--オプション` | オプションフラグ | `/draft-rules --minimal` |
 | `...` | 複数指定可能 | `/gen-l3 F-001 F-002 ...` |
