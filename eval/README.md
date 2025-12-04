@@ -25,16 +25,7 @@ eval/
 
 ## 使い方
 
-### 1. テストケースの準備
-
-```bash
-cd eval/test-cases/simple-crud
-
-# プラグインへのシンボリックリンクを作成
-ln -s ../../../ssdd-plugin/skills skills
-```
-
-### 2. L3を生成（Claude Code CLI）
+### 1. L3を生成（Claude Code CLI）
 
 ```bash
 cd eval/test-cases/simple-crud
@@ -46,7 +37,7 @@ claude -p "/gen-l3 F-20251129-003"
 cp docs/l3_features/F-*.md ../../outputs/
 ```
 
-### 3. メトリクスを算出
+### 2. メトリクスを算出
 
 ```bash
 cd eval
