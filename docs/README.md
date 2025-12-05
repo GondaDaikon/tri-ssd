@@ -36,17 +36,9 @@ SSDD は以下の考え方をベースにしています：
 |---------|------|
 | [guide.md](guide.md) | 概念説明・三層モデル・変更伝播ルール・AI活用ポリシー |
 | [glossary.md](glossary.md) | SSDD用語集 |
-| [checklists.md](checklists.md) | 開発フロー・段階的導入ガイド |
+| [checklists.md](checklists.md) | 開発フロー・段階的導入・バリデーションコマンド（`/check`, `/review`） |
 | [frontmatter_spec.md](frontmatter_spec.md) | フロントマター仕様・共通ルール |
 | [samples/](samples/) | 具体的なサンプルドキュメント（TaskFlowアプリ） |
-
-### 運用ドキュメント
-
-| ファイル | 内容 |
-|---------|------|
-| [error_messages.md](error_messages.md) | エラーメッセージ標準化ガイド（E###/W###/I### コード体系） |
-| [changelog_management.md](changelog_management.md) | 変更ログ管理方針（Git commit + CHANGELOG.md） |
-| [validation_tools.md](validation_tools.md) | バリデーションツール使い分けガイド（`/check`, `/review`） |
 
 ### サンプルドキュメント
 
