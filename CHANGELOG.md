@@ -4,6 +4,19 @@ SSDD (Slices Specification-Driven Development) フレームワークの変更履
 
 形式は [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) に準拠しています。
 
+## [0.7.1] - 2025-12-05
+
+### Changed
+
+- validation_tools.md を checklists.md に統合（セクション 4: バリデーションコマンド）
+- changelog_management.md の SSDD 固有部分を guide.md に統合（セクション 6.5: ドキュメント更新の判断基準）
+
+### Removed
+
+- error_messages.md（未実装のエラーコードシステム）
+- validation_tools.md（checklists.md に統合）
+- changelog_management.md（guide.md に統合）
+
 ## [0.7.0] - 2025-12-04
 
 ### Added
