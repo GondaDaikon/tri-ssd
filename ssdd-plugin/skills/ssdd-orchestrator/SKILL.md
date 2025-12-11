@@ -38,7 +38,7 @@ Do NOT:
 | /gen-phases | フェーズ定義・機能一覧を生成 |
 | /draft-rules | 実装ルールを生成 |
 | /gen-l3 [F-xxx] | L3機能ドキュメントを生成 |
-| /gen-code <F-xxx> | コード・テストを生成 |
+| /gen-code `<F-xxx>` | コード・テストを生成 |
 | /check | 整合性チェック |
 | /review <ファイル> | レビュー＆ステータス昇格 |
 
