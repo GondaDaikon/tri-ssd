@@ -4,6 +4,15 @@ SSDD (Slices Specification-Driven Development) フレームワークの変更履
 
 形式は [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) に準拠しています。
 
+## [0.8.0] - 2025-12-11
+
+### Added
+
+- ssdd-orchestrator スキル（ClaudeCode Skills 対応）
+  - SSDD ワークフローのオーケストレーション
+  - 「仕様」「L1」「L2」「L3」等のキーワードで自動起動
+  - Instructions / Examples / Limitations セクション完備
+
 ## [0.7.1] - 2025-12-05
 
 ### Changed
