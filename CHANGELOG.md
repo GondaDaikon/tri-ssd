@@ -4,6 +4,16 @@ SSDD (Slices Specification-Driven Development) フレームワークの変更履
 
 形式は [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) に準拠しています。
 
+## [1.0.0] - 2025-12-30
+
+### Added
+
+- GitHub マーケットプレイス対応
+  - marketplace.json を GitHub 配布形式に更新
+  - LICENSE ファイル (MIT) を追加
+  - plugin.json に repository/license メタデータを追加
+  - パブリックリリース準備完了
+
 ## [0.8.0] - 2025-12-11
 
 ### Added

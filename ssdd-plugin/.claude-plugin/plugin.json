@@ -1,10 +1,14 @@
 {
   "name": "ssdd",
-  "version": "0.8.0",
+  "version": "1.0.0",
   "description": "SSDD (Slices Specification-Driven Development) - AI/LLMコードエージェントを前提とした仕様駆動開発フレームワーク",
   "author": {
     "name": "GondaDaikon"
   },
+  "homepage": "https://github.com/GondaDaikon/SlicesSpecDrivenDevelopment",
+  "repository": "https://github.com/GondaDaikon/SlicesSpecDrivenDevelopment",
+  "license": "MIT",
+  "keywords": ["ssdd", "specification-driven", "development", "framework", "ai", "llm"],
   "commands": [
     "./commands/init-ssdd.md",
     "./commands/draft-l1.md",
