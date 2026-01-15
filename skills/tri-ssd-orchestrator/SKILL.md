@@ -1,16 +1,16 @@
 ---
-name: ssdd-orchestrator
-description: Guides SSDD (Slices Specification-Driven Development) workflow. Explains the three-layer model (L1/L2/L3) and recommends commands. Triggered by "仕様", "要件定義", "設計", "L1", "L2", "L3", "フェーズ", "ルール", or project specification requests.
+name: tri-ssd-orchestrator
+description: Guides Tri-SSD (Tri-Layer Slice Spec Driven) workflow. Explains the three-layer model (L1/L2/L3) and recommends commands. Triggered by "仕様", "要件定義", "設計", "L1", "L2", "L3", "フェーズ", "ルール", or project specification requests.
 ---
 
-# SSDD (Slices Specification-Driven Development)
+# Tri-SSD (Tri-Layer Slice Spec Driven)
 
 AI/LLMコードエージェント向けの仕様駆動開発フレームワーク。
 
 ## Instructions
 
 When this skill is invoked:
-1. Determine user's current stage in SSDD workflow
+1. Determine user's current stage in Tri-SSD workflow
 2. Check existing docs/ directory structure with Glob
 3. Recommend the appropriate next command
 4. Execute the command if user agrees
@@ -18,7 +18,7 @@ When this skill is invoked:
 Do NOT:
 - Skip layers (e.g., generating L3 without L1/L2)
 - Generate code without reviewed L3
-- Load all SSDD documents at once (context cost)
+- Load all Tri-SSD documents at once (context cost)
 
 ## 三層モデル
 
@@ -32,7 +32,7 @@ Do NOT:
 
 | コマンド | 用途 |
 |---------|------|
-| /init-ssdd | ディレクトリ構造を初期化 |
+| /init-tri-ssd | ディレクトリ構造を初期化 |
 | /draft-l1 | L1ビジョン・要求を作成 |
 | /draft-l2 | L2技術基盤を生成 |
 | /gen-phases | フェーズ定義・機能一覧を生成 |
@@ -44,7 +44,7 @@ Do NOT:
 
 ## 推奨フロー
 
-1. /init-ssdd → ディレクトリ作成
+1. /init-tri-ssd → ディレクトリ作成
 2. /draft-l1 → 要件定義
 3. /draft-l2 → 技術選定
 4. /gen-phases → フェーズ計画
@@ -56,10 +56,10 @@ Do NOT:
 ## Examples
 
 **新規プロジェクトで仕様を書きたい:**
-→ /init-ssdd でディレクトリ作成後、/draft-l1 で要件定義から開始
+→ /init-tri-ssd でディレクトリ作成後、/draft-l1 で要件定義から開始
 
-**既存プロジェクトにSSDDを導入したい:**
-→ /init-ssdd 後、既存コードを分析して /draft-l1 で要件を逆算
+**既存プロジェクトにTri-SSDを導入したい:**
+→ /init-tri-ssd 後、既存コードを分析して /draft-l1 で要件を逆算
 
 **L3機能を実装したい:**
 → まず /check で L3 の doc_status を確認。reviewed なら /gen-code、draft なら /review を先に実行
@@ -69,7 +69,7 @@ Do NOT:
 
 ## Limitations
 
-- SSDD固有のワークフローのみ対応（汎用的なコード生成は対象外）
+- Tri-SSD固有のワークフローのみ対応（汎用的なコード生成は対象外）
 - L3単位での実装を前提（複数L3の同時実装は非推奨）
 - 既存コードの自動分析によるL1/L2生成は不完全（人間のレビュー必須）
 

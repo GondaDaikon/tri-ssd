@@ -1,8 +1,25 @@
 # Changelog
 
-SSDD (Slices Specification-Driven Development) フレームワークの変更履歴です。
+Tri-SSD (Tri-Layer Slice Spec Driven) フレームワークの変更履歴です。
 
 形式は [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) に準拠しています。
+
+## [2.0.0] - 2026-01-16
+
+### Changed
+
+- **フレームワーク名を SSDD から Tri-SSD に変更**
+  - SSDD (Slices Specification-Driven Development) → Tri-SSD (Tri-Layer Slice Spec Driven)
+  - 三層構造を名前で明示
+- リポジトリ構造を整理
+  - `ssdd-plugin/` の内容をルートに移動
+  - `eval/`, `archive/` を削除
+- コマンド名を変更
+  - `/init-ssdd` → `/init-tri-ssd`
+- スキル名を変更
+  - `ssdd-orchestrator` → `tri-ssd-orchestrator`
+- プラグイン名を変更
+  - `ssdd` → `tri-ssd`
 
 ## [1.0.0] - 2025-12-30
 
@@ -19,7 +36,7 @@ SSDD (Slices Specification-Driven Development) フレームワークの変更履
 ### Added
 
 - ssdd-orchestrator スキル（ClaudeCode Skills 対応）
-  - SSDD ワークフローのオーケストレーション
+  - Tri-SSD ワークフローのオーケストレーション
   - 「仕様」「L1」「L2」「L3」等のキーワードで自動起動
   - Instructions / Examples / Limitations セクション完備
 
@@ -164,7 +181,7 @@ SSDD (Slices Specification-Driven Development) フレームワークの変更履
 ### Added
 
 - 初期リリース
-- 基本的なコマンド群（init-ssdd, draft-l1, gen-l2, gen-l3, check, review）
+- 基本的なコマンド群（init-tri-ssd, draft-l1, gen-l2, gen-l3, check, review）
 - スキルファイル（SKILL.md）
 - テンプレート群
 - ガイドドキュメント

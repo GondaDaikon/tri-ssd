@@ -1,13 +1,13 @@
 ---
-description: SSDD用のディレクトリ構造を初期化する
+description: Tri-SSD用のディレクトリ構造を初期化する
 argument-hint: なし
 allowed-tools: Read, Write, Bash
 ---
 
-# SSDD 初期化コマンド
+# Tri-SSD 初期化コマンド
 
-<ssdd_context>
-SSDD（Slices Specification-Driven Development）はAI/LLMコードエージェントを前提とした仕様駆動開発。
+<tri_ssd_context>
+Tri-SSD（Tri-Layer Slice Spec Driven）はAI/LLMコードエージェントを前提とした仕様駆動開発。
 
 レイヤー構造:
 - L1: ビジョン・要求（docs/l1_vision.md）
@@ -16,7 +16,7 @@ SSDD（Slices Specification-Driven Development）はAI/LLMコードエージェ�
 
 ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 ステータス: draft → reviewed → implemented（L3のみ）
-</ssdd_context>
+</tri_ssd_context>
 
 ## 実行内容
 

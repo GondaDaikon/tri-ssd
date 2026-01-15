@@ -1,13 +1,13 @@
 ---
-description: SSDDドキュメントの整合性をチェックする
+description: Tri-SSDドキュメントの整合性をチェックする
 argument-hint: "[--list-ids | ファイルパス] - オプション"
 allowed-tools: Read, Glob, Grep
 ---
 
-# SSDD 整合性チェックコマンド
+# Tri-SSD 整合性チェックコマンド
 
-<ssdd_context>
-SSDD（Slices Specification-Driven Development）はAI/LLMコードエージェントを前提とした仕様駆動開発。
+<tri_ssd_context>
+Tri-SSD（Tri-Layer Slice Spec Driven）はAI/LLMコードエージェントを前提とした仕様駆動開発。
 
 レイヤー構造:
 - L1: ビジョン・要求（docs/l1_vision.md）
@@ -16,7 +16,7 @@ SSDD（Slices Specification-Driven Development）はAI/LLMコードエージェ�
 
 ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 ステータス: draft → reviewed → implemented（L3のみ）
-</ssdd_context>
+</tri_ssd_context>
 
 ## 引数
 
@@ -57,7 +57,7 @@ ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 ## 出力形式
 
 ```markdown
-# SSDD 整合性チェック結果
+# Tri-SSD 整合性チェック結果
 
 ## サマリ
 - チェックファイル数: N

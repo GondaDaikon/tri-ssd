@@ -1,28 +1,22 @@
-# SSDD Plugin for Claude Code
+# Tri-SSD Plugin for Claude Code
 
-**SSDD (Slices Specification-Driven Development)** - AI/LLMコードエージェントを前提とした仕様駆動開発フレームワーク
+**Tri-SSD (Tri-Layer Slice Spec Driven)** - AI/LLMコードエージェントを前提とした仕様駆動開発フレームワーク
 
 ## インストール
 
-### 方法1: プロジェクトにコピー
-
 ```bash
-# プラグインフォルダをプロジェクトルートにコピー
-cp -r ssdd-plugin /path/to/your-project/
-```
+# マーケットプレイスを追加
+/plugin marketplace add GondaDaikon/tri-ssd
 
-### 方法2: グローバルインストール
-
-```bash
-# ホームディレクトリの .claude にコピー
-cp -r ssdd-plugin/commands/* ~/.claude/commands/
+# プラグインをインストール
+/plugin install tri-ssd@gondadaikon-tri-ssd
 ```
 
 ## クイックスタート
 
 ```bash
 # 1. ディレクトリ構造を初期化
-/init-ssdd
+/init-tri-ssd
 
 # 2. L1（ビジョン・要求）を対話形式で作成
 /draft-l1
@@ -53,7 +47,7 @@ cp -r ssdd-plugin/commands/* ~/.claude/commands/
 
 | コマンド | 説明 |
 |----------|------|
-| `/init-ssdd` | ディレクトリ構造を初期化 |
+| `/init-tri-ssd` | ディレクトリ構造を初期化 |
 | `/draft-l1 [ファイルパス]` | L1ドキュメントを作成（引数なし: 対話モード、引数あり: 変換モード） |
 | `/draft-l2 [REQ-xxxx ...]` | L1からL2技術基盤（foundation.md）を生成 |
 | `/gen-phases` | 技術基盤からフェーズ定義・機能一覧を生成 |
@@ -105,9 +99,13 @@ docs/
 - `RULES-YYYYMMDD-nnn` - 実装ルール
 - `SP-YYYYMMDD-nnn` - スパイク/PoC
 
+## ドキュメント
+
+詳細なガイドは [docs/](docs/) を参照してください。
+
 ## 変更履歴
 
-[CHANGELOG.md](../CHANGELOG.md) を参照してください。
+[CHANGELOG.md](CHANGELOG.md) を参照してください。
 
 ## ライセンス
 

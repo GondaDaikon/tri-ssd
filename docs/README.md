@@ -1,10 +1,10 @@
-# SSDD（Slices Specification-Driven Development）
+# Tri-SSD（Tri-Layer Slice Spec Driven）
 
-スライス仕様駆動開発サイクル運用ガイド
+三層仕様駆動開発サイクル運用ガイド
 
 ## 概要
 
-SSDD は、LLM／AIコードエージェントを前提とした仕様駆動開発のフレームワークです。三層のドキュメント構造（L1/L2/L3）を通じて、要件から実装までのトレーサビリティを確保しながら、AIと人間の共同作業を効率化します。
+Tri-SSD は、LLM／AIコードエージェントを前提とした仕様駆動開発のフレームワークです。三層のドキュメント構造（L1/L2/L3）を通じて、要件から実装までのトレーサビリティを確保しながら、AIと人間の共同作業を効率化します。
 
 > 詳細な概念説明は [guide.md](guide.md) を参照してください。
 
@@ -19,7 +19,7 @@ SSDD は、LLM／AIコードエージェントを前提とした仕様駆動開�
 | ファイル | 内容 |
 |---------|------|
 | [guide.md](guide.md) | 概念説明・三層モデル・変更伝播ルール・AI活用ポリシー |
-| [glossary.md](glossary.md) | SSDD用語集 |
+| [glossary.md](glossary.md) | Tri-SSD用語集 |
 | [checklists.md](checklists.md) | 開発フロー・段階的導入・バリデーションコマンド（`/check`, `/review`） |
 | [frontmatter_spec.md](frontmatter_spec.md) | フロントマター仕様・共通ルール |
 | [samples/](samples/) | 具体的なサンプルドキュメント（TaskFlowアプリ） |
@@ -36,7 +36,7 @@ SSDD は、LLM／AIコードエージェントを前提とした仕様駆動開�
 | [samples/l2_rules_taskflow.md](samples/l2_rules_taskflow.md) | L2実装ルールのサンプル |
 | [samples/l3_feature_taskflow.md](samples/l3_feature_taskflow.md) | L3機能ドキュメントのサンプル |
 
-> **テンプレート（正本）**: 実際のプロジェクトでは `ssdd-plugin/templates/` のテンプレートを使用します。コマンド（`/draft-l1`, `/draft-l2`, `/gen-phases`, `/draft-rules`, `/gen-l3`, `/gen-code`）が自動的にテンプレートからドキュメントを生成します。
+> **テンプレート（正本）**: 実際のプロジェクトでは `templates/` のテンプレートを使用します。コマンド（`/draft-l1`, `/draft-l2`, `/gen-phases`, `/draft-rules`, `/gen-l3`, `/gen-code`）が自動的にテンプレートからドキュメントを生成します。
 
 ## 想定読者
 
@@ -63,12 +63,12 @@ SSDD は、LLM／AIコードエージェントを前提とした仕様駆動開�
   - コード／テストのドラフト生成
 - AI による生成物は、必ず人間のレビューと修正を経て確定させる
 
-> AI を用いない運用は本ガイドの対象外とし、SSDD は「AI を前提とした開発フロー」として位置づけます。
+> AI を用いない運用は本ガイドの対象外とし、Tri-SSD は「AI を前提とした開発フロー」として位置づけます。
 
 ## クイックスタート
 
 1. **guide.md を読む**: 三層モデルの概念を理解する
-2. **ssdd-plugin をインストール**: Claude Codeにプラグインを追加
+2. **tri-ssd プラグインをインストール**: Claude Codeにプラグインを追加
 3. **L1を生成**: `/draft-l1` コマンドでビジョン・要求ドキュメントを作成
 4. **L2技術基盤を生成**: `/draft-l2` コマンドで技術方針をドラフト
 5. **フェーズ設計**: `/gen-phases` コマンドでフェーズ定義・機能一覧を生成

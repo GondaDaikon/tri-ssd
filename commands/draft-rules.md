@@ -6,8 +6,8 @@ allowed-tools: Read, Write, Edit, Glob, Grep, WebSearch
 
 # 実装ルール生成コマンド
 
-<ssdd_context>
-SSDD（Slices Specification-Driven Development）はAI/LLMコードエージェントを前提とした仕様駆動開発。
+<tri_ssd_context>
+Tri-SSD（Tri-Layer Slice Spec Driven）はAI/LLMコードエージェントを前提とした仕様駆動開発。
 
 レイヤー構造:
 - L1: ビジョン・要求（docs/l1_vision.md）
@@ -16,7 +16,7 @@ SSDD（Slices Specification-Driven Development）はAI/LLMコードエージェ�
 
 ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 ステータス: draft → reviewed → implemented（L3のみ）
-</ssdd_context>
+</tri_ssd_context>
 
 ## 概要
 

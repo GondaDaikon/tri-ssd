@@ -1,0 +1,24 @@
+{
+  "name": "tri-ssd-marketplace",
+  "description": "Tri-SSD (Tri-Layer Slice Spec Driven) plugin marketplace",
+  "owner": {
+    "name": "GondaDaikon"
+  },
+  "plugins": [
+    {
+      "name": "tri-ssd",
+      "source": {
+        "source": "github",
+        "repo": "GondaDaikon/tri-ssd",
+        "path": "."
+      },
+      "description": "Tri-SSD (Tri-Layer Slice Spec Driven) - AI/LLMコードエージェントを前提とした仕様駆動開発フレームワーク",
+      "version": "2.0.0",
+      "author": {
+        "name": "GondaDaikon"
+      },
+      "repository": "https://github.com/GondaDaikon/tri-ssd",
+      "license": "MIT"
+    }
+  ]
+}
