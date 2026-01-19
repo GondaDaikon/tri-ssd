@@ -29,6 +29,11 @@ Tri-SSD (Tri-Layer Slice Spec Driven) フレームワークの変更履歴です
 - check.md にフェーズフォルダ整合性チェック項目を追加
 - SKILL.md にL3フォルダ構造の説明を追加
 
+### Fixed
+
+- ドキュメント内のL3パス例をフェーズフォルダ形式に統一
+  - guide.md, check.md, review.md, samples/l2_foundation_taskflow.md
+
 ## [2.0.0] - 2026-01-16
 
 ### Changed
