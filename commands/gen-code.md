@@ -12,7 +12,7 @@ Tri-SSD（Tri-Layer Slice Spec Driven）はAI/LLMコードエージェントを�
 レイヤー構造:
 - L1: ビジョン・要求（docs/l1_vision.md）
 - L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
-- L3: 機能仕様（docs/l3_features/F-xxx.md）
+- L3: 機能仕様（docs/l3_features/PH-xxx_name/F-xxx.md）
 
 ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 ステータス: draft → reviewed → implemented（L3のみ）
@@ -47,7 +47,7 @@ L3 機能ドキュメントを入力として、テストコードと実装コ�
 
 ### Phase 1: コンテキスト収集
 
-1. **L3ファイル特定**: Glob で `docs/l3_features/$1*.md` を検索
+1. **L3ファイル特定**: Glob で `docs/l3_features/**/$1*.md` を検索（フェーズフォルダ内）
    - 見つからない場合はエラー終了
 2. L3 ドキュメントを読み込み、`doc_status` を確認
    - `draft` の場合：警告「L3が未レビューです。続行しますか？」

@@ -12,7 +12,7 @@ Tri-SSD（Tri-Layer Slice Spec Driven）はAI/LLMコードエージェントを�
 レイヤー構造:
 - L1: ビジョン・要求（docs/l1_vision.md）
 - L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
-- L3: 機能仕様（docs/l3_features/F-xxx.md）
+- L3: 機能仕様（docs/l3_features/PH-xxx_name/F-xxx.md）
 
 ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 ステータス: draft → reviewed → implemented（L3のみ）
@@ -36,10 +36,79 @@ ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 
 ## 前提処理
 
-1. `templates/l3_feature.md` を読み込み、L3テンプレートを確認する
-2. `docs/l2_system/foundation.md` を読み込み、技術方針・NFRカタログを把握する
-3. `docs/l2_system/phases.md` を読み込み、フェーズ定義・機能一覧を把握する
-4. `docs/l2_system/rules.md` を読み込み、**実装ルール（コード生成制約）を把握する**（存在する場合）
+1. `docs/l2_system/foundation.md` を読み込み、技術方針・NFRカタログを把握する
+2. `docs/l2_system/phases.md` を読み込み、フェーズ定義・機能一覧を把握する
+3. `docs/l2_system/rules.md` を読み込み、**実装ルール（コード生成制約）を把握する**（存在する場合）
+
+---
+
+## 出力フォーマット（必須）
+
+### YAMLフロントマター
+
+```yaml
+---
+id: F-YYYYMMDD-nnn
+kind: feature
+layer: L3
+status: active
+doc_status: draft
+req_ids:
+  - REQ-YYYYMMDD-nnn
+nfr_ids:
+  - NF-YYYYMMDD-nnn
+phase: PH-YYYYMMDD-nnn
+---
+```
+
+**重要**: フロントマターは必ず上記形式で出力する。
+- `---` で囲み、インデントなし
+- `req_ids`, `nfr_ids` はリスト形式（`- ` で始まる）
+- `phase` は単一値
+
+### 必須構造
+
+```markdown
+# [機能名]
+
+## 1. 概要
+### 1.1 この機能でできること
+### 1.2 代表的なユースケース
+### 1.3 技術基盤との整合性
+
+## 2. データモデル（省略可）
+### 2.1 この機能で扱うエンティティ
+### 2.2 データ構造
+### 2.3 状態遷移（該当する場合）
+
+## 3. インターフェース
+### 3.1 画面構成（UIの場合）
+### 3.2 APIエンドポイント（APIの場合）
+### 3.3 CLIインターフェース（CLIの場合）
+### 3.4 シーケンス（必要に応じて）
+
+## 4. 業務ルール・例外
+### 4.1 バリデーションルール
+### 4.2 権限・ロールによる振る舞い
+### 4.3 例外的なケース
+
+## 5. 非機能・受け入れ条件
+### 5.1 非機能要求の具体化
+### 5.2 受け入れ条件（Gherkin形式で3〜5個）
+
+## 6. タスクチェックリスト
+### 6.1 実装タスク
+### 6.2 テストタスク
+
+## 7. 実装メモ・注意点（実装後に埋める）
+### 7.1 適用した設計パターン
+### 7.2 関連コードへのリンク
+### 7.3 技術的負債・暫定対応
+### 7.4 注意点・申し送り事項
+```
+
+**必須**: セクション 1, 3, 5.2, 6
+**省略可能**: セクション 2（新規エンティティがない場合）, 3.3（CLIがない場合）, 7（初期は空）
 
 ## ID採番ロジック
 
@@ -171,8 +240,41 @@ ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 
 ## 出力ファイル
 
-- パターン: `docs/l3_features/F-YYYYMMDD-nnn_[機能名].md`
+### フェーズフォルダ構造（必須）
+
+L3ファイルは**フェーズごとのサブフォルダ**に配置する:
+
+```
+docs/l3_features/
+├── PH-YYYYMMDD-ENV_environment-setup/
+│   └── (環境構築フェーズの機能があれば)
+├── PH-YYYYMMDD-001_[phase-name]/
+│   ├── F-YYYYMMDD-001_[feature-name].md
+│   ├── F-YYYYMMDD-002_[feature-name].md
+│   └── ...
+├── PH-YYYYMMDD-002_[phase-name]/
+│   └── F-YYYYMMDD-003_[feature-name].md
+└── ...
+```
+
+### フォルダ命名規則
+
+- フォルダ名: `{フェーズID}_{kebab-case-フェーズ名}`
+- 例: `PH-20250125-001_user-management`
+
+### ファイル命名規則
+
+- ファイル名: `{機能ID}_{kebab-case-機能名}.md`
 - 例: `F-20250125-001_user-registration.md`
+
+### 生成手順
+
+1. 対象機能の `phase` フィールドからフェーズIDを取得
+2. `docs/l3_features/` 配下に該当フェーズフォルダが存在するか確認
+3. なければフェーズフォルダを作成
+4. フェーズフォルダ内に機能ファイルを生成
+
+**重要**: 機能が1つしかないフェーズでも、必ずフェーズフォルダを作成する
 
 ## 出力仕様
 
