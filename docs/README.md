@@ -36,7 +36,7 @@ Tri-SSD は、LLM／AIコードエージェントを前提とした仕様駆動�
 | [samples/l2_rules_taskflow.md](samples/l2_rules_taskflow.md) | L2実装ルールのサンプル |
 | [samples/l3_feature_taskflow.md](samples/l3_feature_taskflow.md) | L3機能ドキュメントのサンプル |
 
-> **テンプレート（正本）**: 実際のプロジェクトでは `templates/` のテンプレートを使用します。コマンド（`/draft-l1`, `/draft-l2`, `/gen-phases`, `/draft-rules`, `/gen-l3`, `/gen-code`）が自動的にテンプレートからドキュメントを生成します。
+> **出力フォーマット**: 各コマンド（`/draft-l1`, `/draft-l2`, `/gen-phases`, `/draft-rules`, `/gen-l3`）に出力フォーマットが埋め込まれており、正しいYAMLフロントマター形式でドキュメントを生成します。
 
 ## 想定読者
 

@@ -12,7 +12,7 @@ Tri-SSD（Tri-Layer Slice Spec Driven）はAI/LLMコードエージェントを�
 レイヤー構造:
 - L1: ビジョン・要求（docs/l1_vision.md）
 - L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
-- L3: 機能仕様（docs/l3_features/F-xxx.md）
+- L3: 機能仕様（docs/l3_features/PH-xxx_name/F-xxx.md）
 
 ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 ステータス: draft → reviewed → implemented（L3のみ）
@@ -31,6 +31,25 @@ docs/
 ```
 
 **注:** L1 は `docs/l1_vision.md` としてフラット配置。
+
+### L3フォルダ構造について
+
+L3フォルダは**フェーズごとのサブフォルダ**で整理される（`/gen-l3` 実行時に自動作成）：
+
+```
+docs/l3_features/
+├── PH-YYYYMMDD-001_[phase-name]/
+│   ├── F-YYYYMMDD-001_[feature-name].md
+│   └── F-YYYYMMDD-002_[feature-name].md
+├── PH-YYYYMMDD-002_[phase-name]/
+│   └── F-YYYYMMDD-003_[feature-name].md
+└── ...
+```
+
+**メリット**:
+- フェーズごとに機能をグルーピングして見やすい
+- 機能が1つでもフェーズフォルダを作成（一貫性のため）
+- phases.md の構造と対応
 
 ## ID形式
 

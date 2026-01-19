@@ -26,7 +26,20 @@ Do NOT:
 |---------|------|---------|
 | L1 | ビジョン・要求（What） | docs/l1_vision.md |
 | L2 | 技術基盤・フェーズ・ルール（How） | docs/l2_system/*.md |
-| L3 | 機能仕様（Detail） | docs/l3_features/F-*.md |
+| L3 | 機能仕様（Detail） | docs/l3_features/PH-xxx_name/F-*.md |
+
+### L3フォルダ構造
+
+L3ファイルはフェーズごとのサブフォルダに配置:
+
+```
+docs/l3_features/
+├── PH-xxx-001_phase-name/
+│   ├── F-xxx-001_feature.md
+│   └── F-xxx-002_feature.md
+└── PH-xxx-002_phase-name/
+    └── F-xxx-003_feature.md
+```
 
 ## 利用可能なコマンド
 

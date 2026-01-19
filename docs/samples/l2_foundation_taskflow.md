@@ -134,7 +134,8 @@ taskflow/
 │   │   ├── phases.md
 │   │   └── rules.md
 │   └── l3_features/
-│       └── F-20251126-001_task_crud.md
+│       └── PH-20251126-001_mvp/
+│           └── F-20251126-001_task_crud.md
 ├── frontend/                # Reactアプリケーション
 │   ├── src/
 │   │   ├── components/      # UIコンポーネント

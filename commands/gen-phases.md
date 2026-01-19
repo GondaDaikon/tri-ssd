@@ -12,7 +12,7 @@ Tri-SSD（Tri-Layer Slice Spec Driven）はAI/LLMコードエージェントを�
 レイヤー構造:
 - L1: ビジョン・要求（docs/l1_vision.md）
 - L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
-- L3: 機能仕様（docs/l3_features/F-xxx.md）
+- L3: 機能仕様（docs/l3_features/PH-xxx_name/F-xxx.md）
 
 ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 ステータス: draft → reviewed → implemented（L3のみ）
@@ -41,10 +41,90 @@ L2 技術基盤（foundation.md）をベースに、フェーズ定義・機能�
 
 ## 前提処理
 
-1. `templates/l2_phases.md` を読み込み、フェーズテンプレートを確認
-2. `docs/l1_vision.md` を読み込み、要件を把握する
-3. `docs/l2_system/foundation.md` を読み込み、**技術スタックを把握する**
-4. **`docs/l2_system/phases.md` が存在するか確認**（再生成モード判定）
+1. `docs/l1_vision.md` を読み込み、要件を把握する
+2. `docs/l2_system/foundation.md` を読み込み、**技術スタックを把握する**
+3. **`docs/l2_system/phases.md` が存在するか確認**（再生成モード判定）
+
+---
+
+## 出力フォーマット（必須）
+
+### YAMLフロントマター
+
+```yaml
+---
+id: PH-YYYYMMDD-nnn
+kind: phase
+layer: L2
+status: active
+doc_status: draft
+---
+```
+
+**重要**: フロントマターは必ず上記形式で出力する。`---` で囲み、インデントなし。
+
+### 必須構造
+
+```markdown
+# [プロダクト名] フェーズ定義・機能一覧
+
+## フェーズ間依存関係図
+
+（ASCII図でフェーズ間の依存関係を表現）
+
+## PH-YYYYMMDD-ENV: 環境構築
+
+### 目的
+- **ユーザー視点**: ...
+- **アーキテクチャ視点**: ...
+
+### Exit Criteria
+- [ ] 開発環境が構築できる
+- [ ] ...
+
+### 対象タスク
+1. プロジェクト初期化
+2. ...
+
+### リスク・前提条件
+| リスク/前提 | 対策/確認方法 |
+
+---
+
+## PH-YYYYMMDD-001: [フェーズ名]
+
+### 目的
+- **ユーザー視点**: ...
+- **アーキテクチャ視点**: ...
+
+### Exit Criteria
+- [ ] ...
+
+### フェーズ境界テスト
+- ...
+
+### 機能一覧（実装順）
+
+| 機能ID | 機能名 | 概要 | 優先度 | ステータス |
+|--------|--------|------|--------|-----------|
+| F-YYYYMMDD-nnn | ... | ... | Must | pending |
+
+### リスク・前提条件
+| リスク/前提 | 対策/確認方法 |
+
+---
+
+## 全体機能一覧
+
+| 機能ID | 機能名 | 対応REQ | フェーズ | 優先度 | ステータス |
+|--------|--------|---------|----------|--------|-----------|
+
+## 更新履歴
+| 日付 | 変更内容 | 担当 |
+```
+
+**必須**: 各フェーズに Exit Criteria、機能一覧、リスク・前提条件を含める
+**記載順 = 実装順**
 
 ## 再生成モード（既存ファイルがある場合）
 
