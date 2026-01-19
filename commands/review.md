@@ -87,7 +87,7 @@ ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 ```markdown
 # レビュー結果
 
-**ファイル**: docs/l3_features/F-20250125-001_xxx.md
+**ファイル**: docs/l3_features/PH-20250125-001_phase-name/F-20250125-001_xxx.md
 **評価**: B（改善推奨）
 
 ## 良い点
