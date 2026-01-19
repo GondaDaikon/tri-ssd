@@ -83,6 +83,6 @@ ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 ```
 REQ-20250125-001  docs/l1_vision.md
 REQ-20250125-002  docs/l1_vision.md
-F-20250125-001    docs/l3_features/F-20250125-001_xxx.md
+F-20250125-001    docs/l3_features/PH-20250125-001_phase-name/F-20250125-001_xxx.md
 PH-20250125-001   docs/l2_system/phases.md
 ```

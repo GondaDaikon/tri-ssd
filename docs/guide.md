@@ -99,9 +99,11 @@ docs/
     phases.md            # フェーズ定義（PH-YYYYMMDD-nnn）＋各フェーズ配下の機能一覧
     rules.md             # 実装ルール（コード生成時の制約）
   l3_features/
-    F-20250125-001_markdown-edit.md
-    F-20250125-002_multi-tab.md
-    ...
+    PH-20250125-001_core-features/
+      F-20250125-001_markdown-edit.md
+      F-20250125-002_multi-tab.md
+    PH-20250125-002_advanced-features/
+      ...
 src/
   ...
 ```
