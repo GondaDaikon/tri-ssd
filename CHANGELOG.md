@@ -4,6 +4,31 @@ Tri-SSD (Tri-Layer Slice Spec Driven) フレームワークの変更履歴です
 
 形式は [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) に準拠しています。
 
+## [2.1.0] - 2026-01-19
+
+### Changed
+
+- **出力フォーマットをコマンドに直接埋め込み**
+  - 各コマンド（draft-l1, draft-l2, gen-phases, draft-rules, gen-l3）にYAMLフロントマター形式と必須セクション構造を埋め込み
+  - テンプレートファイル参照のバグを根本解決
+  - コマンド単体で完結して動作するように改善
+
+- **L3フォルダ構造をフェーズ別に変更**
+  - 変更前: `docs/l3_features/F-xxx_feature.md`（フラット）
+  - 変更後: `docs/l3_features/PH-xxx_phase-name/F-xxx_feature.md`（フェーズごと）
+  - フェーズが複数機能を持つ場合の視認性向上
+
+### Removed
+
+- `templates/` フォルダを削除
+  - 出力フォーマットがコマンドに埋め込まれたため不要に
+  - 約1,400行の削減
+
+### Added
+
+- check.md にフェーズフォルダ整合性チェック項目を追加
+- SKILL.md にL3フォルダ構造の説明を追加
+
 ## [2.0.0] - 2026-01-16
 
 ### Changed
