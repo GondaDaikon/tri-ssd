@@ -4,7 +4,7 @@ Tri-SSD (Tri-Layer Slice Spec Driven) フレームワークの変更履歴です
 
 形式は [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) に準拠しています。
 
-## [Unreleased]
+## [2.1.1] - 2026-01-21
 
 ### Changed
 
