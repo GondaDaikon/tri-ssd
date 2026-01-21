@@ -1,6 +1,21 @@
 ---
 name: tri-ssd-orchestrator
-description: Guides Tri-SSD (Tri-Layer Slice Spec Driven) workflow. Explains the three-layer model (L1/L2/L3) and recommends commands. Triggered by "仕様", "要件定義", "設計", "L1", "L2", "L3", "フェーズ", "ルール", or project specification requests.
+description: >
+  Tri-SSD（三層スライス仕様駆動）のワークフローを統括する。
+  AI/LLMコードエージェントを前提とした仕様駆動開発フレームワーク。
+  三層モデル（L1 ビジョン・要求、L2 技術基盤、L3 機能仕様）を通じて、
+  要件から実装までのトレーサビリティを確保しながらAIと人間の共同作業を効率化する。
+  使用タイミング: (1) 新規プロジェクトの仕様・要件定義を作成したい、
+  (2) 既存プロジェクトにTri-SSDを導入したい、
+  (3) 既存ドキュメントをL1形式に変換したい、
+  (4) 要件や技術スタックを追加・変更したい、
+  (5) L1/L2/L3ドキュメントを生成・更新したい、
+  (6) 仕様からコード・テストを生成したい、
+  (7) 進捗確認・整合性チェック・レビュー・昇格をしたい、
+  (8) 実装中の知見をドキュメントに反映したい。
+  トリガー: 「仕様」「要件定義」「要件追加」「設計」「技術スタック」「技術選定」
+  「L1」「L2」「L3」「フェーズ」「ルール」「仕様書」「技術基盤」
+  「コード生成」「整合性チェック」「進捗確認」「Tri-SSD」「導入」。
 ---
 
 # Tri-SSD (Tri-Layer Slice Spec Driven)

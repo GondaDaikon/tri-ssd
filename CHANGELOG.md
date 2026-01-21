@@ -4,6 +4,16 @@ Tri-SSD (Tri-Layer Slice Spec Driven) フレームワークの変更履歴です
 
 形式は [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) に準拠しています。
 
+## [Unreleased]
+
+### Changed
+
+- **SKILL.md descriptionをベストプラクティスに準拠して改善**
+  - 言語を英日混在から日本語統一に変更（ユーザー発話とのマッチング向上）
+  - 「使用タイミング」パターンで8つのユースケースを明示
+  - トリガーワードを9個から19個に拡充
+  - Claude Codeプラグインのdescriptionベストプラクティスに完全準拠
+
 ## [2.1.0] - 2026-01-19
 
 ### Changed
