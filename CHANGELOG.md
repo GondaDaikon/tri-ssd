@@ -4,6 +4,28 @@ Tri-SSD (Tri-Layer Slice Spec Driven) フレームワークの変更履歴です
 
 形式は [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) に準拠しています。
 
+## [2.2.0] - 2026-01-23
+
+### Added
+
+- **プラグイン開発原則ガイドを追加**
+  - `docs/plugin-development-guide.md` - 包括的な開発ガイド（301行）
+  - ファイルサイズ制限、単一責任、段階的開示などの原則を明文化
+  - Tri-SSD三層モデルとの整合性セクション
+  - アンチパターンとチェックリスト
+
+- **コンテキスト依存ルールを追加**
+  - `.claude/rules/command-development.md` - コマンド開発時に自動読み込み
+  - `.claude/rules/skill-development.md` - スキル開発時に自動読み込み
+  - 該当ファイル編集時のみルールが適用される効率的な設計
+
+### Changed
+
+- **CLAUDE.mdにプラグイン開発原則セクションを追加**
+  - 必須ルール（ファイルサイズ、テスト、単一責任、段階的開示）
+  - コンテキスト効率の指針
+  - 詳細ガイドへの参照
+
 ## [2.1.1] - 2026-01-21
 
 ### Changed

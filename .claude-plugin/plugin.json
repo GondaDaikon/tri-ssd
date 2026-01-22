@@ -1,6 +1,6 @@
 {
   "name": "tri-ssd",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "Tri-SSD (Tri-Layer Slice Spec Driven) - AI/LLMコードエージェントを前提とした仕様駆動開発フレームワーク",
   "author": {
     "name": "GondaDaikon"

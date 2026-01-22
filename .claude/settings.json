@@ -1,0 +1,13 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": {
+          "tool": "Edit|Write",
+          "filePath": "\\.md$"
+        },
+        "command": "npx markdownlint-cli --fix \"$CLAUDE_FILE_PATH\""
+      }
+    ]
+  }
+}
