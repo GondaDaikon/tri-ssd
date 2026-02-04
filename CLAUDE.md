@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 このリポジトリは **Tri-SSD Claude Code プラグインの開発リポジトリ** です。
 
-Tri-SSD（Tri-Layer Slice Spec Driven）は、AI/LLMコードエージェントを前提とした仕様駆動開発フレームワークです。このリポジトリでは、そのフレームワークを Claude Code で利用するためのプラグイン（コマンド・スキル）を開発しています。
+Tri-SSD（Tri-Layer Slice Spec Driven）は、AI/LLMコードエージェントを前提としたシンプルな仕様駆動開発フレームワークです。このリポジトリでは、そのフレームワークを Claude Code で利用するためのプラグイン（コマンド・スキル）を開発しています。
 
 ## ディレクトリ構成
 
@@ -15,9 +15,16 @@ commands/           # コマンド定義（.md）
 skills/             # スキル定義
   tri-ssd-orchestrator/  # メインスキル
 docs/               # フレームワーク仕様・ガイド
-  samples/          # サンプルドキュメント（TaskFlowアプリ題材）
-templates/          # L1/L2/L3テンプレート
 ```
+
+## Tri-SSD レイヤー構造
+
+| レイヤー | 内容 | ファイル |
+|---------|------|----------|
+| L0 | アイディア・ラフメモ（任意） | docs/l0_ideas/ |
+| L1 | 要件（ビジョン・ペルソナ・やりたいこと） | docs/l1_requirements/vision.md |
+| L2 | システム構成（技術スタック・アーキ） | docs/l2_foundation/foundation.md |
+| L3 | フェーズ（機能一覧 + 受け入れ条件） | docs/l3_phases/PH-xxx.md |
 
 ## コマンド定義の書き方（commands/*.md）
 
@@ -46,12 +53,12 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 Tri-SSD（Tri-Layer Slice Spec Driven）はAI/LLMコードエージェントを前提とした仕様駆動開発。
 
 レイヤー構造:
-- L1: ビジョン・要求（docs/l1_vision.md）
-- L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
-- L3: 機能仕様（docs/l3_features/PH-xxx_name/F-xxx.md）
+- L0: アイディア・ラフメモ（docs/l0_ideas/）- 任意
+- L1: 要件（docs/l1_requirements/vision.md）
+- L2: システム構成（docs/l2_foundation/foundation.md）
+- L3: フェーズ（docs/l3_phases/PH-xxx.md）- 機能+受け入れ条件
 
-ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
-ステータス: draft → reviewed → implemented（L3のみ）
+ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F）
 </tri_ssd_context>
 ```
 
@@ -72,75 +79,11 @@ ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
 - 必須構造（Markdownテンプレート）
 - 省略可能なセクションの明記
 
-#### 4. 再生成モード
-
-既存ファイルがある場合の動作を定義:
-
-| 保持するもの | 理由 |
-|-------------|------|
-| 既存ID | トレーサビリティ維持 |
-| 実装メモ | 知見の保持 |
-| doc_status: reviewed以上 | 承認済み保護 |
-
-| 更新するもの | 条件 |
-|-------------|------|
-| 概要・仕様 | 上位層が変更された場合 |
-| 受け入れ条件 | 要件変更時 |
-
-#### 5. ID採番ロジック
-
-```markdown
-## ID採番ロジック
-
-1. 現在日時を取得: YYYYMMDD
-2. 既存IDを検索（Grepで docs/**/*.md から）
-3. 同日の最大連番 + 1 で新ID生成
-```
-
-#### 6. 完了後の案内
+#### 4. 完了後の案内
 
 - 作成ファイルのパスを報告
 - TODO箇所の数を報告
 - 次のコマンドを案内
-
-## スキル定義の書き方（skills/*/SKILL.md）
-
-### フロントマター形式
-
-```yaml
----
-name: スキル名
-description: >
-  スキルの説明（複数行可）。
-  使用タイミングとトリガーワードを含める。
----
-```
-
-### 本文構成
-
-```markdown
-# スキル名
-
-概要説明
-
-## Instructions
-
-スキルが呼び出されたときの動作手順
-
-## 利用可能なコマンド
-
-| コマンド | 用途 |
-|---------|------|
-| /xxx | 説明 |
-
-## Examples
-
-使用例
-
-## Limitations
-
-制限事項
-```
 
 ## ドキュメントのフロントマター仕様
 
@@ -148,45 +91,32 @@ Tri-SSD ドキュメント（L1/L2/L3）のフロントマター:
 
 ```yaml
 ---
-id: PREFIX-YYYYMMDD-nnn     # 一意なID
-kind: vision|foundation|phase|rules|feature
-layer: L1|L2|L3
-status: active|deprecated|removed
-doc_status: draft|reviewed|implemented
+status: wip|done
 ---
 ```
 
-### ID プレフィックス
+### status 遷移
+
+```
+wip → done
+```
+
+- `wip`: 作業中（AI生成直後・書きかけ）
+- `done`: 完了
+
+### ID形式（本文中で使用）
 
 | プレフィックス | 用途 |
 |---------------|------|
-| VISION | L1ビジョン |
 | REQ | 要件（L1内でインライン定義） |
-| NF | 非機能要求（L2内で定義） |
 | PH | フェーズ |
 | F | 機能 |
 
-### doc_status 遷移
-
-```
-draft → reviewed → implemented
-```
-
-- `draft`: AI生成直後・書きかけ
-- `reviewed`: レビュー済み、実装可能
-- `implemented`: 実装・テスト完了（主にL3）
-
-## 参照すべきドキュメント
-
-| ドキュメント | 内容 |
-|-------------|------|
-| `docs/frontmatter_spec.md` | フロントマター仕様 |
-| `docs/guide.md` | 概念ガイド |
-| `docs/samples/` | TaskFlowアプリのサンプル |
+ID形式: `PREFIX-YYYYMMDD-nnn`（例: REQ-20250203-001）
 
 ## 開発時の注意
 
-- **レイヤーをスキップしない**: L1/L2なしでL3を生成しない、reviewedでないL3からコード生成しない
+- **レイヤーをスキップしない**: L1/L2なしでL3を生成しない
 - **コマンドは Markdown で定義**: `commands/*.md` に配置
 - **ID形式を守る**: タイムスタンプベース `PREFIX-YYYYMMDD-nnn`
 - **フロントマターを正本とする**: 本文内に同じメタ情報を重複して書かない
@@ -201,7 +131,6 @@ draft → reviewed → implemented
 | 原則 | 要件 |
 |------|------|
 | ファイルサイズ | 200-400行推奨、最大800行厳守 |
-| テスト | TDD推奨、80%以上のカバレッジ目標 |
 | 単一責任 | 1コマンド = 1つの明確な責任 |
 | 段階的開示 | 基本機能→詳細機能の順で設計 |
 
@@ -210,7 +139,3 @@ draft → reviewed → implemented
 - 大きなファイルを一度に読み込まない
 - 必要な部分のみを参照
 - ドキュメント間の重複を避ける
-
-### 詳細ガイド
-
-包括的なプラグイン開発ガイドは `docs/plugin-development-guide.md` を参照
