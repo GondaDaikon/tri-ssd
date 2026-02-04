@@ -1,7 +1,7 @@
 ---
 name: tri-ssd-orchestrator
 description: >
-  Tri-SSD（三層仕様駆動）のワークフローを統括する。
+  Tri-SSD（三層仕様駆動）のワークフローを統括するオーケストレータ。
   AI/LLMコードエージェントを前提としたシンプルな仕様駆動開発フレームワーク。
   三層モデル（L1 要件、L2 システム構成、L3 フェーズ）を通じて、
   要件から実装までのトレーサビリティを確保しながらAIと人間の共同作業を効率化する。
@@ -21,18 +21,28 @@ description: >
 
 AI/LLMコードエージェント向けのシンプルな仕様駆動開発フレームワーク。
 
-## Instructions
+## 実行手順
 
-When this skill is invoked:
-1. Determine user's current stage in Tri-SSD workflow
-2. Check existing docs/ directory structure with Glob
-3. Recommend the appropriate next command
-4. Execute the command if user agrees
+このスキルが呼び出されたときの動作:
 
-Do NOT:
-- Skip layers (e.g., generating L3 without L1/L2)
-- Generate code without L3
-- Load all Tri-SSD documents at once (context cost)
+1. **ユーザー入力を解析**: キーワード（要件、仕様、フェーズ等）から意図を判定
+2. **現在フェーズを判定**: docs/ 構造を Glob で確認
+3. **コマンドを推奨**:
+   - docs/ なし → `/init-tri-ssd` を推奨
+   - L1 なし → `/gen-l1` を推奨
+   - L1 あり・L2 なし → `/gen-l2` を推奨
+   - L2 あり・L3 なし → `/gen-l3` を推奨
+   - L3 が wip → `/done` を先に案内
+   - L3 が done → `/gen-code` で実装可能
+4. **コマンド実行**: ユーザーが同意した場合のみ実行
+
+## 制約事項
+
+- **レイヤースキップ禁止**: L1 なしで L2/L3 を生成しない
+- **順序厳守**: L1 → L2 → L3 → コード生成 の順序を強制
+- **コンテキスト効率**: 全ドキュメント一括読込は避ける（必要部分のみ参照）
+
+---
 
 ## 三層モデル
 
@@ -56,28 +66,103 @@ docs/l3_phases/
 
 各フェーズには機能一覧と受け入れ条件がインラインで記述される。
 
+---
+
 ## 利用可能なコマンド
 
-| コマンド | 用途 |
-|---------|------|
-| /init-tri-ssd | ディレクトリ構造を初期化 |
-| /gen-l1 | L1要件を生成 |
-| /gen-l2 | L2システム構成を生成 |
-| /gen-l3 | L3フェーズ（機能+受け入れ条件）を生成 |
-| /split-l3 `<PH-xxx>` | L3フェーズをフォルダ構造に分割 |
-| /merge-l3 `<PH-xxx>` | 分離されたL3フェーズを統合 |
-| /gen-code `<PH-xxx\|F-xxx>` | コード・テストを生成 |
-| /status | 進捗確認 |
-| /done `<ファイル>` | 完了マーキング |
+### 初期化・進捗管理
+
+| コマンド | 用途 | 前提 | 使い分け |
+|---------|------|------|----------|
+| /init-tri-ssd | ディレクトリ構造を初期化 | なし | プロジェクト開始時に1回 |
+| /status | 進捗確認 | なし | いつでも実行可能 |
+
+### ドキュメント生成（L1 → L2 → L3 の順序厳守）
+
+| コマンド | 用途 | 前提 | 使い分け |
+|---------|------|------|----------|
+| /gen-l1 | L1要件を生成 | なし（L0あれば参考） | 対話モード or 既存ドキュメント変換 |
+| /gen-l2 | L2システム構成を生成 | L1 done | L1から技術選定を対話的に決定 |
+| /gen-l3 | L3フェーズを生成 | L1/L2 done | フェーズ計画（2〜4フェーズ推奨） |
+
+### 実装・完了管理
+
+| コマンド | 用途 | 前提 | 使い分け |
+|---------|------|------|----------|
+| /gen-code `<PH-xxx\|F-xxx>` | コード・テストを生成 | L3 done | PH-xxx: フェーズ全体 / F-xxx: 機能単体 |
+| /done `<ファイル>` | 完了マーキング | ファイル存在 | 確認後に status: done へ変更 |
+
+### フェーズ管理（高度な操作）
+
+| コマンド | 用途 | 前提 | 使い分け |
+|---------|------|------|----------|
+| /split-l3 `<PH-xxx>` | フォルダ構造に分割 | PH-xxx 存在 | 機能が多い・詳細設計が必要な場合 |
+| /merge-l3 `<PH-xxx>` | 1ファイルに統合 | 分割済みフォルダ | リリース前・簡略化したい場合 |
+
+---
 
 ## 推奨フロー
 
-1. /init-tri-ssd → ディレクトリ作成
-2. /gen-l1 → 要件定義
-3. /gen-l2 → 技術選定
-4. /gen-l3 → フェーズ計画（機能+受け入れ条件）
-5. /gen-code → 実装
-6. /done → 完了マーキング
+```
+/init-tri-ssd
+    ↓
+/gen-l1 (wip) → [編集] → /done (done)
+    ↓
+/gen-l2 (wip) → [編集] → /done (done)
+    ↓
+/gen-l3 (複数フェーズ wip)
+    ↓
+    ├─ PH-xxx-001 → /done → /gen-code → 実装完了
+    ├─ PH-xxx-002 → /done → /gen-code → 実装完了
+    └─ PH-xxx-003 → /done → /gen-code → 実装完了
+```
+
+### 詳細フロー
+
+1. `/init-tri-ssd` → docs/ ディレクトリ作成
+2. `/gen-l1` → 要件定義（対話 or 変換）
+3. `/done vision.md` → L1 確定
+4. `/gen-l2` → 技術選定（対話型）
+5. `/done foundation.md` → L2 確定
+6. `/gen-l3` → フェーズ計画（2〜4フェーズ提案）
+7. 各フェーズごとに:
+   - `/done PH-xxx` → 受け入れ条件チェック
+   - `/gen-code PH-xxx` → コード・テスト生成
+8. 繰り返し → 全フェーズ完了
+
+---
+
+## 意思決定ツリー
+
+### プロジェクト開始時
+→ `/init-tri-ssd` でディレクトリ初期化
+
+### 要件を書きたい
+- 既存ドキュメントあり → `/gen-l1 existing-doc.md`（変換モード）
+- ゼロから → `/gen-l1`（対話モード）
+
+### システム設計を作成したい
+- L1 が done → `/gen-l2`
+- L1 がない → `/gen-l1` を先に実行
+
+### フェーズ計画を作成したい
+- L2 が done → `/gen-l3`
+- L2 がない → `/gen-l2` を先に実行
+
+### コード実装したい
+- L3 が done → `/gen-code PH-xxx`
+- L3 が wip → `/done PH-xxx` で受け入れ条件チェック
+
+### 進捗を確認したい
+→ `/status` で全体確認
+
+### フェーズが複雑で細かく管理したい
+→ `/split-l3 PH-xxx` でフォルダ構造に分割
+
+### 分割したフェーズを元に戻したい
+→ `/merge-l3 PH-xxx` で統合
+
+---
 
 ## フェーズ共通原則
 
@@ -85,25 +170,41 @@ docs/l3_phases/
 - **判断理由を残す**: コード例より「なぜそうしたか」を重視
 - **過剰設計を避ける**: 今必要なものだけ（YAGNI）
 
+---
+
 ## Examples
 
 **新規プロジェクトで仕様を書きたい:**
-→ /init-tri-ssd でディレクトリ作成後、/gen-l1 で要件定義から開始
+```
+1. /init-tri-ssd → ディレクトリ作成
+2. /gen-l1 → 対話で要件をヒアリング → vision.md 生成
+3. /done vision.md → L1 確定
+4. /gen-l2 → 技術選定 → foundation.md 生成
+```
 
 **既存プロジェクトにTri-SSDを導入したい:**
-→ /init-tri-ssd 後、既存コードを分析して /gen-l1 で要件を逆算
+```
+1. /init-tri-ssd → ディレクトリ作成
+2. /gen-l1 README.md → 既存READMEから要件を抽出
+3. /done vision.md → L1 確定
+```
 
 **L3フェーズを実装したい:**
-→ まず /status で L3 の status を確認。done なら /gen-code、wip なら /done を先に実行
-
-**進捗を確認したい:**
-→ /status で全体の進捗と各ドキュメントのステータスを確認
+```
+1. /status → L3 の status を確認
+2. wip なら /done PH-xxx → 受け入れ条件チェック・完了
+3. done なら /gen-code PH-xxx → コード・テスト生成
+```
 
 **慎重に進めたいフェーズがある:**
-→ /split-l3 PH-xxx でフォルダ構造に分割、機能ごとに管理可能
+```
+1. /split-l3 PH-xxx → フォルダ構造に分割
+2. 各機能ファイル F-xxx.md を個別に編集
+3. /gen-code F-xxx → 機能単位でコード生成
+4. /merge-l3 PH-xxx → 完了後に統合
+```
 
-**分割したフェーズを元に戻したい:**
-→ /merge-l3 PH-xxx でインライン形式に統合
+---
 
 ## Limitations
 
@@ -111,6 +212,8 @@ docs/l3_phases/
 - フェーズ単位での実装を前提
 - 既存コードの自動分析によるL1/L2生成は不完全（人間のレビュー必須）
 
+---
+
 ## 現在の状態確認
 
-/status で進捗確認が可能。
+`/status` で進捗確認が可能。
