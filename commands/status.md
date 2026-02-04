@@ -18,11 +18,28 @@ Tri-SSD（Tri-Layer Slice Spec Driven）はAI/LLMコードエージェントを�
 ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F）
 </tri_ssd_context>
 
+## 確認時の原則
+
+<avoid_over_engineering>
+- 軽量に実行（必要なファイルのみ読み込む）
+- 詳細チェックはオプション（デフォルトはサマリ）
+- 問題がなければ次のステップを提案
+</avoid_over_engineering>
+
 ## 引数
 
-- `--list-ids`: 存在するID一覧を表示
-- `ファイルパス`: 特定ファイルのみチェック
-- 引数なし: 全体の進捗確認
+- `$1` (省略可): 確認対象
+  - **省略**: 全体の進捗確認
+  - **`--list-ids`**: 存在するID一覧を表示
+  - **ファイルパス**: 特定ファイルのみチェック
+
+### 使用例
+
+```
+/status
+/status --list-ids
+/status docs/l3_phases/PH-20250203-001_mvp.md
+```
 
 ## チェック項目
 
@@ -48,7 +65,7 @@ ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F）
 - [ ] 各フェーズの受け入れ条件チェック率
 - [ ] Exit Criteria のチェック率
 
-## 出力形式
+## 出力フォーマット
 
 ```markdown
 # Tri-SSD 進捗確認

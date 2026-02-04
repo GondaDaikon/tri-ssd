@@ -4,6 +4,27 @@ Tri-SSD (Tri-Layer Slice Spec Driven) フレームワークの変更履歴です
 
 形式は [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) に準拠しています。
 
+## [3.2.0] - 2026-02-04
+
+### Changed
+
+- **コマンド構造の統一**
+  - セクション名を統一（「概要」「完了後の案内」「出力フォーマット」）
+  - 全コマンドに使用例を追加
+  - init-tri-ssd, status に `<avoid_over_engineering>` ブロックを追加
+  - 引数セクションのスタイルを統一
+
+- **SKILL.md の充実**
+  - Instructions セクションを日本語化・詳細化
+  - コマンド表に「前提条件」「使い分け」列を追加
+  - 意思決定ツリーを追加
+  - 推奨フロー図を視覚化
+
+### Added
+
+- **エラーケースセクション** を全コマンドに追加
+  - gen-l1, gen-l2, gen-l3, gen-code, done, init-tri-ssd
+
 ## [3.1.0] - 2026-02-04
 
 ### Added
