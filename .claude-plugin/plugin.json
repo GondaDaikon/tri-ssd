@@ -1,6 +1,6 @@
 {
   "name": "tri-ssd",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "description": "Tri-SSD (Tri-Layer Slice Spec Driven) - AI/LLMコードエージェントを前提とした仕様駆動開発フレームワーク",
   "author": {
     "name": "GondaDaikon"
@@ -11,14 +11,12 @@
   "keywords": ["tri-ssd", "specification-driven", "development", "framework", "ai", "llm"],
   "commands": [
     "./commands/init-tri-ssd.md",
-    "./commands/draft-l1.md",
-    "./commands/draft-l2.md",
-    "./commands/gen-phases.md",
-    "./commands/draft-rules.md",
+    "./commands/gen-l1.md",
+    "./commands/gen-l2.md",
     "./commands/gen-l3.md",
     "./commands/gen-code.md",
-    "./commands/check.md",
-    "./commands/review.md"
+    "./commands/status.md",
+    "./commands/done.md"
   ],
   "skills": "./skills/"
 }
