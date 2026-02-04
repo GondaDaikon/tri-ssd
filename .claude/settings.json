@@ -9,5 +9,10 @@
         "command": "npx markdownlint-cli --fix \"$CLAUDE_FILE_PATH\""
       }
     ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git checkout:*)"
+    ]
   }
 }

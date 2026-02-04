@@ -4,6 +4,67 @@ Tri-SSD (Tri-Layer Slice Spec Driven) フレームワークの変更履歴です
 
 形式は [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) に準拠しています。
 
+## [3.2.0] - 2026-02-04
+
+### Changed
+
+- **コマンド構造の統一**
+  - セクション名を統一（「概要」「完了後の案内」「出力フォーマット」）
+  - 全コマンドに使用例を追加
+  - init-tri-ssd, status に `<avoid_over_engineering>` ブロックを追加
+  - 引数セクションのスタイルを統一
+
+- **SKILL.md の充実**
+  - Instructions セクションを日本語化・詳細化
+  - コマンド表に「前提条件」「使い分け」列を追加
+  - 意思決定ツリーを追加
+  - 推奨フロー図を視覚化
+
+### Added
+
+- **エラーケースセクション** を全コマンドに追加
+  - gen-l1, gen-l2, gen-l3, gen-code, done, init-tri-ssd
+
+## [3.1.0] - 2026-02-04
+
+### Added
+
+- **`/split-l3` コマンド** - L3フェーズをフォルダ構造に分割
+  - インライン形式（1ファイル）→ 分離形式（フォルダ）に変換
+  - 慎重に進めたいフェーズや、チーム開発での機能分担に対応
+  - チェック状態（`[x]`）を完全に保持
+
+- **`/merge-l3` コマンド** - 分離されたL3フェーズを統合
+  - 分離形式（フォルダ）→ インライン形式（1ファイル）に変換
+  - ステータス管理: 全機能が done → done、それ以外 → wip
+  - チェック状態を保持しながら統合
+
+## [3.0.0] - 2026-02-04
+
+### Changed
+
+- **フロントマター仕様を大幅簡素化**
+  - 変更前: `id`, `kind`, `layer`, `status`, `doc_status` の5フィールド
+  - 変更後: `status: wip|done` の1フィールドのみ
+  - ID形式（REQ-xxx, PH-xxx, F-xxx）は本文中で引き続き使用
+
+- **コマンド名を統一**
+  - `/draft-l1` → `/gen-l1`
+  - `/draft-l2` → `/gen-l2`
+  - `/gen-phases` → `/gen-l3`
+  - `/check` → `/status`（進捗確認に特化）
+  - `/review` → `/done`（完了マーキングに特化）
+
+- **三層構造をシンプル化**
+  - L3フェーズに機能と受け入れ条件をインライン化
+  - L2のrules.mdを廃止（Claude Codeデフォルト機能と重複）
+
+### Removed
+
+- `/draft-rules` コマンド（L2 rules.md廃止に伴い削除）
+- `docs/samples/` ディレクトリ（サンプルドキュメント削除）
+- `docs/guide.md`, `docs/glossary.md`, `docs/checklists.md`, `docs/frontmatter_spec.md`
+
 ## [2.2.0] - 2026-01-23
 
 ### Added

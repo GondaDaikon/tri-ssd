@@ -10,46 +10,42 @@ allowed-tools: Read, Write, Bash
 Tri-SSD（Tri-Layer Slice Spec Driven）はAI/LLMコードエージェントを前提とした仕様駆動開発。
 
 レイヤー構造:
-- L1: ビジョン・要求（docs/l1_vision.md）
-- L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
-- L3: 機能仕様（docs/l3_features/PH-xxx_name/F-xxx.md）
+- L0: アイディア・ラフメモ（docs/l0_ideas/）- 任意
+- L1: 要件（docs/l1_requirements/vision.md）
+- L2: システム構成（docs/l2_foundation/foundation.md）
+- L3: フェーズ（docs/l3_phases/PH-xxx.md）- 機能+受け入れ条件
 
-ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
-ステータス: draft → reviewed → implemented（L3のみ）
+ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F）
 </tri_ssd_context>
 
-## 実行内容
+## 概要
+
+Tri-SSD 用のディレクトリ構造を初期化する。
+プロジェクト開始時に1回のみ実行。
+
+## 初期化時の原則
+
+<avoid_over_engineering>
+- 既存ファイルは上書きしない
+- l0_ideas/ はワークフロー外（自由なメモ置き場）
+- ディレクトリ作成のみ（テンプレートファイル自動生成はしない）
+</avoid_over_engineering>
+
+## 作成するディレクトリ
 
 以下のディレクトリ構造を作成：
 
 ```
 docs/
-├── l2_system/
+├── l0_ideas/           # アイディア・ラフメモ（任意）
 │   └── .gitkeep
-└── l3_features/
+├── l1_requirements/    # 要件定義
+│   └── .gitkeep
+├── l2_foundation/      # システム構成
+│   └── .gitkeep
+└── l3_phases/          # フェーズ（機能+受け入れ条件）
     └── .gitkeep
 ```
-
-**注:** L1 は `docs/l1_vision.md` としてフラット配置。
-
-### L3フォルダ構造について
-
-L3フォルダは**フェーズごとのサブフォルダ**で整理される（`/gen-l3` 実行時に自動作成）：
-
-```
-docs/l3_features/
-├── PH-YYYYMMDD-001_[phase-name]/
-│   ├── F-YYYYMMDD-001_[feature-name].md
-│   └── F-YYYYMMDD-002_[feature-name].md
-├── PH-YYYYMMDD-002_[phase-name]/
-│   └── F-YYYYMMDD-003_[feature-name].md
-└── ...
-```
-
-**メリット**:
-- フェーズごとに機能をグルーピングして見やすい
-- 機能が1つでもフェーズフォルダを作成（一貫性のため）
-- phases.md の構造と対応
 
 ## ID形式
 
@@ -60,7 +56,6 @@ docs/l3_features/
 | 要件 | REQ-20250125-001 |
 | フェーズ | PH-20250125-001 |
 | 機能 | F-20250125-001 |
-| 非機能 | NF-20250125-001 |
 
 ## 手順
 
@@ -68,16 +63,18 @@ docs/l3_features/
 2. **ディレクトリ作成**: 存在しない場合のみ作成
 3. **完了報告**: 作成したディレクトリ構造を報告
 
-## 出力
+## 完了後の案内
 
+**出力**:
 - 作成したディレクトリ一覧
-- 次のステップの案内:
-  1. `/draft-l1` でL1を作成
-  2. `/draft-l2` でL2を生成
-  3. `/gen-phases` でフェーズ定義を生成
-  4. `/draft-rules` で実装ルールを生成
-  5. `/gen-l3` でL3を生成
 
-## 注意事項
+**次のステップ**:
+- `/gen-l1` → L1要件を生成（対話または既存ドキュメント変換）
 
-- 既存ファイルは上書きしない
+---
+
+## エラーケース
+
+| ケース | 対応 |
+|--------|------|
+| docs/ が既に存在 | 警告表示、既存を維持して欠落ディレクトリのみ作成 |

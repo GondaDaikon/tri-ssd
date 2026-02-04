@@ -27,12 +27,12 @@ allowed-tools: Read, Write, Edit, Glob, Grep  # 必須
 Tri-SSD（Tri-Layer Slice Spec Driven）はAI/LLMコードエージェントを前提とした仕様駆動開発。
 
 レイヤー構造:
-- L1: ビジョン・要求（docs/l1_vision.md）
-- L2: 技術基盤（docs/l2_system/）- foundation.md, phases.md, rules.md
-- L3: 機能仕様（docs/l3_features/PH-xxx_name/F-xxx.md）
+- L0: アイディア・ラフメモ（docs/l0_ideas/）- 任意
+- L1: 要件（docs/l1_requirements/vision.md）
+- L2: システム構成（docs/l2_foundation/foundation.md）
+- L3: フェーズ（docs/l3_phases/PH-xxx.md）- 機能+受け入れ条件
 
-ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F, NF）
-ステータス: draft → reviewed → implemented（L3のみ）
+ID形式: PREFIX-YYYYMMDD-nnn（REQ, PH, F）
 </tri_ssd_context>
 ```
 
