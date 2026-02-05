@@ -6,10 +6,10 @@
 
 ```bash
 # マーケットプレイスを追加
-/plugin marketplace add GondaDaikon/tri-ssd
+/plugin marketplace add emanon-i/tri-ssd
 
 # プラグインをインストール
-/plugin install tri-ssd@gondadaikon-tri-ssd
+/plugin install tri-ssd@emanon-i-tri-ssd
 ```
 
 ## クイックスタート
