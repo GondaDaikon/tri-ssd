@@ -4,6 +4,14 @@ Tri-SSD (Tri-Layer Slice Spec Driven) フレームワークの変更履歴です
 
 形式は [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) に準拠しています。
 
+## [3.2.1] - 2026-02-05
+
+### Fixed
+
+- **L3 status フローの修正**
+  - `gen-code` から不要なL3 wip警告を削除（L3はgen-code実行中はwipが正常）
+  - `done` の完了後案内を修正（L3完了後にgen-codeを案内していた誤りを修正）
+
 ## [3.2.0] - 2026-02-04
 
 ### Changed
